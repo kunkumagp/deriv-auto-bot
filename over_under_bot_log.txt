@@ -1374,3 +1374,678 @@
 [2026-01-26T09:36:20.944Z] Tick history: Prob >2: 76.40%, Last 5: 4,7,7,3,6, Last: 6
 [2026-01-26T09:36:20.945Z] Condition met. Placing Over 2 trade.
 [2026-01-26T09:36:22.177Z] Trade placed. Contract ID: 304959021568, Price: $0.53
+[2026-01-27T02:53:24.329Z] WebSocket open. Authorizing...
+[2026-01-27T02:53:24.684Z] API error: Input validation failed: authorize
+[2026-01-27T02:53:50.706Z] WebSocket open. Authorizing...
+[2026-01-27T02:53:51.049Z] API error: Input validation failed: authorize
+[2026-01-27T02:55:30.873Z] WebSocket open. Authorizing...
+[2026-01-27T02:55:31.301Z] Authorized. Fetching balance...
+[2026-01-27T02:55:31.814Z] Day targets set. Start: $101.47, Day target: $5.07, Session target: $2.03
+[2026-01-27T02:55:31.815Z] Balance: $101.47
+[2026-01-27T02:55:32.291Z] Tick history: Prob >2: 78.50%, Last 5: 1,1,2,6,5, Last: 5
+[2026-01-27T02:55:32.292Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:55:33.187Z] Trade placed. Contract ID: 305024249668, Price: $0.36
+[2026-01-27T02:55:34.751Z] Trade result: LOSS | Profit: $-0.36 | Balance: $101.11
+[2026-01-27T02:55:34.752Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T02:55:45.365Z] Tick history: Prob >2: 79.00%, Last 5: 8,3,8,5,2, Last: 2
+[2026-01-27T02:55:45.367Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T02:55:46.724Z] Trade placed. Contract ID: 305024258768, Price: $1.08
+[2026-01-27T02:55:48.135Z] Trade result: WIN | Profit: $0.43 | Balance: $101.54
+[2026-01-27T02:57:06.420Z] WebSocket closed. Reconnecting in 5s...
+[2026-01-27T02:57:12.575Z] WebSocket open. Authorizing...
+[2026-01-27T02:57:13.296Z] Authorized. Fetching balance...
+[2026-01-27T02:57:13.748Z] Day targets set. Start: $101.93, Day target: $5.10, Session target: $2.04
+[2026-01-27T02:57:13.750Z] Balance: $101.93
+[2026-01-27T02:57:14.243Z] Tick history: Prob >2: 79.30%, Last 5: 3,5,4,2,3, Last: 3
+[2026-01-27T02:57:14.244Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:57:15.133Z] Trade placed. Contract ID: 305024321928, Price: $0.36
+[2026-01-27T02:57:16.536Z] Trade result: WIN | Profit: $0.13 | Balance: $102.06
+[2026-01-27T02:57:27.011Z] Tick history: Prob >2: 79.30%, Last 5: 5,2,5,6,4, Last: 4
+[2026-01-27T02:57:27.012Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:57:27.822Z] Trade placed. Contract ID: 305024330348, Price: $0.36
+[2026-01-27T02:57:31.539Z] Trade result: WIN | Profit: $0.13 | Balance: $102.19
+[2026-01-27T02:57:47.310Z] Tick history: Prob >2: 79.10%, Last 5: 9,1,9,2,9, Last: 9
+[2026-01-27T02:57:47.311Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:57:48.460Z] Trade placed. Contract ID: 305024344828, Price: $0.36
+[2026-01-27T02:57:50.255Z] Trade result: LOSS | Profit: $-0.36 | Balance: $101.83
+[2026-01-27T02:57:50.256Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T02:58:04.033Z] Tick history: Prob >2: 77.80%, Last 5: 2,9,2,7,8, Last: 8
+[2026-01-27T02:58:04.034Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T02:58:05.456Z] Trade placed. Contract ID: 305024356428, Price: $1.08
+[2026-01-27T02:58:07.895Z] Trade result: WIN | Profit: $0.43 | Balance: $102.26
+[2026-01-27T02:58:18.443Z] Tick history: Prob >2: 78.30%, Last 5: 9,9,5,4,9, Last: 9
+[2026-01-27T02:58:18.444Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:58:19.810Z] Trade placed. Contract ID: 305024366048, Price: $0.36
+[2026-01-27T02:58:24.001Z] Trade result: WIN | Profit: $0.13 | Balance: $102.39
+[2026-01-27T02:58:40.314Z] Tick history: Prob >2: 78.30%, Last 5: 8,4,9,5,4, Last: 4
+[2026-01-27T02:58:40.315Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:58:41.157Z] Trade placed. Contract ID: 305024380368, Price: $0.36
+[2026-01-27T02:58:42.551Z] Trade result: WIN | Profit: $0.13 | Balance: $102.52
+[2026-01-27T02:58:53.008Z] Tick history: Prob >2: 78.40%, Last 5: 8,1,8,4,7, Last: 7
+[2026-01-27T02:58:53.009Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:58:53.847Z] Trade placed. Contract ID: 305024388588, Price: $0.36
+[2026-01-27T02:58:56.785Z] Trade result: WIN | Profit: $0.13 | Balance: $102.65
+[2026-01-27T02:59:07.273Z] Tick history: Prob >2: 78.20%, Last 5: 7,2,2,5,2, Last: 2
+[2026-01-27T02:59:07.274Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:59:08.369Z] Trade placed. Contract ID: 305024398868, Price: $0.36
+[2026-01-27T02:59:09.782Z] Trade result: WIN | Profit: $0.13 | Balance: $102.78
+[2026-01-27T02:59:20.228Z] Tick history: Prob >2: 78.10%, Last 5: 2,8,4,6,3, Last: 3
+[2026-01-27T02:59:20.229Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:59:21.291Z] Trade placed. Contract ID: 305024407288, Price: $0.36
+[2026-01-27T02:59:23.235Z] Trade result: LOSS | Profit: $-0.36 | Balance: $102.42
+[2026-01-27T02:59:23.235Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T02:59:33.755Z] Tick history: Prob >2: 79.40%, Last 5: 7,8,5,4,5, Last: 5
+[2026-01-27T02:59:33.757Z] Waiting for better digits after loss.
+[2026-01-27T02:59:44.218Z] Tick history: Prob >2: 79.30%, Last 5: 2,8,6,1,7, Last: 7
+[2026-01-27T02:59:44.221Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T02:59:45.007Z] Trade placed. Contract ID: 305024424648, Price: $1.08
+[2026-01-27T02:59:46.401Z] Trade result: WIN | Profit: $0.43 | Balance: $102.85
+[2026-01-27T02:59:56.851Z] Tick history: Prob >2: 79.30%, Last 5: 7,6,4,3,5, Last: 5
+[2026-01-27T02:59:56.853Z] Condition met. Placing Over 2 trade.
+[2026-01-27T02:59:57.730Z] Trade placed. Contract ID: 305024433588, Price: $0.36
+[2026-01-27T03:00:00.565Z] Trade result: LOSS | Profit: $-0.36 | Balance: $102.49
+[2026-01-27T03:00:00.566Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:00:11.158Z] Tick history: Prob >2: 78.60%, Last 5: 7,6,5,5,9, Last: 9
+[2026-01-27T03:00:11.159Z] Waiting for better digits after loss.
+[2026-01-27T03:00:21.629Z] Tick history: Prob >2: 78.80%, Last 5: 3,3,9,8,8, Last: 8
+[2026-01-27T03:00:21.631Z] Waiting for better digits after loss.
+[2026-01-27T03:00:32.121Z] Tick history: Prob >2: 78.60%, Last 5: 8,1,3,3,1, Last: 1
+[2026-01-27T03:00:32.122Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:00:32.990Z] Trade placed. Contract ID: 305024461408, Price: $1.08
+[2026-01-27T03:00:34.391Z] Trade result: WIN | Profit: $0.43 | Balance: $102.92
+[2026-01-27T03:00:44.975Z] Tick history: Prob >2: 78.50%, Last 5: 2,8,9,9,2, Last: 2
+[2026-01-27T03:00:44.977Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:00:46.627Z] Trade placed. Contract ID: 305024471388, Price: $0.36
+[2026-01-27T03:00:48.103Z] Trade result: LOSS | Profit: $-0.36 | Balance: $102.56
+[2026-01-27T03:00:48.104Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:00:58.586Z] Tick history: Prob >2: 79.10%, Last 5: 7,7,4,3,1, Last: 1
+[2026-01-27T03:00:58.588Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:00:59.576Z] Trade placed. Contract ID: 305024481328, Price: $1.08
+[2026-01-27T03:01:02.470Z] Trade result: WIN | Profit: $0.43 | Balance: $102.99
+[2026-01-27T03:01:13.015Z] Tick history: Prob >2: 79.00%, Last 5: 7,8,5,1,2, Last: 2
+[2026-01-27T03:01:13.017Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:01:14.117Z] Trade placed. Contract ID: 305024493188, Price: $0.36
+[2026-01-27T03:01:17.964Z] Trade result: WIN | Profit: $0.13 | Balance: $103.12
+[2026-01-27T03:01:28.446Z] Tick history: Prob >2: 79.20%, Last 5: 1,6,8,3,4, Last: 4
+[2026-01-27T03:01:28.448Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:01:29.269Z] Trade placed. Contract ID: 305024504248, Price: $0.36
+[2026-01-27T03:01:30.746Z] Trade result: LOSS | Profit: $-0.36 | Balance: $102.76
+[2026-01-27T03:01:30.746Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:01:41.269Z] Tick history: Prob >2: 78.80%, Last 5: 3,3,5,2,6, Last: 6
+[2026-01-27T03:01:41.271Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:01:42.180Z] Trade placed. Contract ID: 305024513528, Price: $1.08
+[2026-01-27T03:01:45.006Z] Trade result: LOSS | Profit: $-1.08 | Balance: $101.68
+[2026-01-27T03:01:45.008Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T03:01:55.009Z] Waiting for recovery trigger digit...
+[2026-01-27T03:01:55.461Z] Tick history: Prob >2: 78.90%, Last 5: 9,8,6,7,4, Last: 4
+[2026-01-27T03:02:05.464Z] Waiting for recovery trigger digit...
+[2026-01-27T03:02:05.922Z] Tick history: Prob >2: 78.70%, Last 5: 8,6,1,6,1, Last: 1
+[2026-01-27T03:02:05.923Z] Recovery trigger digit 1 found. Placing recovery trade with stake $4.32
+[2026-01-27T03:02:06.795Z] Trade placed. Contract ID: 305024531848, Price: $4.32
+[2026-01-27T03:02:08.203Z] Trade result: WIN | Profit: $1.75 | Balance: $103.43
+[2026-01-27T03:02:18.716Z] Tick history: Prob >2: 78.90%, Last 5: 5,4,2,5,5, Last: 5
+[2026-01-27T03:02:18.718Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:02:19.554Z] Trade placed. Contract ID: 305024540428, Price: $0.36
+[2026-01-27T03:02:22.360Z] Trade result: WIN | Profit: $0.13 | Balance: $103.56
+[2026-01-27T03:02:32.826Z] Tick history: Prob >2: 79.00%, Last 5: 8,5,7,3,6, Last: 6
+[2026-01-27T03:02:32.828Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:02:33.838Z] Trade placed. Contract ID: 305024551108, Price: $0.36
+[2026-01-27T03:02:36.725Z] Trade result: LOSS | Profit: $-0.36 | Balance: $103.20
+[2026-01-27T03:02:36.727Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:02:47.202Z] Tick history: Prob >2: 79.30%, Last 5: 5,3,1,8,9, Last: 9
+[2026-01-27T03:02:47.203Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:02:48.027Z] Trade placed. Contract ID: 305024561988, Price: $1.08
+[2026-01-27T03:02:50.838Z] Trade result: WIN | Profit: $0.43 | Balance: $103.63
+[2026-01-27T03:03:01.319Z] Tick history: Prob >2: 79.40%, Last 5: 8,4,6,4,3, Last: 3
+[2026-01-27T03:03:01.323Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:03:02.267Z] Trade placed. Contract ID: 305024572708, Price: $0.36
+[2026-01-27T03:03:03.744Z] Trade result: WIN | Profit: $0.13 | Balance: $103.76
+[2026-01-27T03:03:14.212Z] Tick history: Prob >2: 79.50%, Last 5: 7,3,9,6,3, Last: 3
+[2026-01-27T03:03:14.214Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:03:15.068Z] Trade placed. Contract ID: 305024581048, Price: $0.36
+[2026-01-27T03:03:16.503Z] Trade result: LOSS | Profit: $-0.36 | Balance: $103.40
+[2026-01-27T03:03:16.505Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:03:27.051Z] Tick history: Prob >2: 78.40%, Last 5: 1,3,4,9,8, Last: 8
+[2026-01-27T03:03:27.053Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:03:28.075Z] Trade placed. Contract ID: 305024589188, Price: $1.08
+[2026-01-27T03:03:31.153Z] Trade result: WIN | Profit: $0.43 | Balance: $103.83
+[2026-01-27T03:03:42.212Z] Tick history: Prob >2: 78.40%, Last 5: 9,5,4,1,3, Last: 3
+[2026-01-27T03:03:42.214Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:03:46.353Z] Trade placed. Contract ID: 305024602588, Price: $0.36
+[2026-01-27T03:03:48.191Z] Trade result: WIN | Profit: $0.13 | Balance: $103.96
+[2026-01-27T03:03:58.736Z] Tick history: Prob >2: 78.30%, Last 5: 2,6,1,2,6, Last: 6
+[2026-01-27T03:03:58.738Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:03:59.745Z] Trade placed. Contract ID: 305024611568, Price: $0.36
+[2026-01-27T03:04:03.066Z] Trade result: LOSS | Profit: $-0.36 | Balance: $103.60
+[2026-01-27T03:04:03.067Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:04:13.816Z] Tick history: Prob >2: 80.40%, Last 5: 9,7,7,9,8, Last: 8
+[2026-01-27T03:04:13.817Z] Waiting for better digits after loss.
+[2026-01-27T03:04:24.292Z] Tick history: Prob >2: 80.30%, Last 5: 3,9,4,2,5, Last: 5
+[2026-01-27T03:04:24.294Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:04:25.728Z] Trade placed. Contract ID: 305024631088, Price: $1.08
+[2026-01-27T03:04:28.544Z] Trade result: WIN | Profit: $0.43 | Balance: $104.03
+[2026-01-27T03:04:39.136Z] Tick history: Prob >2: 80.30%, Last 5: 6,6,3,2,1, Last: 1
+[2026-01-27T03:04:39.138Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:04:40.059Z] Trade placed. Contract ID: 305024640708, Price: $0.36
+[2026-01-27T03:04:42.848Z] Trade result: WIN | Profit: $0.13 | Balance: $104.16
+[2026-01-27T03:04:53.373Z] Tick history: Prob >2: 80.10%, Last 5: 2,4,1,7,4, Last: 4
+[2026-01-27T03:04:53.374Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:04:54.252Z] Trade placed. Contract ID: 305024651468, Price: $0.36
+[2026-01-27T03:04:55.721Z] Trade result: WIN | Profit: $0.13 | Balance: $104.29
+[2026-01-27T03:05:06.273Z] Tick history: Prob >2: 80.00%, Last 5: 3,2,9,5,8, Last: 8
+[2026-01-27T03:05:06.275Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:05:07.192Z] Trade placed. Contract ID: 305024661548, Price: $0.36
+[2026-01-27T03:05:08.602Z] Trade result: WIN | Profit: $0.13 | Balance: $104.42
+[2026-01-27T03:05:19.174Z] Tick history: Prob >2: 79.80%, Last 5: 3,2,2,2,7, Last: 7
+[2026-01-27T03:05:19.176Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:05:20.097Z] Trade placed. Contract ID: 305024669808, Price: $0.36
+[2026-01-27T03:05:22.932Z] Trade result: WIN | Profit: $0.13 | Balance: $104.55
+[2026-01-27T03:05:33.515Z] Tick history: Prob >2: 79.90%, Last 5: 7,1,9,4,8, Last: 8
+[2026-01-27T03:05:33.520Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:05:34.322Z] Trade placed. Contract ID: 305024680408, Price: $0.36
+[2026-01-27T03:05:35.824Z] Trade result: LOSS | Profit: $-0.36 | Balance: $104.19
+[2026-01-27T03:05:35.825Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:05:46.353Z] Tick history: Prob >2: 78.00%, Last 5: 7,5,7,1,6, Last: 6
+[2026-01-27T03:05:46.354Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:05:47.202Z] Trade placed. Contract ID: 305024689708, Price: $1.08
+[2026-01-27T03:05:48.607Z] Trade result: WIN | Profit: $0.43 | Balance: $104.62
+[2026-01-27T03:05:59.213Z] Tick history: Prob >2: 78.00%, Last 5: 3,7,1,4,8, Last: 8
+[2026-01-27T03:05:59.219Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:06:00.236Z] Trade placed. Contract ID: 305024699268, Price: $0.36
+[2026-01-27T03:06:02.369Z] Trade result: WIN | Profit: $0.13 | Balance: $104.75
+[2026-01-27T03:06:12.835Z] Tick history: Prob >2: 77.90%, Last 5: 7,7,8,2,5, Last: 5
+[2026-01-27T03:06:12.836Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:06:13.735Z] Trade placed. Contract ID: 305024709788, Price: $0.36
+[2026-01-27T03:06:16.640Z] Trade result: WIN | Profit: $0.13 | Balance: $104.88
+[2026-01-27T03:06:27.107Z] Tick history: Prob >2: 77.90%, Last 5: 5,5,8,4,8, Last: 8
+[2026-01-27T03:06:27.109Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:06:28.386Z] Trade placed. Contract ID: 305024719268, Price: $0.36
+[2026-01-27T03:06:30.453Z] Trade result: LOSS | Profit: $-0.36 | Balance: $104.52
+[2026-01-27T03:06:30.453Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:06:40.924Z] Tick history: Prob >2: 79.60%, Last 5: 3,9,6,1,9, Last: 9
+[2026-01-27T03:06:40.926Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:06:41.923Z] Trade placed. Contract ID: 305024727408, Price: $1.08
+[2026-01-27T03:06:43.410Z] Trade result: LOSS | Profit: $-1.08 | Balance: $103.44
+[2026-01-27T03:06:43.411Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T03:06:53.412Z] Waiting for recovery trigger digit...
+[2026-01-27T03:06:53.945Z] Tick history: Prob >2: 79.60%, Last 5: 4,7,4,8,4, Last: 4
+[2026-01-27T03:07:03.947Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:04.456Z] Tick history: Prob >2: 79.60%, Last 5: 7,3,5,1,5, Last: 5
+[2026-01-27T03:07:14.459Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:15.012Z] Tick history: Prob >2: 79.60%, Last 5: 7,7,4,6,5, Last: 5
+[2026-01-27T03:07:25.014Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:25.580Z] Tick history: Prob >2: 79.50%, Last 5: 5,2,8,1,6, Last: 6
+[2026-01-27T03:07:35.582Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:36.045Z] Tick history: Prob >2: 79.40%, Last 5: 8,2,7,6,3, Last: 3
+[2026-01-27T03:07:46.047Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:46.560Z] Tick history: Prob >2: 79.30%, Last 5: 1,2,6,4,3, Last: 3
+[2026-01-27T03:07:56.563Z] Waiting for recovery trigger digit...
+[2026-01-27T03:07:57.030Z] Tick history: Prob >2: 79.30%, Last 5: 1,8,7,9,7, Last: 7
+[2026-01-27T03:08:07.032Z] Waiting for recovery trigger digit...
+[2026-01-27T03:08:07.516Z] Tick history: Prob >2: 79.20%, Last 5: 1,7,9,7,3, Last: 3
+[2026-01-27T03:08:17.518Z] Waiting for recovery trigger digit...
+[2026-01-27T03:08:18.182Z] Tick history: Prob >2: 79.10%, Last 5: 6,1,2,9,3, Last: 3
+[2026-01-27T03:08:28.183Z] Waiting for recovery trigger digit...
+[2026-01-27T03:08:28.887Z] Tick history: Prob >2: 79.20%, Last 5: 9,5,8,5,3, Last: 3
+[2026-01-27T03:08:38.891Z] Waiting for recovery trigger digit...
+[2026-01-27T03:08:39.529Z] Tick history: Prob >2: 79.30%, Last 5: 3,7,4,3,2, Last: 2
+[2026-01-27T03:08:39.530Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.32
+[2026-01-27T03:08:40.479Z] Trade placed. Contract ID: 305024811888, Price: $4.32
+[2026-01-27T03:08:43.360Z] Trade result: WIN | Profit: $1.75 | Balance: $105.19
+[2026-01-27T03:08:54.263Z] Tick history: Prob >2: 79.40%, Last 5: 9,2,4,5,7, Last: 7
+[2026-01-27T03:08:54.266Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:08:55.289Z] Trade placed. Contract ID: 305024822088, Price: $0.36
+[2026-01-27T03:08:56.821Z] Trade result: WIN | Profit: $0.13 | Balance: $105.32
+[2026-01-27T03:09:07.383Z] Tick history: Prob >2: 79.40%, Last 5: 5,5,5,9,3, Last: 3
+[2026-01-27T03:09:07.385Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:09:08.504Z] Trade placed. Contract ID: 305024831188, Price: $0.36
+[2026-01-27T03:09:11.466Z] Trade result: LOSS | Profit: $-0.36 | Balance: $104.96
+[2026-01-27T03:09:11.467Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:09:22.323Z] Tick history: Prob >2: 77.50%, Last 5: 9,9,6,7,9, Last: 9
+[2026-01-27T03:09:22.325Z] Waiting for better digits after loss.
+[2026-01-27T03:09:32.804Z] Tick history: Prob >2: 77.40%, Last 5: 4,5,2,3,9, Last: 9
+[2026-01-27T03:09:32.805Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:09:33.820Z] Trade placed. Contract ID: 305024848908, Price: $1.08
+[2026-01-27T03:09:35.570Z] Trade result: WIN | Profit: $0.43 | Balance: $105.39
+[2026-01-27T03:09:46.052Z] Tick history: Prob >2: 77.50%, Last 5: 2,9,5,8,6, Last: 6
+[2026-01-27T03:09:46.055Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:09:46.998Z] Trade placed. Contract ID: 305024858368, Price: $0.36
+[2026-01-27T03:09:48.419Z] Trade result: WIN | Profit: $0.13 | Balance: $105.52
+[2026-01-27T03:09:58.926Z] Tick history: Prob >2: 77.60%, Last 5: 9,5,8,3,2, Last: 2
+[2026-01-27T03:09:58.927Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:09:59.886Z] Trade placed. Contract ID: 305024867548, Price: $0.36
+[2026-01-27T03:10:01.441Z] Trade result: LOSS | Profit: $-0.36 | Balance: $105.16
+[2026-01-27T03:10:01.442Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:10:11.934Z] Tick history: Prob >2: 78.50%, Last 5: 2,9,4,3,3, Last: 3
+[2026-01-27T03:10:11.936Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:10:12.908Z] Trade placed. Contract ID: 305024877508, Price: $1.08
+[2026-01-27T03:10:14.443Z] Trade result: WIN | Profit: $0.43 | Balance: $105.59
+[2026-01-27T03:10:24.992Z] Tick history: Prob >2: 78.40%, Last 5: 9,4,2,4,8, Last: 8
+[2026-01-27T03:10:24.994Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:10:26.014Z] Trade placed. Contract ID: 305024885848, Price: $0.36
+[2026-01-27T03:10:27.430Z] Trade result: LOSS | Profit: $-0.36 | Balance: $105.23
+[2026-01-27T03:10:27.431Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:10:37.999Z] Tick history: Prob >2: 77.40%, Last 5: 6,8,7,5,7, Last: 7
+[2026-01-27T03:10:38.001Z] Waiting for better digits after loss.
+[2026-01-27T03:10:48.646Z] Tick history: Prob >2: 77.30%, Last 5: 2,1,3,6,4, Last: 4
+[2026-01-27T03:10:48.647Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:10:49.694Z] Trade placed. Contract ID: 305024901628, Price: $1.08
+[2026-01-27T03:10:51.207Z] Trade result: WIN | Profit: $0.43 | Balance: $105.66
+[2026-01-27T03:11:01.680Z] Tick history: Prob >2: 77.40%, Last 5: 1,5,7,9,7, Last: 7
+[2026-01-27T03:11:01.681Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:11:02.602Z] Trade placed. Contract ID: 305024911108, Price: $0.36
+[2026-01-27T03:11:05.540Z] Trade result: WIN | Profit: $0.13 | Balance: $105.79
+[2026-01-27T03:11:16.005Z] Tick history: Prob >2: 77.40%, Last 5: 2,8,3,9,9, Last: 9
+[2026-01-27T03:11:16.006Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:11:16.909Z] Trade placed. Contract ID: 305024921428, Price: $0.36
+[2026-01-27T03:11:18.580Z] Trade result: LOSS | Profit: $-0.36 | Balance: $105.43
+[2026-01-27T03:11:18.582Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:11:29.210Z] Tick history: Prob >2: 78.00%, Last 5: 6,9,1,4,7, Last: 7
+[2026-01-27T03:11:29.212Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:11:30.625Z] Trade placed. Contract ID: 305024930368, Price: $1.08
+[2026-01-27T03:11:33.585Z] Trade result: WIN | Profit: $0.43 | Balance: $105.86
+[2026-01-27T03:11:44.068Z] Tick history: Prob >2: 78.00%, Last 5: 4,5,1,3,8, Last: 8
+[2026-01-27T03:11:44.069Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:11:44.933Z] Trade placed. Contract ID: 305024939808, Price: $0.36
+[2026-01-27T03:11:46.711Z] Trade result: WIN | Profit: $0.13 | Balance: $105.99
+[2026-01-27T03:11:57.844Z] Tick history: Prob >2: 78.00%, Last 5: 2,5,8,5,5, Last: 5
+[2026-01-27T03:11:57.847Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:11:58.976Z] Trade placed. Contract ID: 305024949588, Price: $0.36
+[2026-01-27T03:12:00.510Z] Trade result: WIN | Profit: $0.13 | Balance: $106.12
+[2026-01-27T03:12:11.081Z] Tick history: Prob >2: 78.10%, Last 5: 8,6,1,1,8, Last: 8
+[2026-01-27T03:12:11.084Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:12:11.925Z] Trade placed. Contract ID: 305024959308, Price: $0.36
+[2026-01-27T03:12:13.621Z] Trade result: LOSS | Profit: $-0.36 | Balance: $105.76
+[2026-01-27T03:12:13.621Z] Trade lost. Changing market to R_10. Next stake: $1.08
+[2026-01-27T03:12:24.108Z] Tick history: Prob >2: 77.60%, Last 5: 9,8,8,1,7, Last: 7
+[2026-01-27T03:12:24.110Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:12:24.926Z] Trade placed. Contract ID: 305024968468, Price: $1.08
+[2026-01-27T03:12:26.401Z] Trade result: WIN | Profit: $0.43 | Balance: $106.19
+[2026-01-27T03:12:36.885Z] Tick history: Prob >2: 77.60%, Last 5: 6,5,7,5,2, Last: 2
+[2026-01-27T03:12:36.887Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:12:37.805Z] Trade placed. Contract ID: 305024978048, Price: $0.36
+[2026-01-27T03:12:39.222Z] Trade result: LOSS | Profit: $-0.36 | Balance: $105.83
+[2026-01-27T03:12:39.222Z] Trade lost. Changing market to R_50. Next stake: $1.08
+[2026-01-27T03:12:49.757Z] Tick history: Prob >2: 78.30%, Last 5: 1,5,1,5,2, Last: 2
+[2026-01-27T03:12:49.760Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:12:51.056Z] Trade placed. Contract ID: 305024988228, Price: $1.08
+[2026-01-27T03:12:52.486Z] Trade result: LOSS | Profit: $-1.08 | Balance: $104.75
+[2026-01-27T03:12:52.487Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T03:13:02.487Z] Waiting for recovery trigger digit...
+[2026-01-27T03:13:03.210Z] Tick history: Prob >2: 78.40%, Last 5: 2,4,7,7,2, Last: 2
+[2026-01-27T03:13:03.211Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.32
+[2026-01-27T03:13:04.758Z] Trade placed. Contract ID: 305024998188, Price: $4.32
+[2026-01-27T03:13:07.821Z] Trade result: WIN | Profit: $1.75 | Balance: $106.50
+[2026-01-27T03:13:18.612Z] Tick history: Prob >2: 78.60%, Last 5: 4,7,6,9,7, Last: 7
+[2026-01-27T03:13:18.615Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:13:21.108Z] Trade placed. Contract ID: 305025011428, Price: $0.36
+[2026-01-27T03:13:22.663Z] Trade result: WIN | Profit: $0.13 | Balance: $106.63
+[2026-01-27T03:13:33.158Z] Tick history: Prob >2: 78.60%, Last 5: 9,7,9,7,9, Last: 9
+[2026-01-27T03:13:33.161Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:13:34.077Z] Trade placed. Contract ID: 305025021468, Price: $0.36
+[2026-01-27T03:13:35.507Z] Trade result: WIN | Profit: $0.13 | Balance: $106.76
+[2026-01-27T03:13:45.992Z] Tick history: Prob >2: 78.60%, Last 5: 9,8,7,3,1, Last: 1
+[2026-01-27T03:13:45.993Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:13:46.965Z] Trade placed. Contract ID: 305025031508, Price: $0.36
+[2026-01-27T03:13:48.566Z] Trade result: WIN | Profit: $0.13 | Balance: $106.89
+[2026-01-27T03:13:59.031Z] Tick history: Prob >2: 78.70%, Last 5: 7,3,5,8,8, Last: 8
+[2026-01-27T03:13:59.033Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:13:59.906Z] Trade placed. Contract ID: 305025040668, Price: $0.36
+[2026-01-27T03:14:01.530Z] Trade result: WIN | Profit: $0.13 | Balance: $107.02
+[2026-01-27T03:14:12.015Z] Tick history: Prob >2: 78.50%, Last 5: 5,2,2,4,2, Last: 2
+[2026-01-27T03:14:12.016Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:14:13.051Z] Trade placed. Contract ID: 305025051508, Price: $0.36
+[2026-01-27T03:14:14.527Z] Trade result: WIN | Profit: $0.13 | Balance: $107.15
+[2026-01-27T03:14:14.527Z] Day target achieved! Bot will pause until next calendar day.
+[2026-01-27T03:16:14.536Z] WebSocket closed. Reconnecting in 5s...
+[2026-01-27T03:16:20.626Z] WebSocket open. Authorizing...
+[2026-01-27T03:16:21.143Z] Authorized. Fetching balance...
+[2026-01-27T03:16:21.551Z] Day targets set. Start: $108.98, Day target: $5.45, Session target: $2.18
+[2026-01-27T03:16:21.552Z] Balance: $108.98
+[2026-01-27T03:16:21.993Z] Tick history: Prob >2: 78.10%, Last 5: 6,9,4,1,1, Last: 1
+[2026-01-27T03:16:21.993Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:16:23.050Z] Trade placed. Contract ID: 305025153068, Price: $0.38
+[2026-01-27T03:16:24.472Z] Trade result: WIN | Profit: $0.14 | Balance: $109.12
+[2026-01-27T03:16:34.927Z] Tick history: Prob >2: 78.20%, Last 5: 2,6,6,4,9, Last: 9
+[2026-01-27T03:16:34.929Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:16:35.762Z] Trade placed. Contract ID: 305025162388, Price: $0.38
+[2026-01-27T03:16:37.217Z] Trade result: LOSS | Profit: $-0.38 | Balance: $108.74
+[2026-01-27T03:16:37.218Z] Trade lost. Changing market to R_10. Next stake: $1.14
+[2026-01-27T03:16:47.675Z] Tick history: Prob >2: 77.20%, Last 5: 3,9,4,9,4, Last: 4
+[2026-01-27T03:16:47.677Z] Waiting for better digits after loss.
+[2026-01-27T03:16:58.133Z] Tick history: Prob >2: 77.40%, Last 5: 3,6,6,9,7, Last: 7
+[2026-01-27T03:16:58.135Z] Waiting for better digits after loss.
+[2026-01-27T03:17:08.610Z] Tick history: Prob >2: 77.30%, Last 5: 1,2,1,3,5, Last: 5
+[2026-01-27T03:17:08.612Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:17:09.486Z] Trade placed. Contract ID: 305025188368, Price: $1.14
+[2026-01-27T03:17:10.908Z] Trade result: LOSS | Profit: $-1.14 | Balance: $107.60
+[2026-01-27T03:17:10.909Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T03:17:20.909Z] Waiting for recovery trigger digit...
+[2026-01-27T03:17:21.456Z] Tick history: Prob >2: 77.00%, Last 5: 2,5,9,2,1, Last: 1
+[2026-01-27T03:17:21.458Z] Recovery trigger digit 1 found. Placing recovery trade with stake $4.56
+[2026-01-27T03:17:22.379Z] Trade placed. Contract ID: 305025197588, Price: $4.56
+[2026-01-27T03:17:25.197Z] Trade result: LOSS | Profit: $-4.56 | Balance: $103.04
+[2026-01-27T03:17:25.198Z] 3 consecutive losses. Entering recovery mode.
+[2026-01-27T03:17:35.200Z] Waiting for recovery trigger digit...
+[2026-01-27T03:17:35.704Z] Tick history: Prob >2: 77.20%, Last 5: 5,5,7,5,9, Last: 9
+[2026-01-27T03:17:45.707Z] Waiting for recovery trigger digit...
+[2026-01-27T03:17:46.242Z] Tick history: Prob >2: 77.20%, Last 5: 3,4,7,7,5, Last: 5
+[2026-01-27T03:17:56.244Z] Waiting for recovery trigger digit...
+[2026-01-27T03:17:56.698Z] Tick history: Prob >2: 77.10%, Last 5: 1,7,5,1,4, Last: 4
+[2026-01-27T03:18:06.700Z] Waiting for recovery trigger digit...
+[2026-01-27T03:18:07.190Z] Tick history: Prob >2: 77.00%, Last 5: 6,1,1,4,2, Last: 2
+[2026-01-27T03:18:07.190Z] Recovery trigger digit 2 found. Placing recovery trade with stake $18.24
+[2026-01-27T03:18:08.049Z] Trade placed. Contract ID: 305025232908, Price: $18.24
+[2026-01-27T03:18:09.486Z] Trade result: WIN | Profit: $7.38 | Balance: $110.42
+[2026-01-27T03:18:19.936Z] Tick history: Prob >2: 77.10%, Last 5: 5,6,6,3,6, Last: 6
+[2026-01-27T03:18:19.936Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:18:20.841Z] Trade placed. Contract ID: 305025242168, Price: $0.38
+[2026-01-27T03:18:23.922Z] Trade result: WIN | Profit: $0.14 | Balance: $110.56
+[2026-01-27T03:18:34.383Z] Tick history: Prob >2: 77.30%, Last 5: 6,6,8,5,9, Last: 9
+[2026-01-27T03:18:34.385Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:18:35.291Z] Trade placed. Contract ID: 305025253328, Price: $0.38
+[2026-01-27T03:18:36.720Z] Trade result: WIN | Profit: $0.14 | Balance: $110.70
+[2026-01-27T03:18:47.175Z] Tick history: Prob >2: 77.40%, Last 5: 4,7,2,7,6, Last: 6
+[2026-01-27T03:18:47.176Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:18:47.984Z] Trade placed. Contract ID: 305025262948, Price: $0.38
+[2026-01-27T03:18:49.484Z] Trade result: LOSS | Profit: $-0.38 | Balance: $110.32
+[2026-01-27T03:18:49.484Z] Trade lost. Changing market to R_50. Next stake: $1.14
+[2026-01-27T03:18:59.950Z] Tick history: Prob >2: 78.00%, Last 5: 4,8,4,5,3, Last: 3
+[2026-01-27T03:18:59.951Z] Waiting for better digits after loss.
+[2026-01-27T03:19:10.516Z] Tick history: Prob >2: 78.00%, Last 5: 7,2,5,7,8, Last: 8
+[2026-01-27T03:19:10.518Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:19:11.449Z] Trade placed. Contract ID: 305025281628, Price: $1.14
+[2026-01-27T03:19:12.974Z] Trade result: LOSS | Profit: $-1.14 | Balance: $109.18
+[2026-01-27T03:19:12.975Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T03:19:14.520Z] Waiting for recovery trigger digit...
+[2026-01-27T03:19:15.009Z] Tick history: Prob >2: 78.20%, Last 5: 7,8,1,7,5, Last: 5
+[2026-01-27T03:19:22.976Z] Waiting for recovery trigger digit...
+[2026-01-27T03:19:23.499Z] Tick history: Prob >2: 78.00%, Last 5: 5,4,2,1,5, Last: 5
+[2026-01-27T03:19:25.010Z] Waiting for recovery trigger digit...
+[2026-01-27T03:19:25.489Z] Tick history: Prob >2: 78.00%, Last 5: 4,2,1,5,6, Last: 6
+[2026-01-27T03:19:33.501Z] Waiting for recovery trigger digit...
+[2026-01-27T03:19:34.067Z] Tick history: Prob >2: 78.00%, Last 5: 6,2,4,3,1, Last: 1
+[2026-01-27T03:19:34.068Z] Recovery trigger digit 1 found. Placing recovery trade with stake $4.56
+[2026-01-27T03:19:34.912Z] Trade placed. Contract ID: 305025299668, Price: $4.56
+[2026-01-27T03:19:35.971Z] Tick history: Prob >2: 78.00%, Last 5: 2,4,3,1,3, Last: 3
+[2026-01-27T03:19:35.971Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T03:19:36.393Z] Trade result: WIN | Profit: $1.84 | Balance: $111.02
+[2026-01-27T03:19:36.937Z] Trade placed. Contract ID: 305025300848, Price: $1.14
+[2026-01-27T03:19:38.470Z] Trade result: WIN | Profit: $0.46 | Balance: $111.48
+[2026-01-27T03:19:46.971Z] Tick history: Prob >2: 78.10%, Last 5: 9,3,4,9,6, Last: 6
+[2026-01-27T03:19:46.973Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:19:47.890Z] Trade placed. Contract ID: 305025308648, Price: $0.38
+[2026-01-27T03:19:48.948Z] Tick history: Prob >2: 78.10%, Last 5: 3,4,9,6,6, Last: 6
+[2026-01-27T03:19:48.948Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:19:49.287Z] Trade result: WIN | Profit: $0.14 | Balance: $111.62
+[2026-01-27T03:19:49.763Z] Trade placed. Contract ID: 305025310668, Price: $0.38
+[2026-01-27T03:19:51.268Z] Trade result: WIN | Profit: $0.14 | Balance: $111.76
+[2026-01-27T03:19:59.871Z] Tick history: Prob >2: 78.10%, Last 5: 4,6,8,6,9, Last: 9
+[2026-01-27T03:19:59.874Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:20:00.792Z] Trade placed. Contract ID: 305025319508, Price: $0.38
+[2026-01-27T03:20:01.955Z] Tick history: Prob >2: 78.10%, Last 5: 6,8,6,9,7, Last: 7
+[2026-01-27T03:20:01.956Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:20:03.046Z] Trade placed. Contract ID: 305025322668, Price: $0.38
+[2026-01-27T03:20:03.763Z] Trade result: WIN | Profit: $0.14 | Balance: $111.90
+[2026-01-27T03:20:04.460Z] Trade result: WIN | Profit: $0.14 | Balance: $112.04
+[2026-01-27T03:20:14.934Z] Tick history: Prob >2: 78.20%, Last 5: 1,4,3,3,1, Last: 1
+[2026-01-27T03:20:14.937Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:20:15.114Z] Tick history: Prob >2: 78.20%, Last 5: 1,4,3,3,1, Last: 1
+[2026-01-27T03:20:15.115Z] Condition met. Placing Over 2 trade.
+[2026-01-27T03:20:15.793Z] Trade placed. Contract ID: 305025333908, Price: $0.38
+[2026-01-27T03:20:15.823Z] API error: We couldn't process your trade. Refresh the page or relaunch the app to try again.
+[2026-01-27T04:16:15.224Z] WebSocket open. Authorizing...
+[2026-01-27T04:16:15.668Z] Authorized. Fetching balance...
+[2026-01-27T04:16:16.175Z] Day targets set. Start: $113.69, Day target: $5.68, Session target: $2.27
+[2026-01-27T04:16:16.176Z] Balance: $113.69
+[2026-01-27T04:16:16.646Z] Tick history: Prob >2: 78.70%, Last 5: 2,7,5,9,9, Last: 9
+[2026-01-27T04:16:16.647Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:16:17.498Z] Trade placed. Contract ID: 305027877568, Price: $0.4
+[2026-01-27T04:16:18.911Z] Trade result: WIN | Profit: $0.14 | Balance: $113.83
+[2026-01-27T04:16:29.586Z] Tick history: Prob >2: 78.80%, Last 5: 5,4,8,6,4, Last: 4
+[2026-01-27T04:16:29.589Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:16:30.609Z] Trade placed. Contract ID: 305027886468, Price: $0.4
+[2026-01-27T04:16:33.475Z] Trade result: LOSS | Profit: $-0.40 | Balance: $113.43
+[2026-01-27T04:16:33.477Z] Trade lost. Changing market to R_50. Next stake: $1.2
+[2026-01-27T04:16:43.974Z] Tick history: Prob >2: 78.70%, Last 5: 8,4,2,3,1, Last: 1
+[2026-01-27T04:16:43.976Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:16:45.046Z] Trade placed. Contract ID: 305027897548, Price: $1.2
+[2026-01-27T04:16:46.583Z] Trade result: LOSS | Profit: $-1.20 | Balance: $112.23
+[2026-01-27T04:16:46.584Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T04:16:56.586Z] Waiting for recovery trigger digit...
+[2026-01-27T04:16:57.053Z] Tick history: Prob >2: 78.60%, Last 5: 5,5,9,4,3, Last: 3
+[2026-01-27T04:17:07.056Z] Waiting for recovery trigger digit...
+[2026-01-27T04:17:07.526Z] Tick history: Prob >2: 78.50%, Last 5: 8,4,5,2,6, Last: 6
+[2026-01-27T04:17:17.528Z] Waiting for recovery trigger digit...
+[2026-01-27T04:17:18.124Z] Tick history: Prob >2: 78.60%, Last 5: 9,5,3,9,7, Last: 7
+[2026-01-27T04:17:28.126Z] Waiting for recovery trigger digit...
+[2026-01-27T04:17:28.581Z] Tick history: Prob >2: 78.60%, Last 5: 1,2,6,3,3, Last: 3
+[2026-01-27T04:17:38.584Z] Waiting for recovery trigger digit...
+[2026-01-27T04:17:39.087Z] Tick history: Prob >2: 78.80%, Last 5: 4,3,9,6,8, Last: 8
+[2026-01-27T04:17:49.089Z] Waiting for recovery trigger digit...
+[2026-01-27T04:17:49.546Z] Tick history: Prob >2: 79.00%, Last 5: 6,3,4,4,7, Last: 7
+[2026-01-27T04:17:59.548Z] Waiting for recovery trigger digit...
+[2026-01-27T04:18:00.108Z] Tick history: Prob >2: 79.00%, Last 5: 3,1,7,7,4, Last: 4
+[2026-01-27T04:18:10.110Z] Waiting for recovery trigger digit...
+[2026-01-27T04:18:10.602Z] Tick history: Prob >2: 79.00%, Last 5: 4,3,8,5,8, Last: 8
+[2026-01-27T04:18:20.604Z] Waiting for recovery trigger digit...
+[2026-01-27T04:18:21.101Z] Tick history: Prob >2: 79.00%, Last 5: 1,6,8,5,6, Last: 6
+[2026-01-27T04:18:31.104Z] Waiting for recovery trigger digit...
+[2026-01-27T04:18:31.648Z] Tick history: Prob >2: 79.10%, Last 5: 4,4,6,4,2, Last: 2
+[2026-01-27T04:18:31.649Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.8
+[2026-01-27T04:18:32.505Z] Trade placed. Contract ID: 305027978588, Price: $4.8
+[2026-01-27T04:18:35.537Z] Trade result: WIN | Profit: $1.94 | Balance: $114.17
+[2026-01-27T04:18:46.086Z] Tick history: Prob >2: 79.10%, Last 5: 1,7,3,3,7, Last: 7
+[2026-01-27T04:18:46.088Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:18:47.029Z] Trade placed. Contract ID: 305027989528, Price: $0.4
+[2026-01-27T04:18:48.543Z] Trade result: WIN | Profit: $0.14 | Balance: $114.31
+[2026-01-27T04:18:59.001Z] Tick history: Prob >2: 79.00%, Last 5: 4,1,2,8,2, Last: 2
+[2026-01-27T04:18:59.002Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:19:00.013Z] Trade placed. Contract ID: 305027999908, Price: $0.4
+[2026-01-27T04:19:01.445Z] Trade result: LOSS | Profit: $-0.40 | Balance: $113.91
+[2026-01-27T04:19:01.446Z] Trade lost. Changing market to R_10. Next stake: $1.2
+[2026-01-27T04:19:11.995Z] Tick history: Prob >2: 78.90%, Last 5: 9,4,4,2,7, Last: 7
+[2026-01-27T04:19:11.996Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:19:13.015Z] Trade placed. Contract ID: 305028010548, Price: $1.2
+[2026-01-27T04:19:14.510Z] Trade result: WIN | Profit: $0.49 | Balance: $114.40
+[2026-01-27T04:19:25.102Z] Tick history: Prob >2: 78.90%, Last 5: 7,2,9,3,9, Last: 9
+[2026-01-27T04:19:25.103Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:19:25.975Z] Trade placed. Contract ID: 305028019868, Price: $0.4
+[2026-01-27T04:19:27.396Z] Trade result: LOSS | Profit: $-0.40 | Balance: $114.00
+[2026-01-27T04:19:27.397Z] Trade lost. Changing market to R_50. Next stake: $1.2
+[2026-01-27T04:19:37.902Z] Tick history: Prob >2: 79.30%, Last 5: 3,9,6,9,5, Last: 5
+[2026-01-27T04:19:37.905Z] Waiting for better digits after loss.
+[2026-01-27T04:19:48.550Z] Tick history: Prob >2: 79.10%, Last 5: 9,1,9,2,5, Last: 5
+[2026-01-27T04:19:48.551Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:19:49.574Z] Trade placed. Contract ID: 305028036248, Price: $1.2
+[2026-01-27T04:19:51.008Z] Trade result: LOSS | Profit: $-1.20 | Balance: $112.80
+[2026-01-27T04:19:51.009Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T04:20:01.010Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:01.759Z] Tick history: Prob >2: 78.70%, Last 5: 2,5,1,2,2, Last: 2
+[2026-01-27T04:20:01.760Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.8
+[2026-01-27T04:20:02.988Z] Trade placed. Contract ID: 305028048268, Price: $4.8
+[2026-01-27T04:20:04.500Z] Trade result: LOSS | Profit: $-4.80 | Balance: $108.00
+[2026-01-27T04:20:04.501Z] 3 consecutive losses. Entering recovery mode.
+[2026-01-27T04:20:14.503Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:15.073Z] Tick history: Prob >2: 78.60%, Last 5: 8,7,1,6,7, Last: 7
+[2026-01-27T04:20:25.075Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:25.570Z] Tick history: Prob >2: 78.60%, Last 5: 3,9,6,5,4, Last: 4
+[2026-01-27T04:20:35.571Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:36.065Z] Tick history: Prob >2: 78.80%, Last 5: 9,2,2,9,4, Last: 4
+[2026-01-27T04:20:46.067Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:46.612Z] Tick history: Prob >2: 78.90%, Last 5: 7,7,4,2,5, Last: 5
+[2026-01-27T04:20:56.613Z] Waiting for recovery trigger digit...
+[2026-01-27T04:20:57.086Z] Tick history: Prob >2: 79.00%, Last 5: 4,7,8,9,9, Last: 9
+[2026-01-27T04:21:07.087Z] Waiting for recovery trigger digit...
+[2026-01-27T04:21:07.552Z] Tick history: Prob >2: 79.20%, Last 5: 5,5,3,2,9, Last: 9
+[2026-01-27T04:21:17.554Z] Waiting for recovery trigger digit...
+[2026-01-27T04:21:18.051Z] Tick history: Prob >2: 79.10%, Last 5: 7,8,7,4,2, Last: 2
+[2026-01-27T04:21:18.052Z] Recovery trigger digit 2 found. Placing recovery trade with stake $19.2
+[2026-01-27T04:21:18.901Z] Trade placed. Contract ID: 305028108468, Price: $19.2
+[2026-01-27T04:21:20.442Z] Trade result: WIN | Profit: $7.77 | Balance: $115.77
+[2026-01-27T04:21:30.913Z] Tick history: Prob >2: 79.40%, Last 5: 9,4,7,7,9, Last: 9
+[2026-01-27T04:21:30.914Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:21:31.975Z] Trade placed. Contract ID: 305028123468, Price: $0.4
+[2026-01-27T04:21:33.446Z] Trade result: WIN | Profit: $0.14 | Balance: $115.91
+[2026-01-27T04:21:43.946Z] Tick history: Prob >2: 79.40%, Last 5: 3,8,5,2,8, Last: 8
+[2026-01-27T04:21:43.946Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:21:44.981Z] Trade placed. Contract ID: 305028132588, Price: $0.4
+[2026-01-27T04:21:46.617Z] Trade result: WIN | Profit: $0.14 | Balance: $116.05
+[2026-01-27T04:21:57.078Z] Tick history: Prob >2: 79.30%, Last 5: 7,6,2,2,7, Last: 7
+[2026-01-27T04:21:57.081Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:21:57.916Z] Trade placed. Contract ID: 305028141548, Price: $0.4
+[2026-01-27T04:21:59.519Z] Trade result: WIN | Profit: $0.14 | Balance: $116.19
+[2026-01-27T04:22:09.988Z] Tick history: Prob >2: 79.40%, Last 5: 3,9,2,7,9, Last: 9
+[2026-01-27T04:22:09.990Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:22:11.090Z] Trade placed. Contract ID: 305028152028, Price: $0.4
+[2026-01-27T04:22:12.629Z] Trade result: WIN | Profit: $0.14 | Balance: $116.33
+[2026-01-27T04:22:23.175Z] Tick history: Prob >2: 79.20%, Last 5: 9,2,7,4,2, Last: 2
+[2026-01-27T04:22:23.176Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:22:24.000Z] Trade placed. Contract ID: 305028161728, Price: $0.4
+[2026-01-27T04:22:25.529Z] Trade result: WIN | Profit: $0.14 | Balance: $116.47
+[2026-01-27T04:22:36.080Z] Tick history: Prob >2: 79.00%, Last 5: 2,7,4,2,7, Last: 7
+[2026-01-27T04:22:36.082Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:22:37.000Z] Trade placed. Contract ID: 305028171688, Price: $0.4
+[2026-01-27T04:22:38.536Z] Trade result: WIN | Profit: $0.14 | Balance: $116.61
+[2026-01-27T04:22:49.087Z] Tick history: Prob >2: 78.90%, Last 5: 5,9,1,1,6, Last: 6
+[2026-01-27T04:22:49.089Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:22:50.017Z] Trade placed. Contract ID: 305028181508, Price: $0.4
+[2026-01-27T04:22:51.407Z] Trade result: LOSS | Profit: $-0.40 | Balance: $116.21
+[2026-01-27T04:22:51.408Z] Trade lost. Changing market to R_10. Next stake: $1.2
+[2026-01-27T04:23:01.986Z] Tick history: Prob >2: 77.80%, Last 5: 3,6,8,6,3, Last: 3
+[2026-01-27T04:23:01.987Z] Waiting for better digits after loss.
+[2026-01-27T04:23:12.603Z] Tick history: Prob >2: 77.60%, Last 5: 7,6,2,6,1, Last: 1
+[2026-01-27T04:23:12.605Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:23:13.481Z] Trade placed. Contract ID: 305028200068, Price: $1.2
+[2026-01-27T04:23:14.955Z] Trade result: WIN | Profit: $0.49 | Balance: $116.70
+[2026-01-27T04:23:25.540Z] Tick history: Prob >2: 77.70%, Last 5: 1,8,2,5,4, Last: 4
+[2026-01-27T04:23:25.543Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:23:26.459Z] Trade placed. Contract ID: 305028209728, Price: $0.4
+[2026-01-27T04:23:29.440Z] Trade result: WIN | Profit: $0.14 | Balance: $116.84
+[2026-01-27T04:23:39.920Z] Tick history: Prob >2: 78.10%, Last 5: 4,4,3,6,6, Last: 6
+[2026-01-27T04:23:39.921Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:23:41.108Z] Trade placed. Contract ID: 305028220528, Price: $0.4
+[2026-01-27T04:23:42.653Z] Trade result: WIN | Profit: $0.14 | Balance: $116.98
+[2026-01-27T04:23:53.199Z] Tick history: Prob >2: 77.80%, Last 5: 7,9,1,1,2, Last: 2
+[2026-01-27T04:23:53.201Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:23:54.121Z] Trade placed. Contract ID: 305028230428, Price: $0.4
+[2026-01-27T04:23:55.555Z] Trade result: WIN | Profit: $0.14 | Balance: $117.12
+[2026-01-27T04:24:06.106Z] Tick history: Prob >2: 77.80%, Last 5: 2,9,6,7,8, Last: 8
+[2026-01-27T04:24:06.109Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:24:07.038Z] Trade placed. Contract ID: 305028240928, Price: $0.4
+[2026-01-27T04:24:08.665Z] Trade result: WIN | Profit: $0.14 | Balance: $117.26
+[2026-01-27T04:24:19.150Z] Tick history: Prob >2: 77.80%, Last 5: 8,8,2,8,6, Last: 6
+[2026-01-27T04:24:19.152Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:24:20.134Z] Trade placed. Contract ID: 305028250088, Price: $0.4
+[2026-01-27T04:24:21.567Z] Trade result: LOSS | Profit: $-0.40 | Balance: $116.86
+[2026-01-27T04:24:21.568Z] Trade lost. Changing market to R_50. Next stake: $1.2
+[2026-01-27T04:24:32.036Z] Tick history: Prob >2: 78.20%, Last 5: 1,1,3,7,2, Last: 2
+[2026-01-27T04:24:32.038Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:24:33.099Z] Trade placed. Contract ID: 305028259528, Price: $1.2
+[2026-01-27T04:24:34.510Z] Trade result: LOSS | Profit: $-1.20 | Balance: $115.66
+[2026-01-27T04:24:34.510Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T04:24:44.513Z] Waiting for recovery trigger digit...
+[2026-01-27T04:24:44.961Z] Tick history: Prob >2: 78.30%, Last 5: 5,2,3,3,3, Last: 3
+[2026-01-27T04:24:54.964Z] Waiting for recovery trigger digit...
+[2026-01-27T04:24:55.567Z] Tick history: Prob >2: 78.30%, Last 5: 7,2,6,5,8, Last: 8
+[2026-01-27T04:25:05.570Z] Waiting for recovery trigger digit...
+[2026-01-27T04:25:06.047Z] Tick history: Prob >2: 78.40%, Last 5: 3,2,9,2,7, Last: 7
+[2026-01-27T04:25:16.050Z] Waiting for recovery trigger digit...
+[2026-01-27T04:25:16.660Z] Tick history: Prob >2: 78.30%, Last 5: 4,5,6,8,2, Last: 2
+[2026-01-27T04:25:16.661Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.8
+[2026-01-27T04:25:17.471Z] Trade placed. Contract ID: 305028293528, Price: $4.8
+[2026-01-27T04:25:18.913Z] Trade result: WIN | Profit: $1.94 | Balance: $117.60
+[2026-01-27T04:25:29.402Z] Tick history: Prob >2: 78.50%, Last 5: 3,5,6,7,1, Last: 1
+[2026-01-27T04:25:29.403Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:25:30.278Z] Trade placed. Contract ID: 305028302868, Price: $0.4
+[2026-01-27T04:25:33.122Z] Trade result: WIN | Profit: $0.14 | Balance: $117.74
+[2026-01-27T04:25:43.602Z] Tick history: Prob >2: 78.50%, Last 5: 1,8,9,7,6, Last: 6
+[2026-01-27T04:25:43.603Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:25:44.616Z] Trade placed. Contract ID: 305028313208, Price: $0.4
+[2026-01-27T04:25:47.460Z] Trade result: LOSS | Profit: $-0.40 | Balance: $117.34
+[2026-01-27T04:25:47.461Z] Trade lost. Changing market to R_10. Next stake: $1.2
+[2026-01-27T04:25:58.031Z] Tick history: Prob >2: 77.80%, Last 5: 1,4,9,5,5, Last: 5
+[2026-01-27T04:25:58.033Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:25:58.955Z] Trade placed. Contract ID: 305028324128, Price: $1.2
+[2026-01-27T04:26:00.593Z] Trade result: LOSS | Profit: $-1.20 | Balance: $116.14
+[2026-01-27T04:26:00.594Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T04:26:10.596Z] Waiting for recovery trigger digit...
+[2026-01-27T04:26:11.139Z] Tick history: Prob >2: 77.80%, Last 5: 5,9,6,9,1, Last: 1
+[2026-01-27T04:26:11.140Z] Recovery trigger digit 1 found. Placing recovery trade with stake $4.8
+[2026-01-27T04:26:12.060Z] Trade placed. Contract ID: 305028333568, Price: $4.8
+[2026-01-27T04:26:13.486Z] Trade result: WIN | Profit: $1.94 | Balance: $118.08
+[2026-01-27T04:26:24.041Z] Tick history: Prob >2: 77.60%, Last 5: 6,5,3,1,2, Last: 2
+[2026-01-27T04:26:24.042Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:26:24.976Z] Trade placed. Contract ID: 305028343328, Price: $0.4
+[2026-01-27T04:26:26.516Z] Trade result: LOSS | Profit: $-0.40 | Balance: $117.68
+[2026-01-27T04:26:26.517Z] Trade lost. Changing market to R_50. Next stake: $1.2
+[2026-01-27T04:26:37.046Z] Tick history: Prob >2: 78.60%, Last 5: 8,8,8,7,4, Last: 4
+[2026-01-27T04:26:37.048Z] Waiting for better digits after loss.
+[2026-01-27T04:26:47.572Z] Tick history: Prob >2: 78.80%, Last 5: 9,6,9,7,5, Last: 5
+[2026-01-27T04:26:47.574Z] Waiting for better digits after loss.
+[2026-01-27T04:26:58.098Z] Tick history: Prob >2: 78.80%, Last 5: 6,7,2,5,3, Last: 3
+[2026-01-27T04:26:58.099Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:26:58.962Z] Trade placed. Contract ID: 305028369008, Price: $1.2
+[2026-01-27T04:27:00.598Z] Trade result: LOSS | Profit: $-1.20 | Balance: $116.48
+[2026-01-27T04:27:00.598Z] 2 consecutive losses. Entering recovery monitoring.
+[2026-01-27T04:27:10.598Z] Waiting for recovery trigger digit...
+[2026-01-27T04:27:11.058Z] Tick history: Prob >2: 78.90%, Last 5: 9,7,5,1,7, Last: 7
+[2026-01-27T04:27:21.060Z] Waiting for recovery trigger digit...
+[2026-01-27T04:27:21.593Z] Tick history: Prob >2: 78.80%, Last 5: 7,1,4,4,8, Last: 8
+[2026-01-27T04:27:31.596Z] Waiting for recovery trigger digit...
+[2026-01-27T04:27:32.048Z] Tick history: Prob >2: 79.00%, Last 5: 5,5,6,9,8, Last: 8
+[2026-01-27T04:27:42.051Z] Waiting for recovery trigger digit...
+[2026-01-27T04:27:42.684Z] Tick history: Prob >2: 79.10%, Last 5: 6,3,3,4,5, Last: 5
+[2026-01-27T04:27:52.687Z] Waiting for recovery trigger digit...
+[2026-01-27T04:27:53.154Z] Tick history: Prob >2: 79.20%, Last 5: 4,7,9,8,4, Last: 4
+[2026-01-27T04:28:03.157Z] Waiting for recovery trigger digit...
+[2026-01-27T04:28:03.678Z] Tick history: Prob >2: 79.30%, Last 5: 5,6,6,1,8, Last: 8
+[2026-01-27T04:28:13.680Z] Waiting for recovery trigger digit...
+[2026-01-27T04:28:14.224Z] Tick history: Prob >2: 79.10%, Last 5: 4,7,1,2,4, Last: 4
+[2026-01-27T04:28:24.228Z] Waiting for recovery trigger digit...
+[2026-01-27T04:28:24.704Z] Tick history: Prob >2: 79.00%, Last 5: 6,6,3,2,6, Last: 6
+[2026-01-27T04:28:34.709Z] Waiting for recovery trigger digit...
+[2026-01-27T04:28:35.219Z] Tick history: Prob >2: 78.80%, Last 5: 1,6,7,6,2, Last: 2
+[2026-01-27T04:28:35.220Z] Recovery trigger digit 2 found. Placing recovery trade with stake $4.8
+[2026-01-27T04:28:36.138Z] Trade placed. Contract ID: 305028449088, Price: $4.8
+[2026-01-27T04:28:37.543Z] Trade result: WIN | Profit: $1.94 | Balance: $118.42
+[2026-01-27T04:28:48.121Z] Tick history: Prob >2: 78.70%, Last 5: 7,1,2,1,4, Last: 4
+[2026-01-27T04:28:48.123Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:28:49.040Z] Trade placed. Contract ID: 305028460748, Price: $0.4
+[2026-01-27T04:28:50.577Z] Trade result: WIN | Profit: $0.14 | Balance: $118.56
+[2026-01-27T04:29:01.053Z] Tick history: Prob >2: 78.50%, Last 5: 7,1,4,3,8, Last: 8
+[2026-01-27T04:29:01.056Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:29:01.967Z] Trade placed. Contract ID: 305028471568, Price: $0.4
+[2026-01-27T04:29:03.452Z] Trade result: WIN | Profit: $0.14 | Balance: $118.70
+[2026-01-27T04:29:13.914Z] Tick history: Prob >2: 78.50%, Last 5: 1,8,9,8,8, Last: 8
+[2026-01-27T04:29:13.916Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:29:15.254Z] Trade placed. Contract ID: 305028482108, Price: $0.4
+[2026-01-27T04:29:16.697Z] Trade result: LOSS | Profit: $-0.40 | Balance: $118.30
+[2026-01-27T04:29:16.698Z] Trade lost. Changing market to R_10. Next stake: $1.2
+[2026-01-27T04:29:27.174Z] Tick history: Prob >2: 77.80%, Last 5: 7,8,7,6,8, Last: 8
+[2026-01-27T04:29:27.176Z] Waiting for better digits after loss.
+[2026-01-27T04:29:37.682Z] Tick history: Prob >2: 77.70%, Last 5: 2,6,6,9,6, Last: 6
+[2026-01-27T04:29:37.684Z] Consecutive losses and critical digits found. Placing trade.
+[2026-01-27T04:29:38.603Z] Trade placed. Contract ID: 305028500148, Price: $1.2
+[2026-01-27T04:29:42.498Z] Trade result: WIN | Profit: $0.49 | Balance: $118.79
+[2026-01-27T04:29:52.961Z] Tick history: Prob >2: 77.70%, Last 5: 6,3,1,6,7, Last: 7
+[2026-01-27T04:29:52.963Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:29:54.083Z] Trade placed. Contract ID: 305028511708, Price: $0.4
+[2026-01-27T04:29:55.518Z] Trade result: WIN | Profit: $0.14 | Balance: $118.93
+[2026-01-27T04:30:05.995Z] Tick history: Prob >2: 77.90%, Last 5: 7,4,9,6,4, Last: 4
+[2026-01-27T04:30:05.997Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:30:07.073Z] Trade placed. Contract ID: 305028523348, Price: $0.4
+[2026-01-27T04:30:08.557Z] Trade result: WIN | Profit: $0.14 | Balance: $119.07
+[2026-01-27T04:30:19.012Z] Tick history: Prob >2: 77.90%, Last 5: 8,9,6,9,2, Last: 2
+[2026-01-27T04:30:19.014Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:30:19.898Z] Trade placed. Contract ID: 305028533108, Price: $0.4
+[2026-01-27T04:30:21.510Z] Trade result: WIN | Profit: $0.14 | Balance: $119.21
+[2026-01-27T04:30:31.965Z] Tick history: Prob >2: 77.80%, Last 5: 2,5,8,8,4, Last: 4
+[2026-01-27T04:30:31.966Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:30:32.968Z] Trade placed. Contract ID: 305028542768, Price: $0.4
+[2026-01-27T04:30:34.553Z] Trade result: WIN | Profit: $0.14 | Balance: $119.35
+[2026-01-27T04:30:45.009Z] Tick history: Prob >2: 78.00%, Last 5: 5,2,6,5,7, Last: 7
+[2026-01-27T04:30:45.011Z] Condition met. Placing Over 2 trade.
+[2026-01-27T04:30:45.869Z] Trade placed. Contract ID: 305028552888, Price: $0.4
+[2026-01-27T04:30:47.368Z] Trade result: WIN | Profit: $0.14 | Balance: $119.49
+[2026-01-27T04:30:47.369Z] Day target achieved! Bot will pause until next calendar day.
