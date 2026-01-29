@@ -41,7 +41,7 @@ let pausedForDay = false;
 
 function log(msg) {
     const now = new Date();
-    const out = `[${now.toLocaleString()}] ${msg}`;
+    const out = `[${now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}] ${msg}`;
     console.log(out);
     fs.appendFileSync(logFile, out + '\n');
 }
@@ -67,9 +67,10 @@ function resetDayTargets() {
     currentProfit = 0;
     currentLoss = 0;
     lostCountInRow = 0;
-    // Use local date for lastDay (YYYY-MM-DD)
+    // Use Sri Lanka date for lastDay (YYYY-MM-DD)
     const now = new Date();
-    lastDay = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    const colomboDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }));
+    lastDay = colomboDate.getFullYear() + '-' + String(colomboDate.getMonth()+1).padStart(2, '0') + '-' + String(colomboDate.getDate()).padStart(2, '0');
     log(`Day targets set. Start: $${dayStartCapital.toFixed(2)}, Day target: $${dayTarget.toFixed(2)}, Session target: $${sessionTarget.toFixed(2)}`);
 }
 
@@ -251,7 +252,7 @@ function handleContractResult(data) {
     currentProfit += profit;
     currentLoss += profit;
     if (currentLoss >= 0) currentLoss = 0;
-    const tradeTime = new Date().toLocaleString();
+    const tradeTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' });
     log(`Trade result: ${profit > 0 ? 'WIN' : 'LOSS'} | Profit: $${profit.toFixed(2)} | Balance: $${updatedBalance.toFixed(2)} | Trade time: ${tradeTime}`);
     if (profit > 0) {
         lostCountInRow = 0;
