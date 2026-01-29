@@ -40,7 +40,8 @@ let resumeHour = 7; // 7:00 AM local time
 let pausedForDay = false;
 
 function log(msg) {
-    const out = `[${new Date().toISOString()}] ${msg}`;
+    const now = new Date();
+    const out = `[${now.toLocaleString()}] ${msg}`;
     console.log(out);
     fs.appendFileSync(logFile, out + '\n');
 }
@@ -66,7 +67,9 @@ function resetDayTargets() {
     currentProfit = 0;
     currentLoss = 0;
     lostCountInRow = 0;
-    lastDay = (new Date()).toISOString().slice(0,10); // YYYY-MM-DD
+    // Use local date for lastDay (YYYY-MM-DD)
+    const now = new Date();
+    lastDay = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
     log(`Day targets set. Start: $${dayStartCapital.toFixed(2)}, Day target: $${dayTarget.toFixed(2)}, Session target: $${sessionTarget.toFixed(2)}`);
 }
 
@@ -248,7 +251,8 @@ function handleContractResult(data) {
     currentProfit += profit;
     currentLoss += profit;
     if (currentLoss >= 0) currentLoss = 0;
-    log(`Trade result: ${profit > 0 ? 'WIN' : 'LOSS'} | Profit: $${profit.toFixed(2)} | Balance: $${updatedBalance.toFixed(2)}`);
+    const tradeTime = new Date().toLocaleString();
+    log(`Trade result: ${profit > 0 ? 'WIN' : 'LOSS'} | Profit: $${profit.toFixed(2)} | Balance: $${updatedBalance.toFixed(2)} | Trade time: ${tradeTime}`);
     if (profit > 0) {
         lostCountInRow = 0;
         stake = initialAmountPerTrade;
