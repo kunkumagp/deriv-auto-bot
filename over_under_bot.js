@@ -138,7 +138,8 @@ function runTradingLoop() {
         log('New day and after 7:00 AM. Resetting day targets.');
         resetDayTargets();
     }
-    if (updatedBalance - dayStartCapital >= dayTarget) {
+    // Only pause for the day if not in recovery and no unrecovered losses
+    if ((updatedBalance - dayStartCapital >= dayTarget) && !isWaitingForRecovery && currentLoss >= 0) {
         log('Day target reached! Bot will pause until 7:00 AM next day.');
         pausedForDay = true;
         setTimeout(runTradingLoop, 5*60*1000);
