@@ -94,7 +94,10 @@ function handleMessage(msg) {
     let data = JSON.parse(msg);
     if (data.error) {
         log('API error: ' + data.error.message);
-        process.exit(1);
+        log('Pausing bot for the rest of the day due to API error. Will attempt to restart at 7:00 AM next day.');
+        pausedForDay = true;
+        setTimeout(runTradingLoop, 5*60*1000);
+        return;
     }
     if (data.msg_type === 'authorize') {
         log('Authorized. Fetching balance...');
