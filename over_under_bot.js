@@ -1,3 +1,7 @@
+// Always get hour in Sri Lanka time
+function getColomboHour(date = new Date()) {
+    return Number(date.toLocaleString('en-US', { hour: '2-digit', hour12: false, timeZone: 'Asia/Colombo' }));
+}
 // over_under_bot.js
 // Node.js Deriv Over/Under Trading Bot (24/7 VPS-ready)
 // Logic adapted from browser-based over_under.js
@@ -123,16 +127,16 @@ function handleMessage(msg) {
 
 function runTradingLoop() {
     const now = new Date();
-    const nowDay = now.toISOString().slice(0,10);
-    const nowHour = now.getHours();
+    const nowDay = now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }).slice(0,10);
+    const nowHour = getColomboHour(now);
     if (pausedForDay) {
-        // Only resume at 7:00 AM local time
+        // Only resume at 7:00 AM Sri Lanka time
         if (nowHour >= resumeHour && nowDay !== lastDay) {
             log('7:00 AM reached and new day detected. Resetting day targets and resuming trading.');
             pausedForDay = false;
             resetDayTargets();
         } else {
-            log(`Day target reached. Bot will resume at 7:00 AM. Current time: ${now.toLocaleTimeString()}`);
+            log(`Day target reached. Bot will resume at 7:00 AM. Current time: ${now.toLocaleTimeString('en-US', { timeZone: 'Asia/Colombo' })}`);
             setTimeout(runTradingLoop, 5*60*1000);
             return;
         }

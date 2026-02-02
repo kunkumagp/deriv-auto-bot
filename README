@@ -220,5 +220,52 @@ tPpIo7TPr54NjHjk3p2PWD
 
 ---
 
+## 1. Use pm2 (Recommended for Node.js)
+
+`pm2` is a process manager that will keep your bot running 24/7, restart it on crash, and start it automatically after a server reboot.
+
+### Install pm2 globally:
+```sh
+npm install -g pm2
+```
+
+### Start your bot with pm2:
+```sh
+pm2 start over_under_bot.js --name autobot
+```
+
+### View logs (all logs are in the `logs` folder):
+```sh
+pm2 logs autobot
+```
+
+### Check bot status:
+```sh
+pm2 status
+```
+
+### Auto-start pm2 and your bot after a server reboot:
+```sh
+pm2 startup
+pm2 save
+```
+
+### Stop or restart your bot:
+```sh
+pm2 stop autobot
+pm2 restart autobot
+```
+
+### Remove your bot from pm2:
+```sh
+pm2 delete autobot
+```
+
+**Note:**
+- You do NOT need to use `screen` or `tmux` if you use pm2.
+- You can safely close your terminal or log out; pm2 will keep your bot running in the background.
+- All logs will be saved in `logs/over_under_bot_log.txt` as configured in your bot.
+
+---
 
 http://deriv-auto-bot:3000
