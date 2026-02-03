@@ -3700,3 +3700,5 @@
 [2/3/2026, 11:57:37 AM] New day and after 7:00 AM. Resetting day targets.
 [2/3/2026, 11:57:37 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
 [2/3/2026, 11:57:37 AM] Day target reached! Bot will pause until 7:00 AM next day.
+[2/3/2026, 12:41:42 PM] API error: Sorry, an error occurred while processing your request.
+[2/3/2026, 12:41:42 PM] Pausing bot for the rest of the day due to API error. Will attempt to restart at 7:00 AM next day.

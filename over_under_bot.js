@@ -145,6 +145,43 @@ function handleMessage(msg) {
 }
 
 function runTradingLoop() {
+    // refresh state from disk (dashboard control & auto-pause)
+    readBotStateFromFile();
+
+    // If dashboard/user manually paused, and it's not an autoPause, respect it
+    if (botState.status === 'paused' && !botState.autoPause) {
+        log('Bot paused by dashboard. Sleeping...');
+        setTimeout(runTradingLoop, 2000);
+        return;
+    }
+
+    // If bot is in autoPause (30-minute break), check expiry
+    if (botState.autoPause && botState.autoPauseUntil) {
+        const nowTs = Date.now();
+        if (nowTs < botState.autoPauseUntil) {
+            // keep showing waiting/progress fields so dashboard displays properly
+            botState.waitingUntil = botState.autoPauseUntil;
+            botState.waitingTimeLeft = Math.ceil((botState.waitingUntil - nowTs) / 1000);
+            botState.waitingTotal = botState.waitingTotal || Math.ceil((botState.waitingUntil - nowTs) / 1000);
+            writeBotStateToFile();
+            setTimeout(runTradingLoop, 1000);
+            return;
+        } else {
+            // autoPause expired — clear and resume
+            botState.autoPause = false;
+            botState.autoPauseUntil = null;
+            botState.waitingUntil = null;
+            botState.waitingTimeLeft = 0;
+            botState.waitingTotal = 0;
+            // reset day targets (new reference point)
+            resetDayTargets();
+            // only resume if dashboard/user didn't explicitly pause
+            botState.status = 'running';
+            writeBotStateToFile();
+            log('Auto pause finished — resuming trading.');
+        }
+    }
+
     // If waiting, update botState.waitingUntil for dashboard progress bar
     if (botState.waitingUntil && Date.now() < botState.waitingUntil) {
         botState.waitingTimeLeft = Math.ceil((botState.waitingUntil - Date.now()) / 1000);
@@ -188,12 +225,15 @@ function runTradingLoop() {
         log('New day and after 7:00 AM. Resetting day targets.');
         resetDayTargets();
     }
-    // Only pause for the day if not in recovery and no unrecovered losses
+    // Only pause for the day (full day pause) if after 18:00
     if ((updatedBalance - dayStartCapital >= dayTarget) && !isWaitingForRecovery && currentLoss >= 0) {
-        log('Day target reached! Bot will pause until 7:00 AM next day.');
-        pausedForDay = true;
-        setTimeout(runTradingLoop, 5*60*1000);
-        return;
+        if (nowHour >= 18) {
+            log('Day target reached and it is after 18:00. Bot will pause until 7:00 AM next day.');
+            pausedForDay = true;
+            setTimeout(runTradingLoop, 5*60*1000);
+            return;
+        }
+        // otherwise, let the trade/result handler manage auto-pauses (30min cycles)
     }
     if (isWaitingForRecovery) {
         log('Waiting for recovery trigger digit...');
@@ -318,11 +358,53 @@ function handleContractResult(data) {
         lostCountInRow = 0;
         stake = initialAmountPerTrade;
         if (updatedBalance - dayStartCapital >= dayTarget) {
-            log('Day target achieved! Bot will pause until next calendar day.');
-            setTimeout(runTradingLoop, 5*60*1000);
-            return;
+            const nowHour = getColomboHour(new Date());
+            // If before 18:00, take an automated 30-minute pause then resume; repeat until 18:00
+            if (nowHour < 18) {
+                const pauseMs = 30 * 60 * 1000; // 30 minutes
+                const until = Date.now() + pauseMs;
+                // mark auto-pause in state so dashboard shows countdown and we can persist across restarts
+                botState.autoPause = true;
+                botState.autoPauseUntil = until;
+                // reflect as waiting so UI/progress bar can reuse waiting fields
+                botState.waitingUntil = until;
+                botState.waitingTimeLeft = Math.ceil(pauseMs/1000);
+                botState.waitingTotal = Math.ceil(pauseMs/1000);
+                // set status to paused (but note this is an automated pause)
+                botState.status = 'paused';
+                writeBotStateToFile();
+                log('Day target reached. Auto-pausing for 30 minutes (will resume automatically until 18:00).');
+                // schedule a resume check (non-critical; runTradingLoop will also clear when time passes)
+                setTimeout(() => {
+                    readBotStateFromFile();
+                    const now = Date.now();
+                    if (botState.autoPause && botState.autoPauseUntil && botState.autoPauseUntil <= now) {
+                        // clear auto-pause and resume
+                        botState.autoPause = false;
+                        botState.autoPauseUntil = null;
+                        botState.waitingUntil = null;
+                        botState.waitingTimeLeft = 0;
+                        botState.waitingTotal = 0;
+                        // reset day targets so next 10% is relative to new balance
+                        resetDayTargets();
+                        // only auto-resume if the dashboard/user hasn't manually paused
+                        botState.status = 'running';
+                        writeBotStateToFile();
+                        log('Auto-pause ended. Resuming trading.');
+                        runTradingLoop();
+                    }
+                }, pauseMs + 1000);
+                return;
+            } else {
+                // After 18:00, pause the bot for the rest of day
+                log('Day target achieved after 18:00. Bot will pause until next calendar day.');
+                pausedForDay = true;
+                writeBotStateToFile();
+                setTimeout(runTradingLoop, 5*60*1000);
+                return;
+            }
         }
-            countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
+        countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
     } else {
         lostCountInRow++;
         if (lostCountInRow >= 3) {
