@@ -44,6 +44,11 @@ let lastDay = null;
 let resumeHour = 7; // 7:00 AM local time
 let pausedForDay = false;
 
+let botState = {
+    waitingUntil: null,
+    waitingTimeLeft: 0,
+};
+
 function log(msg) {
     const now = new Date();
     const out = `[${now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}] ${msg}`;
@@ -347,6 +352,10 @@ function handleContractResult(data) {
                 countdown(waitSec, 'Next trade in', runTradingLoop);
         }
     }
+}
+
+function writeBotStateToFile() {
+    fs.writeFileSync('bot_state.json', JSON.stringify(botState, null, 2));
 }
 
 // --- Start Bot ---
