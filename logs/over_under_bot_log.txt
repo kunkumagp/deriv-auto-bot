@@ -1619,3 +1619,795 @@
 [2/3/2026, 11:06:13 AM] Trade placed. Contract ID: 305608705908, Price: $0.39
 [2/3/2026, 11:06:15 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $116.62 | Trade time: 2/3/2026, 11:06:15 AM
 [2/3/2026, 11:06:15 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:06:25 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:06:25 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:06:25 AM] Tick history: Prob >2: 77.40%, Last 5: 3,3,2,8,6, Last: 6
+[2/3/2026, 11:06:25 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:06:26 AM] Trade placed. Contract ID: 305608715548, Price: $1.17
+[2/3/2026, 11:06:29 AM] Trade result: LOSS | Profit: $-1.17 | Balance: $115.45 | Trade time: 2/3/2026, 11:06:29 AM
+[2/3/2026, 11:06:29 AM] Trade lost. Changing market to R_50. Next stake: $3.51
+[2/3/2026, 11:06:39 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:06:39 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:06:39 AM] Tick history: Prob >2: 75.50%, Last 5: 7,1,8,6,3, Last: 3
+[2/3/2026, 11:06:39 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:06:40 AM] Trade placed. Contract ID: 305608727328, Price: $3.51
+[2/3/2026, 11:06:43 AM] Trade result: LOSS | Profit: $-3.51 | Balance: $111.94 | Trade time: 2/3/2026, 11:06:43 AM
+[2/3/2026, 11:06:43 AM] Trade lost. Changing market to R_10. Next stake: $10.53
+[2/3/2026, 11:06:53 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:06:53 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:06:53 AM] Tick history: Prob >2: 77.20%, Last 5: 4,2,8,9,6, Last: 6
+[2/3/2026, 11:06:53 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:06:54 AM] Trade placed. Contract ID: 305608738348, Price: $10.53
+[2/3/2026, 11:06:56 AM] Trade result: WIN | Profit: $4.26 | Balance: $116.20 | Trade time: 2/3/2026, 11:06:56 AM
+[2/3/2026, 11:07:06 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:07:06 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:07:06 AM] Tick history: Prob >2: 77.10%, Last 5: 2,4,1,9,1, Last: 1
+[2/3/2026, 11:07:06 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:07:07 AM] Trade placed. Contract ID: 305608749028, Price: $0.39
+[2/3/2026, 11:07:09 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $115.81 | Trade time: 2/3/2026, 11:07:09 AM
+[2/3/2026, 11:07:09 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:07:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:07:19 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:07:19 AM] Tick history: Prob >2: 75.60%, Last 5: 5,7,2,5,1, Last: 1
+[2/3/2026, 11:07:19 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:07:20 AM] Trade placed. Contract ID: 305608759328, Price: $1.17
+[2/3/2026, 11:07:23 AM] Trade result: LOSS | Profit: $-1.17 | Balance: $114.64 | Trade time: 2/3/2026, 11:07:23 AM
+[2/3/2026, 11:07:23 AM] Trade lost. Changing market to R_10. Next stake: $3.51
+[2/3/2026, 11:07:33 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:07:33 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:07:34 AM] Tick history: Prob >2: 77.10%, Last 5: 7,3,8,9,7, Last: 7
+[2/3/2026, 11:07:34 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:07:34 AM] Trade placed. Contract ID: 305608769348, Price: $3.51
+[2/3/2026, 11:07:36 AM] Trade result: LOSS | Profit: $-3.51 | Balance: $111.13 | Trade time: 2/3/2026, 11:07:36 AM
+[2/3/2026, 11:07:36 AM] Trade lost. Changing market to R_50. Next stake: $10.53
+[2/3/2026, 11:07:46 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:07:46 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:07:46 AM] Tick history: Prob >2: 76.00%, Last 5: 6,6,5,5,4, Last: 4
+[2/3/2026, 11:07:46 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:07:47 AM] Trade placed. Contract ID: 305608778248, Price: $10.53
+[2/3/2026, 11:07:49 AM] Trade result: WIN | Profit: $4.26 | Balance: $115.39 | Trade time: 2/3/2026, 11:07:49 AM
+[2/3/2026, 11:07:59 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:07:59 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:07:59 AM] Tick history: Prob >2: 76.00%, Last 5: 3,4,6,5,2, Last: 2
+[2/3/2026, 11:07:59 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:08:00 AM] Trade placed. Contract ID: 305608786788, Price: $0.39
+[2/3/2026, 11:08:03 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $115.00 | Trade time: 2/3/2026, 11:08:03 AM
+[2/3/2026, 11:08:03 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:08:13 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:08:13 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:08:13 AM] Tick history: Prob >2: 76.70%, Last 5: 6,2,9,1,2, Last: 2
+[2/3/2026, 11:08:13 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:08:14 AM] Trade placed. Contract ID: 305608796448, Price: $1.17
+[2/3/2026, 11:08:17 AM] Trade result: WIN | Profit: $0.47 | Balance: $115.47 | Trade time: 2/3/2026, 11:08:17 AM
+[2/3/2026, 11:08:27 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:08:27 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:08:27 AM] Tick history: Prob >2: 76.80%, Last 5: 5,6,6,7,4, Last: 4
+[2/3/2026, 11:08:27 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:08:28 AM] Trade placed. Contract ID: 305608806948, Price: $0.39
+[2/3/2026, 11:08:31 AM] Trade result: WIN | Profit: $0.14 | Balance: $115.61 | Trade time: 2/3/2026, 11:08:31 AM
+[2/3/2026, 11:08:41 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:08:41 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:08:41 AM] Tick history: Prob >2: 77.00%, Last 5: 8,4,6,7,8, Last: 8
+[2/3/2026, 11:08:41 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:08:42 AM] Trade placed. Contract ID: 305608816368, Price: $0.39
+[2/3/2026, 11:08:45 AM] Trade result: WIN | Profit: $0.14 | Balance: $115.75 | Trade time: 2/3/2026, 11:08:45 AM
+[2/3/2026, 11:08:55 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:08:55 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:08:55 AM] Tick history: Prob >2: 76.90%, Last 5: 3,8,1,5,1, Last: 1
+[2/3/2026, 11:08:55 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:08:56 AM] Trade placed. Contract ID: 305608826308, Price: $0.39
+[2/3/2026, 11:08:59 AM] Trade result: WIN | Profit: $0.14 | Balance: $115.89 | Trade time: 2/3/2026, 11:08:59 AM
+[2/3/2026, 11:09:09 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:09:09 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:09:09 AM] Tick history: Prob >2: 77.00%, Last 5: 8,9,6,8,2, Last: 2
+[2/3/2026, 11:09:09 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:09:10 AM] Trade placed. Contract ID: 305608837228, Price: $0.39
+[2/3/2026, 11:09:13 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $115.50 | Trade time: 2/3/2026, 11:09:13 AM
+[2/3/2026, 11:09:13 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:09:23 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:09:23 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:09:24 AM] Tick history: Prob >2: 75.80%, Last 5: 5,7,3,4,9, Last: 9
+[2/3/2026, 11:09:24 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:09:24 AM] Trade placed. Contract ID: 305608847088, Price: $1.17
+[2/3/2026, 11:09:26 AM] Trade result: WIN | Profit: $0.47 | Balance: $115.97 | Trade time: 2/3/2026, 11:09:26 AM
+[2/3/2026, 11:09:36 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:09:36 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:09:36 AM] Tick history: Prob >2: 76.00%, Last 5: 6,1,3,3,4, Last: 4
+[2/3/2026, 11:09:36 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:09:37 AM] Trade placed. Contract ID: 305608855848, Price: $0.39
+[2/3/2026, 11:09:39 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $115.58 | Trade time: 2/3/2026, 11:09:39 AM
+[2/3/2026, 11:09:39 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:09:49 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:09:49 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:09:49 AM] Tick history: Prob >2: 76.80%, Last 5: 6,8,2,6,1, Last: 1
+[2/3/2026, 11:09:49 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:09:50 AM] Trade placed. Contract ID: 305608864608, Price: $1.17
+[2/3/2026, 11:09:53 AM] Trade result: WIN | Profit: $0.47 | Balance: $116.05 | Trade time: 2/3/2026, 11:09:53 AM
+[2/3/2026, 11:10:03 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:10:03 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:10:03 AM] Tick history: Prob >2: 76.80%, Last 5: 1,3,9,7,2, Last: 2
+[2/3/2026, 11:10:03 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:10:04 AM] Trade placed. Contract ID: 305608876048, Price: $0.39
+[2/3/2026, 11:10:07 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.19 | Trade time: 2/3/2026, 11:10:07 AM
+[2/3/2026, 11:10:17 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:10:17 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:10:18 AM] Tick history: Prob >2: 77.00%, Last 5: 4,2,8,7,7, Last: 7
+[2/3/2026, 11:10:18 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:10:19 AM] Trade placed. Contract ID: 305608887728, Price: $0.39
+[2/3/2026, 11:10:20 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.33 | Trade time: 2/3/2026, 11:10:20 AM
+[2/3/2026, 11:10:30 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:10:30 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:10:31 AM] Tick history: Prob >2: 76.90%, Last 5: 1,3,3,6,7, Last: 7
+[2/3/2026, 11:10:31 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:10:31 AM] Trade placed. Contract ID: 305608896588, Price: $0.39
+[2/3/2026, 11:10:33 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.47 | Trade time: 2/3/2026, 11:10:33 AM
+[2/3/2026, 11:10:43 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:10:43 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:10:43 AM] Tick history: Prob >2: 76.90%, Last 5: 2,7,2,3,5, Last: 5
+[2/3/2026, 11:10:43 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:10:44 AM] Trade placed. Contract ID: 305608905788, Price: $0.39
+[2/3/2026, 11:10:47 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.61 | Trade time: 2/3/2026, 11:10:47 AM
+[2/3/2026, 11:10:57 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:10:57 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:10:57 AM] Tick history: Prob >2: 76.60%, Last 5: 1,2,4,2,1, Last: 1
+[2/3/2026, 11:10:57 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:10:58 AM] Trade placed. Contract ID: 305608917308, Price: $0.39
+[2/3/2026, 11:11:01 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $116.22 | Trade time: 2/3/2026, 11:11:01 AM
+[2/3/2026, 11:11:01 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:11:11 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:11:11 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:11:11 AM] Tick history: Prob >2: 75.70%, Last 5: 2,1,3,7,1, Last: 1
+[2/3/2026, 11:11:11 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:11:12 AM] Trade placed. Contract ID: 305608929248, Price: $1.17
+[2/3/2026, 11:11:14 AM] Trade result: WIN | Profit: $0.47 | Balance: $116.69 | Trade time: 2/3/2026, 11:11:14 AM
+[2/3/2026, 11:11:24 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:11:24 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:11:24 AM] Tick history: Prob >2: 75.70%, Last 5: 6,1,9,4,3, Last: 3
+[2/3/2026, 11:11:24 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:11:25 AM] Trade placed. Contract ID: 305608939468, Price: $0.39
+[2/3/2026, 11:11:27 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.83 | Trade time: 2/3/2026, 11:11:27 AM
+[2/3/2026, 11:11:37 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:11:37 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:11:37 AM] Tick history: Prob >2: 75.70%, Last 5: 9,6,5,7,1, Last: 1
+[2/3/2026, 11:11:37 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:11:38 AM] Trade placed. Contract ID: 305608948128, Price: $0.39
+[2/3/2026, 11:11:41 AM] Trade result: WIN | Profit: $0.14 | Balance: $116.97 | Trade time: 2/3/2026, 11:11:41 AM
+[2/3/2026, 11:11:51 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:11:51 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:11:51 AM] Tick history: Prob >2: 75.70%, Last 5: 7,3,4,2,4, Last: 4
+[2/3/2026, 11:11:51 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:11:52 AM] Trade placed. Contract ID: 305608958508, Price: $0.39
+[2/3/2026, 11:11:55 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.11 | Trade time: 2/3/2026, 11:11:55 AM
+[2/3/2026, 11:12:05 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:12:05 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:12:05 AM] Tick history: Prob >2: 76.10%, Last 5: 7,5,4,2,4, Last: 4
+[2/3/2026, 11:12:05 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:12:06 AM] Trade placed. Contract ID: 305608968928, Price: $0.39
+[2/3/2026, 11:12:09 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.25 | Trade time: 2/3/2026, 11:12:09 AM
+[2/3/2026, 11:12:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:12:19 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:12:19 AM] Tick history: Prob >2: 76.10%, Last 5: 5,9,1,1,5, Last: 5
+[2/3/2026, 11:12:19 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:12:20 AM] Trade placed. Contract ID: 305608980068, Price: $0.39
+[2/3/2026, 11:12:23 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.39 | Trade time: 2/3/2026, 11:12:23 AM
+[2/3/2026, 11:12:33 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:12:33 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:12:33 AM] Tick history: Prob >2: 76.00%, Last 5: 4,7,1,4,1, Last: 1
+[2/3/2026, 11:12:33 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:12:34 AM] Trade placed. Contract ID: 305608991228, Price: $0.39
+[2/3/2026, 11:12:37 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.53 | Trade time: 2/3/2026, 11:12:37 AM
+[2/3/2026, 11:12:47 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:12:47 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:12:48 AM] Tick history: Prob >2: 76.30%, Last 5: 3,8,9,3,5, Last: 5
+[2/3/2026, 11:12:48 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:12:48 AM] Trade placed. Contract ID: 305609000868, Price: $0.39
+[2/3/2026, 11:12:50 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.67 | Trade time: 2/3/2026, 11:12:50 AM
+[2/3/2026, 11:13:00 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:13:00 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:13:00 AM] Tick history: Prob >2: 76.30%, Last 5: 7,7,4,1,7, Last: 7
+[2/3/2026, 11:13:00 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:13:01 AM] Trade placed. Contract ID: 305609010308, Price: $0.39
+[2/3/2026, 11:13:03 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $117.28 | Trade time: 2/3/2026, 11:13:03 AM
+[2/3/2026, 11:13:03 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:13:13 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:13:13 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:13:13 AM] Tick history: Prob >2: 77.00%, Last 5: 9,4,7,8,8, Last: 8
+[2/3/2026, 11:13:13 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:13:14 AM] Trade placed. Contract ID: 305609019328, Price: $1.17
+[2/3/2026, 11:13:17 AM] Trade result: WIN | Profit: $0.47 | Balance: $117.75 | Trade time: 2/3/2026, 11:13:17 AM
+[2/3/2026, 11:13:27 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:13:27 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:13:27 AM] Tick history: Prob >2: 77.20%, Last 5: 8,5,9,3,5, Last: 5
+[2/3/2026, 11:13:27 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:13:28 AM] Trade placed. Contract ID: 305609028888, Price: $0.39
+[2/3/2026, 11:13:31 AM] Trade result: WIN | Profit: $0.14 | Balance: $117.89 | Trade time: 2/3/2026, 11:13:31 AM
+[2/3/2026, 11:13:41 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:13:41 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:13:42 AM] Tick history: Prob >2: 77.30%, Last 5: 5,6,5,8,2, Last: 2
+[2/3/2026, 11:13:42 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:13:42 AM] Trade placed. Contract ID: 305609038988, Price: $0.39
+[2/3/2026, 11:13:44 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.03 | Trade time: 2/3/2026, 11:13:44 AM
+[2/3/2026, 11:13:54 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:13:54 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:13:54 AM] Tick history: Prob >2: 77.30%, Last 5: 3,5,5,9,9, Last: 9
+[2/3/2026, 11:13:54 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:13:55 AM] Trade placed. Contract ID: 305609046708, Price: $0.39
+[2/3/2026, 11:13:57 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.17 | Trade time: 2/3/2026, 11:13:57 AM
+[2/3/2026, 11:14:07 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:14:07 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:14:07 AM] Tick history: Prob >2: 77.30%, Last 5: 6,5,2,7,3, Last: 3
+[2/3/2026, 11:14:07 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:14:08 AM] Trade placed. Contract ID: 305609055888, Price: $0.39
+[2/3/2026, 11:14:11 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.31 | Trade time: 2/3/2026, 11:14:11 AM
+[2/3/2026, 11:14:21 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:14:21 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:14:21 AM] Tick history: Prob >2: 77.30%, Last 5: 9,5,3,5,1, Last: 1
+[2/3/2026, 11:14:21 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:14:22 AM] Trade placed. Contract ID: 305609066108, Price: $0.39
+[2/3/2026, 11:14:25 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $117.92 | Trade time: 2/3/2026, 11:14:25 AM
+[2/3/2026, 11:14:25 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:14:35 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:14:35 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:14:35 AM] Tick history: Prob >2: 76.50%, Last 5: 8,2,8,8,2, Last: 2
+[2/3/2026, 11:14:35 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:14:36 AM] Trade placed. Contract ID: 305609076508, Price: $1.17
+[2/3/2026, 11:14:38 AM] Trade result: WIN | Profit: $0.47 | Balance: $118.39 | Trade time: 2/3/2026, 11:14:38 AM
+[2/3/2026, 11:14:48 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:14:48 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:14:48 AM] Tick history: Prob >2: 76.40%, Last 5: 8,1,1,8,8, Last: 8
+[2/3/2026, 11:14:48 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:14:49 AM] Trade placed. Contract ID: 305609085208, Price: $0.39
+[2/3/2026, 11:14:51 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.53 | Trade time: 2/3/2026, 11:14:51 AM
+[2/3/2026, 11:15:01 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:15:01 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:15:01 AM] Tick history: Prob >2: 76.50%, Last 5: 9,6,8,9,9, Last: 9
+[2/3/2026, 11:15:01 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:15:02 AM] Trade placed. Contract ID: 305609095568, Price: $0.39
+[2/3/2026, 11:15:04 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.67 | Trade time: 2/3/2026, 11:15:04 AM
+[2/3/2026, 11:15:14 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:15:14 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:15:14 AM] Tick history: Prob >2: 76.20%, Last 5: 1,2,7,2,3, Last: 3
+[2/3/2026, 11:15:14 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:15:15 AM] Trade placed. Contract ID: 305609103888, Price: $0.39
+[2/3/2026, 11:15:16 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.81 | Trade time: 2/3/2026, 11:15:16 AM
+[2/3/2026, 11:15:26 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:15:26 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:15:27 AM] Tick history: Prob >2: 76.10%, Last 5: 7,1,8,3,9, Last: 9
+[2/3/2026, 11:15:27 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:15:28 AM] Trade placed. Contract ID: 305609112708, Price: $0.39
+[2/3/2026, 11:15:30 AM] Trade result: WIN | Profit: $0.14 | Balance: $118.95 | Trade time: 2/3/2026, 11:15:30 AM
+[2/3/2026, 11:15:40 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:15:40 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:15:41 AM] Tick history: Prob >2: 76.10%, Last 5: 4,9,2,3,9, Last: 9
+[2/3/2026, 11:15:41 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:15:42 AM] Trade placed. Contract ID: 305609122208, Price: $0.39
+[2/3/2026, 11:15:45 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $118.56 | Trade time: 2/3/2026, 11:15:45 AM
+[2/3/2026, 11:15:45 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:15:55 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:15:55 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:15:55 AM] Tick history: Prob >2: 77.60%, Last 5: 8,8,6,2,6, Last: 6
+[2/3/2026, 11:15:55 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:15:56 AM] Trade placed. Contract ID: 305609131868, Price: $1.17
+[2/3/2026, 11:15:59 AM] Trade result: WIN | Profit: $0.47 | Balance: $119.03 | Trade time: 2/3/2026, 11:15:59 AM
+[2/3/2026, 11:16:09 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:16:09 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:16:09 AM] Tick history: Prob >2: 77.60%, Last 5: 9,5,6,4,1, Last: 1
+[2/3/2026, 11:16:09 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:16:10 AM] Trade placed. Contract ID: 305609142588, Price: $0.39
+[2/3/2026, 11:16:13 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $118.64 | Trade time: 2/3/2026, 11:16:13 AM
+[2/3/2026, 11:16:13 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:16:23 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:16:23 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:16:23 AM] Tick history: Prob >2: 76.30%, Last 5: 3,1,3,7,6, Last: 6
+[2/3/2026, 11:16:23 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:16:24 AM] Trade placed. Contract ID: 305609153368, Price: $1.17
+[2/3/2026, 11:16:27 AM] Trade result: WIN | Profit: $0.47 | Balance: $119.11 | Trade time: 2/3/2026, 11:16:27 AM
+[2/3/2026, 11:16:37 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:16:37 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:16:37 AM] Tick history: Prob >2: 76.40%, Last 5: 3,8,3,2,6, Last: 6
+[2/3/2026, 11:16:37 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:16:38 AM] Trade placed. Contract ID: 305609163428, Price: $0.39
+[2/3/2026, 11:16:41 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.25 | Trade time: 2/3/2026, 11:16:41 AM
+[2/3/2026, 11:16:51 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:16:51 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:16:51 AM] Tick history: Prob >2: 76.30%, Last 5: 3,9,4,2,2, Last: 2
+[2/3/2026, 11:16:51 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:16:53 AM] Trade placed. Contract ID: 305609173948, Price: $0.39
+[2/3/2026, 11:16:54 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.39 | Trade time: 2/3/2026, 11:16:54 AM
+[2/3/2026, 11:17:04 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:17:04 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:17:05 AM] Tick history: Prob >2: 76.30%, Last 5: 4,3,9,4,5, Last: 5
+[2/3/2026, 11:17:05 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:17:06 AM] Trade placed. Contract ID: 305609183368, Price: $0.39
+[2/3/2026, 11:17:09 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $119.00 | Trade time: 2/3/2026, 11:17:09 AM
+[2/3/2026, 11:17:09 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:17:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:17:19 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:17:19 AM] Tick history: Prob >2: 78.10%, Last 5: 1,1,7,5,5, Last: 5
+[2/3/2026, 11:17:19 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:17:20 AM] Trade placed. Contract ID: 305609194708, Price: $1.17
+[2/3/2026, 11:17:23 AM] Trade result: WIN | Profit: $0.47 | Balance: $119.47 | Trade time: 2/3/2026, 11:17:23 AM
+[2/3/2026, 11:17:33 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:17:33 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:17:33 AM] Tick history: Prob >2: 78.00%, Last 5: 8,5,1,8,8, Last: 8
+[2/3/2026, 11:17:33 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:17:34 AM] Trade placed. Contract ID: 305609205248, Price: $0.39
+[2/3/2026, 11:17:37 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $119.08 | Trade time: 2/3/2026, 11:17:37 AM
+[2/3/2026, 11:17:37 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:17:47 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:17:47 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:17:47 AM] Tick history: Prob >2: 76.10%, Last 5: 1,4,2,4,8, Last: 8
+[2/3/2026, 11:17:47 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:17:48 AM] Trade placed. Contract ID: 305609215408, Price: $1.17
+[2/3/2026, 11:17:51 AM] Trade result: WIN | Profit: $0.47 | Balance: $119.55 | Trade time: 2/3/2026, 11:17:51 AM
+[2/3/2026, 11:18:01 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:18:01 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:18:01 AM] Tick history: Prob >2: 76.30%, Last 5: 6,8,8,8,9, Last: 9
+[2/3/2026, 11:18:01 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:18:02 AM] Trade placed. Contract ID: 305609225268, Price: $0.39
+[2/3/2026, 11:18:05 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.69 | Trade time: 2/3/2026, 11:18:05 AM
+[2/3/2026, 11:18:15 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:18:15 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:18:15 AM] Tick history: Prob >2: 76.40%, Last 5: 3,5,8,2,1, Last: 1
+[2/3/2026, 11:18:15 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:18:16 AM] Trade placed. Contract ID: 305609235168, Price: $0.39
+[2/3/2026, 11:18:19 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $119.30 | Trade time: 2/3/2026, 11:18:19 AM
+[2/3/2026, 11:18:19 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:18:29 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:18:29 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:18:30 AM] Tick history: Prob >2: 77.80%, Last 5: 5,6,5,8,9, Last: 9
+[2/3/2026, 11:18:30 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:18:30 AM] Trade placed. Contract ID: 305609245368, Price: $1.17
+[2/3/2026, 11:18:33 AM] Trade result: LOSS | Profit: $-1.17 | Balance: $118.13 | Trade time: 2/3/2026, 11:18:33 AM
+[2/3/2026, 11:18:33 AM] Trade lost. Changing market to R_50. Next stake: $3.51
+[2/3/2026, 11:18:43 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:18:43 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:18:44 AM] Tick history: Prob >2: 76.30%, Last 5: 9,8,7,1,7, Last: 7
+[2/3/2026, 11:18:44 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:18:44 AM] Trade placed. Contract ID: 305609255808, Price: $3.51
+[2/3/2026, 11:18:46 AM] Trade result: WIN | Profit: $1.42 | Balance: $119.55 | Trade time: 2/3/2026, 11:18:46 AM
+[2/3/2026, 11:18:56 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:18:56 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:18:56 AM] Tick history: Prob >2: 76.60%, Last 5: 8,9,7,5,6, Last: 6
+[2/3/2026, 11:18:56 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:18:57 AM] Trade placed. Contract ID: 305609265848, Price: $0.39
+[2/3/2026, 11:18:59 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.69 | Trade time: 2/3/2026, 11:18:59 AM
+[2/3/2026, 11:19:09 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:19:09 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:19:09 AM] Tick history: Prob >2: 76.50%, Last 5: 5,2,7,6,9, Last: 9
+[2/3/2026, 11:19:09 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:19:10 AM] Trade placed. Contract ID: 305609277068, Price: $0.39
+[2/3/2026, 11:19:12 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.83 | Trade time: 2/3/2026, 11:19:12 AM
+[2/3/2026, 11:19:22 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:19:22 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:19:22 AM] Tick history: Prob >2: 76.40%, Last 5: 1,9,6,5,1, Last: 1
+[2/3/2026, 11:19:22 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:19:23 AM] Trade placed. Contract ID: 305609287268, Price: $0.39
+[2/3/2026, 11:19:25 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $119.44 | Trade time: 2/3/2026, 11:19:25 AM
+[2/3/2026, 11:19:25 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:19:35 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:19:35 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:19:35 AM] Tick history: Prob >2: 77.60%, Last 5: 4,4,2,5,8, Last: 8
+[2/3/2026, 11:19:35 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:19:36 AM] Trade placed. Contract ID: 305609297028, Price: $1.17
+[2/3/2026, 11:19:38 AM] Trade result: WIN | Profit: $0.47 | Balance: $119.91 | Trade time: 2/3/2026, 11:19:38 AM
+[2/3/2026, 11:19:48 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:19:48 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:19:48 AM] Tick history: Prob >2: 77.70%, Last 5: 2,2,6,3,8, Last: 8
+[2/3/2026, 11:19:48 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:19:50 AM] Trade placed. Contract ID: 305609310428, Price: $0.39
+[2/3/2026, 11:19:53 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $119.52 | Trade time: 2/3/2026, 11:19:53 AM
+[2/3/2026, 11:19:53 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:20:03 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:20:03 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:20:03 AM] Tick history: Prob >2: 76.40%, Last 5: 1,5,9,9,4, Last: 4
+[2/3/2026, 11:20:03 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:20:04 AM] Trade placed. Contract ID: 305609321448, Price: $1.17
+[2/3/2026, 11:20:07 AM] Trade result: LOSS | Profit: $-1.17 | Balance: $118.35 | Trade time: 2/3/2026, 11:20:07 AM
+[2/3/2026, 11:20:07 AM] Trade lost. Changing market to R_10. Next stake: $3.51
+[2/3/2026, 11:20:17 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:20:17 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:20:18 AM] Tick history: Prob >2: 77.60%, Last 5: 4,4,8,2,3, Last: 3
+[2/3/2026, 11:20:18 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:20:18 AM] Trade placed. Contract ID: 305609333328, Price: $3.51
+[2/3/2026, 11:20:20 AM] Trade result: LOSS | Profit: $-3.51 | Balance: $114.84 | Trade time: 2/3/2026, 11:20:20 AM
+[2/3/2026, 11:20:20 AM] Trade lost. Changing market to R_50. Next stake: $10.53
+[2/3/2026, 11:20:30 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:20:30 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:20:30 AM] Tick history: Prob >2: 76.10%, Last 5: 8,8,4,1,1, Last: 1
+[2/3/2026, 11:20:30 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:20:31 AM] Trade placed. Contract ID: 305609342848, Price: $10.53
+[2/3/2026, 11:20:33 AM] Trade result: WIN | Profit: $4.26 | Balance: $119.10 | Trade time: 2/3/2026, 11:20:33 AM
+[2/3/2026, 11:20:43 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:20:43 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:20:43 AM] Tick history: Prob >2: 76.20%, Last 5: 7,8,3,8,8, Last: 8
+[2/3/2026, 11:20:43 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:20:44 AM] Trade placed. Contract ID: 305609352168, Price: $0.39
+[2/3/2026, 11:20:47 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.24 | Trade time: 2/3/2026, 11:20:47 AM
+[2/3/2026, 11:20:57 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:20:57 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:20:57 AM] Tick history: Prob >2: 76.40%, Last 5: 9,7,9,6,8, Last: 8
+[2/3/2026, 11:20:57 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:20:58 AM] Trade placed. Contract ID: 305609362368, Price: $0.39
+[2/3/2026, 11:21:01 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.38 | Trade time: 2/3/2026, 11:21:01 AM
+[2/3/2026, 11:21:11 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:21:11 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:21:11 AM] Tick history: Prob >2: 76.60%, Last 5: 7,5,2,7,3, Last: 3
+[2/3/2026, 11:21:11 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:21:12 AM] Trade placed. Contract ID: 305609373228, Price: $0.39
+[2/3/2026, 11:21:15 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.52 | Trade time: 2/3/2026, 11:21:15 AM
+[2/3/2026, 11:21:25 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:21:25 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:21:25 AM] Tick history: Prob >2: 76.70%, Last 5: 1,2,5,4,7, Last: 7
+[2/3/2026, 11:21:25 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:21:26 AM] Trade placed. Contract ID: 305609384548, Price: $0.39
+[2/3/2026, 11:21:29 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.66 | Trade time: 2/3/2026, 11:21:29 AM
+[2/3/2026, 11:21:39 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:21:39 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:21:40 AM] Tick history: Prob >2: 76.60%, Last 5: 1,8,2,5,2, Last: 2
+[2/3/2026, 11:21:40 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:21:40 AM] Trade placed. Contract ID: 305609397768, Price: $0.39
+[2/3/2026, 11:21:43 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.80 | Trade time: 2/3/2026, 11:21:43 AM
+[2/3/2026, 11:21:53 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:21:53 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:21:54 AM] Tick history: Prob >2: 76.80%, Last 5: 5,7,2,7,7, Last: 7
+[2/3/2026, 11:21:54 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:21:54 AM] Trade placed. Contract ID: 305609409008, Price: $0.39
+[2/3/2026, 11:21:56 AM] Trade result: WIN | Profit: $0.14 | Balance: $119.94 | Trade time: 2/3/2026, 11:21:56 AM
+[2/3/2026, 11:22:06 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:22:06 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:22:06 AM] Tick history: Prob >2: 76.50%, Last 5: 9,3,2,1,1, Last: 1
+[2/3/2026, 11:22:06 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:22:07 AM] Trade placed. Contract ID: 305609419008, Price: $0.39
+[2/3/2026, 11:22:09 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.08 | Trade time: 2/3/2026, 11:22:09 AM
+[2/3/2026, 11:22:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:22:19 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:22:19 AM] Tick history: Prob >2: 76.50%, Last 5: 6,4,5,6,8, Last: 8
+[2/3/2026, 11:22:19 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:22:20 AM] Trade placed. Contract ID: 305609428208, Price: $0.39
+[2/3/2026, 11:22:23 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.22 | Trade time: 2/3/2026, 11:22:23 AM
+[2/3/2026, 11:22:33 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:22:33 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:22:33 AM] Tick history: Prob >2: 76.40%, Last 5: 8,9,8,2,8, Last: 8
+[2/3/2026, 11:22:33 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:22:34 AM] Trade placed. Contract ID: 305609440048, Price: $0.39
+[2/3/2026, 11:22:36 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.36 | Trade time: 2/3/2026, 11:22:36 AM
+[2/3/2026, 11:22:46 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:22:46 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:22:46 AM] Tick history: Prob >2: 76.50%, Last 5: 5,8,3,4,3, Last: 3
+[2/3/2026, 11:22:46 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:22:47 AM] Trade placed. Contract ID: 305609450108, Price: $0.39
+[2/3/2026, 11:22:49 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.50 | Trade time: 2/3/2026, 11:22:49 AM
+[2/3/2026, 11:22:59 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:22:59 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:22:59 AM] Tick history: Prob >2: 76.60%, Last 5: 3,8,2,5,6, Last: 6
+[2/3/2026, 11:22:59 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:23:00 AM] Trade placed. Contract ID: 305609460028, Price: $0.39
+[2/3/2026, 11:23:03 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.64 | Trade time: 2/3/2026, 11:23:03 AM
+[2/3/2026, 11:23:13 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:23:13 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:23:13 AM] Tick history: Prob >2: 76.60%, Last 5: 5,5,3,3,2, Last: 2
+[2/3/2026, 11:23:13 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:23:14 AM] Trade placed. Contract ID: 305609472168, Price: $0.39
+[2/3/2026, 11:23:17 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.78 | Trade time: 2/3/2026, 11:23:17 AM
+[2/3/2026, 11:23:27 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:23:27 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:23:28 AM] Tick history: Prob >2: 76.50%, Last 5: 2,3,6,2,2, Last: 2
+[2/3/2026, 11:23:28 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:23:28 AM] Trade placed. Contract ID: 305609483848, Price: $0.39
+[2/3/2026, 11:23:30 AM] Trade result: WIN | Profit: $0.14 | Balance: $120.92 | Trade time: 2/3/2026, 11:23:30 AM
+[2/3/2026, 11:23:40 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:23:40 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:23:41 AM] Tick history: Prob >2: 76.60%, Last 5: 4,4,1,9,4, Last: 4
+[2/3/2026, 11:23:41 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:23:41 AM] Trade placed. Contract ID: 305609494428, Price: $0.39
+[2/3/2026, 11:23:43 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $120.53 | Trade time: 2/3/2026, 11:23:43 AM
+[2/3/2026, 11:23:43 AM] Trade lost. Changing market to R_10. Next stake: $1.17
+[2/3/2026, 11:23:53 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:23:53 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:23:53 AM] Tick history: Prob >2: 78.30%, Last 5: 7,1,9,4,1, Last: 1
+[2/3/2026, 11:23:53 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:23:54 AM] Trade placed. Contract ID: 305609505788, Price: $1.17
+[2/3/2026, 11:23:57 AM] Trade result: WIN | Profit: $0.47 | Balance: $121.00 | Trade time: 2/3/2026, 11:23:57 AM
+[2/3/2026, 11:24:07 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:24:07 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:24:08 AM] Tick history: Prob >2: 78.70%, Last 5: 5,1,8,9,4, Last: 4
+[2/3/2026, 11:24:08 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:24:08 AM] Trade placed. Contract ID: 305609518528, Price: $0.39
+[2/3/2026, 11:24:10 AM] Trade result: WIN | Profit: $0.14 | Balance: $121.14 | Trade time: 2/3/2026, 11:24:10 AM
+[2/3/2026, 11:24:20 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:24:20 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:24:20 AM] Tick history: Prob >2: 78.70%, Last 5: 4,7,3,1,6, Last: 6
+[2/3/2026, 11:24:20 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:24:21 AM] Trade placed. Contract ID: 305609528668, Price: $0.39
+[2/3/2026, 11:24:22 AM] Trade result: LOSS | Profit: $-0.39 | Balance: $120.75 | Trade time: 2/3/2026, 11:24:22 AM
+[2/3/2026, 11:24:22 AM] Trade lost. Changing market to R_50. Next stake: $1.17
+[2/3/2026, 11:24:32 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:24:32 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:24:33 AM] Tick history: Prob >2: 76.80%, Last 5: 5,4,5,8,4, Last: 4
+[2/3/2026, 11:24:33 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:24:34 AM] Trade placed. Contract ID: 305609538928, Price: $1.17
+[2/3/2026, 11:24:36 AM] Trade result: WIN | Profit: $0.47 | Balance: $121.22 | Trade time: 2/3/2026, 11:24:36 AM
+[2/3/2026, 11:24:46 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:24:46 AM] Day targets set. Start: $110.20, Day target: $11.02, Session target: $2.20
+[2/3/2026, 11:24:47 AM] Tick history: Prob >2: 77.20%, Last 5: 7,7,3,1,7, Last: 7
+[2/3/2026, 11:24:47 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:24:48 AM] Trade placed. Contract ID: 305609549948, Price: $0.39
+[2/3/2026, 11:24:51 AM] Trade result: WIN | Profit: $0.14 | Balance: $121.36 | Trade time: 2/3/2026, 11:24:51 AM
+[2/3/2026, 11:24:51 AM] Day target achieved! Bot will pause until next calendar day.
+[2/3/2026, 11:26:51 AM] WebSocket closed. Reconnecting in 5s...
+[2/3/2026, 11:26:57 AM] WebSocket open. Authorizing...
+[2/3/2026, 11:26:57 AM] Authorized. Fetching balance...
+[2/3/2026, 11:26:58 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:26:58 AM] Balance: $121.36
+[2/3/2026, 11:26:58 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:26:58 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:26:58 AM] Tick history: Prob >2: 77.20%, Last 5: 2,8,6,8,2, Last: 2
+[2/3/2026, 11:26:58 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:26:59 AM] Trade placed. Contract ID: 305609652948, Price: $0.42
+[2/3/2026, 11:27:00 AM] Trade result: WIN | Profit: $0.15 | Balance: $121.51 | Trade time: 2/3/2026, 11:27:00 AM
+[2/3/2026, 11:27:10 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:27:10 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:27:11 AM] Tick history: Prob >2: 77.00%, Last 5: 2,1,5,6,3, Last: 3
+[2/3/2026, 11:27:11 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:27:11 AM] Trade placed. Contract ID: 305609664788, Price: $0.42
+[2/3/2026, 11:27:13 AM] Trade result: WIN | Profit: $0.15 | Balance: $121.66 | Trade time: 2/3/2026, 11:27:13 AM
+[2/3/2026, 11:27:23 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:27:23 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:27:23 AM] Tick history: Prob >2: 77.20%, Last 5: 6,8,5,5,8, Last: 8
+[2/3/2026, 11:27:23 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:27:24 AM] Trade placed. Contract ID: 305609675608, Price: $0.42
+[2/3/2026, 11:27:27 AM] Trade result: WIN | Profit: $0.15 | Balance: $121.81 | Trade time: 2/3/2026, 11:27:27 AM
+[2/3/2026, 11:27:37 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:27:37 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:27:37 AM] Tick history: Prob >2: 77.30%, Last 5: 9,1,5,3,5, Last: 5
+[2/3/2026, 11:27:37 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:27:38 AM] Trade placed. Contract ID: 305609687708, Price: $0.42
+[2/3/2026, 11:27:41 AM] Trade result: WIN | Profit: $0.15 | Balance: $121.96 | Trade time: 2/3/2026, 11:27:41 AM
+[2/3/2026, 11:27:51 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:27:51 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:27:51 AM] Tick history: Prob >2: 77.60%, Last 5: 2,5,5,3,7, Last: 7
+[2/3/2026, 11:27:51 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:27:52 AM] Trade placed. Contract ID: 305609700668, Price: $0.42
+[2/3/2026, 11:27:55 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $121.54 | Trade time: 2/3/2026, 11:27:55 AM
+[2/3/2026, 11:27:55 AM] Trade lost. Changing market to R_10. Next stake: $1.26
+[2/3/2026, 11:28:05 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:28:05 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:28:05 AM] Tick history: Prob >2: 78.20%, Last 5: 6,1,7,6,6, Last: 6
+[2/3/2026, 11:28:05 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:28:06 AM] Trade placed. Contract ID: 305609712148, Price: $1.26
+[2/3/2026, 11:28:09 AM] Trade result: WIN | Profit: $0.51 | Balance: $122.05 | Trade time: 2/3/2026, 11:28:09 AM
+[2/3/2026, 11:28:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:28:19 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:28:19 AM] Tick history: Prob >2: 78.30%, Last 5: 3,4,3,7,3, Last: 3
+[2/3/2026, 11:28:19 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:28:20 AM] Trade placed. Contract ID: 305609723288, Price: $0.42
+[2/3/2026, 11:28:23 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.20 | Trade time: 2/3/2026, 11:28:23 AM
+[2/3/2026, 11:28:33 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:28:33 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:28:34 AM] Tick history: Prob >2: 78.40%, Last 5: 9,7,4,4,9, Last: 9
+[2/3/2026, 11:28:34 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:28:34 AM] Trade placed. Contract ID: 305609735868, Price: $0.42
+[2/3/2026, 11:28:36 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.35 | Trade time: 2/3/2026, 11:28:36 AM
+[2/3/2026, 11:28:46 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:28:46 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:28:46 AM] Tick history: Prob >2: 78.40%, Last 5: 3,1,3,5,1, Last: 1
+[2/3/2026, 11:28:46 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:28:47 AM] Trade placed. Contract ID: 305609745288, Price: $0.42
+[2/3/2026, 11:28:49 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.50 | Trade time: 2/3/2026, 11:28:49 AM
+[2/3/2026, 11:28:59 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:28:59 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:28:59 AM] Tick history: Prob >2: 78.30%, Last 5: 6,1,9,7,4, Last: 4
+[2/3/2026, 11:28:59 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:00 AM] Trade placed. Contract ID: 305609754808, Price: $0.42
+[2/3/2026, 11:29:04 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.65 | Trade time: 2/3/2026, 11:29:04 AM
+[2/3/2026, 11:29:14 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:29:14 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:29:14 AM] Tick history: Prob >2: 78.20%, Last 5: 2,2,7,6,7, Last: 7
+[2/3/2026, 11:29:14 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:15 AM] Trade placed. Contract ID: 305609766368, Price: $0.42
+[2/3/2026, 11:29:16 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.80 | Trade time: 2/3/2026, 11:29:16 AM
+[2/3/2026, 11:29:26 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:29:26 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:29:27 AM] Tick history: Prob >2: 78.20%, Last 5: 9,3,6,8,7, Last: 7
+[2/3/2026, 11:29:27 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:28 AM] Trade placed. Contract ID: 305609775808, Price: $0.42
+[2/3/2026, 11:29:29 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $122.38 | Trade time: 2/3/2026, 11:29:29 AM
+[2/3/2026, 11:29:29 AM] Trade lost. Changing market to R_50. Next stake: $1.26
+[2/3/2026, 11:29:39 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:29:39 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:29:39 AM] Tick history: Prob >2: 78.20%, Last 5: 3,7,7,6,9, Last: 9
+[2/3/2026, 11:29:39 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:40 AM] Trade placed. Contract ID: 305609785028, Price: $1.26
+[2/3/2026, 11:29:43 AM] Trade result: WIN | Profit: $0.51 | Balance: $122.89 | Trade time: 2/3/2026, 11:29:43 AM
+[2/3/2026, 11:29:51 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:29:51 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:29:51 AM] Tick history: Prob >2: 78.40%, Last 5: 7,9,7,8,7, Last: 7
+[2/3/2026, 11:29:51 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:52 AM] Trade placed. Contract ID: 305609794168, Price: $0.42
+[2/3/2026, 11:29:53 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:29:53 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:29:53 AM] Tick history: Prob >2: 78.30%, Last 5: 9,7,8,7,2, Last: 2
+[2/3/2026, 11:29:53 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:29:54 AM] Trade placed. Contract ID: 305609795708, Price: $0.42
+[2/3/2026, 11:29:55 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.04 | Trade time: 2/3/2026, 11:29:55 AM
+[2/3/2026, 11:29:57 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.19 | Trade time: 2/3/2026, 11:29:57 AM
+[2/3/2026, 11:30:05 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:05 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:05 AM] Tick history: Prob >2: 78.30%, Last 5: 6,9,5,9,4, Last: 4
+[2/3/2026, 11:30:05 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:06 AM] Trade placed. Contract ID: 305609806068, Price: $0.42
+[2/3/2026, 11:30:07 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:07 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:07 AM] Tick history: Prob >2: 78.30%, Last 5: 9,5,9,4,7, Last: 7
+[2/3/2026, 11:30:07 AM] Trade already active. Waiting for result before opening a new trade.
+[2/3/2026, 11:30:09 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.34 | Trade time: 2/3/2026, 11:30:09 AM
+[2/3/2026, 11:30:17 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:17 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:18 AM] Tick history: Prob >2: 78.20%, Last 5: 6,7,3,1,8, Last: 8
+[2/3/2026, 11:30:18 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:19 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:19 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:19 AM] Trade placed. Contract ID: 305609816548, Price: $0.42
+[2/3/2026, 11:30:19 AM] Tick history: Prob >2: 78.30%, Last 5: 7,3,1,8,4, Last: 4
+[2/3/2026, 11:30:19 AM] Trade already active. Waiting for result before opening a new trade.
+[2/3/2026, 11:30:20 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.49 | Trade time: 2/3/2026, 11:30:20 AM
+[2/3/2026, 11:30:29 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:29 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:30 AM] Tick history: Prob >2: 78.50%, Last 5: 8,4,7,3,4, Last: 4
+[2/3/2026, 11:30:30 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:30 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:30 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:30 AM] Trade placed. Contract ID: 305609825608, Price: $0.42
+[2/3/2026, 11:30:31 AM] Tick history: Prob >2: 78.50%, Last 5: 4,7,3,4,6, Last: 6
+[2/3/2026, 11:30:31 AM] Trade already active. Waiting for result before opening a new trade.
+[2/3/2026, 11:30:32 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.64 | Trade time: 2/3/2026, 11:30:32 AM
+[2/3/2026, 11:30:41 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:41 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:41 AM] Tick history: Prob >2: 78.70%, Last 5: 4,3,3,8,6, Last: 6
+[2/3/2026, 11:30:41 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:42 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:42 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:42 AM] Trade placed. Contract ID: 305609834088, Price: $0.42
+[2/3/2026, 11:30:42 AM] Tick history: Prob >2: 78.70%, Last 5: 3,3,8,6,5, Last: 5
+[2/3/2026, 11:30:42 AM] Trade already active. Waiting for result before opening a new trade.
+[2/3/2026, 11:30:45 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $123.22 | Trade time: 2/3/2026, 11:30:45 AM
+[2/3/2026, 11:30:45 AM] Trade lost. Changing market to R_10. Next stake: $1.26
+[2/3/2026, 11:30:52 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:52 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:53 AM] Tick history: Prob >2: 77.70%, Last 5: 2,5,1,1,4, Last: 4
+[2/3/2026, 11:30:53 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:54 AM] Trade placed. Contract ID: 305609843808, Price: $1.26
+[2/3/2026, 11:30:55 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:30:55 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:30:55 AM] Tick history: Prob >2: 77.70%, Last 5: 5,1,1,4,1, Last: 1
+[2/3/2026, 11:30:55 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:30:56 AM] Trade placed. Contract ID: 305609845628, Price: $1.26
+[2/3/2026, 11:30:56 AM] Trade result: LOSS | Profit: $-1.26 | Balance: $121.96 | Trade time: 2/3/2026, 11:30:56 AM
+[2/3/2026, 11:30:56 AM] Trade lost. Changing market to R_50. Next stake: $3.78
+[2/3/2026, 11:30:59 AM] Trade result: WIN | Profit: $0.51 | Balance: $122.47 | Trade time: 2/3/2026, 11:30:59 AM
+[2/3/2026, 11:31:06 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:06 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:07 AM] Tick history: Prob >2: 79.20%, Last 5: 5,1,3,7,9, Last: 9
+[2/3/2026, 11:31:07 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:08 AM] Trade placed. Contract ID: 305609856848, Price: $0.42
+[2/3/2026, 11:31:09 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:09 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:09 AM] Tick history: Prob >2: 79.10%, Last 5: 1,3,7,9,2, Last: 2
+[2/3/2026, 11:31:09 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:10 AM] Trade placed. Contract ID: 305609859008, Price: $0.42
+[2/3/2026, 11:31:10 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.62 | Trade time: 2/3/2026, 11:31:10 AM
+[2/3/2026, 11:31:12 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $122.20 | Trade time: 2/3/2026, 11:31:12 AM
+[2/3/2026, 11:31:12 AM] Trade lost. Changing market to R_10. Next stake: $1.26
+[2/3/2026, 11:31:21 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:21 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:21 AM] Tick history: Prob >2: 77.70%, Last 5: 4,9,1,3,9, Last: 9
+[2/3/2026, 11:31:21 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:22 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:22 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:22 AM] Trade placed. Contract ID: 305609868248, Price: $1.26
+[2/3/2026, 11:31:22 AM] Tick history: Prob >2: 77.70%, Last 5: 9,1,3,9,9, Last: 9
+[2/3/2026, 11:31:22 AM] Trade already active. Waiting for result before opening a new trade.
+[2/3/2026, 11:31:25 AM] Trade result: WIN | Profit: $0.51 | Balance: $122.71 | Trade time: 2/3/2026, 11:31:25 AM
+[2/3/2026, 11:31:32 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:32 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:33 AM] Tick history: Prob >2: 77.80%, Last 5: 7,7,4,4,5, Last: 5
+[2/3/2026, 11:31:33 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:34 AM] Trade placed. Contract ID: 305609878068, Price: $0.42
+[2/3/2026, 11:31:35 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:35 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:35 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $122.29 | Trade time: 2/3/2026, 11:31:35 AM
+[2/3/2026, 11:31:35 AM] Trade lost. Changing market to R_50. Next stake: $1.26
+[2/3/2026, 11:31:35 AM] Tick history: Prob >2: 77.80%, Last 5: 7,4,4,5,2, Last: 2
+[2/3/2026, 11:31:35 AM] Consecutive losses and critical digits found. Placing trade.
+[2/3/2026, 11:31:36 AM] Trade placed. Contract ID: 305609879868, Price: $1.26
+[2/3/2026, 11:31:39 AM] Trade result: WIN | Profit: $0.51 | Balance: $122.80 | Trade time: 2/3/2026, 11:31:39 AM
+[2/3/2026, 11:31:45 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:45 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:45 AM] Tick history: Prob >2: 79.20%, Last 5: 4,3,1,8,5, Last: 5
+[2/3/2026, 11:31:45 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:46 AM] Trade placed. Contract ID: 305609888628, Price: $0.42
+[2/3/2026, 11:31:49 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:49 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:49 AM] Trade result: WIN | Profit: $0.15 | Balance: $122.95 | Trade time: 2/3/2026, 11:31:49 AM
+[2/3/2026, 11:31:49 AM] Tick history: Prob >2: 79.40%, Last 5: 1,8,5,4,6, Last: 6
+[2/3/2026, 11:31:49 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:31:50 AM] Trade placed. Contract ID: 305609891368, Price: $0.42
+[2/3/2026, 11:31:53 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.10 | Trade time: 2/3/2026, 11:31:53 AM
+[2/3/2026, 11:31:59 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:31:59 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:31:59 AM] Tick history: Prob >2: 79.10%, Last 5: 7,6,2,2,2, Last: 2
+[2/3/2026, 11:31:59 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:00 AM] Trade placed. Contract ID: 305609900668, Price: $0.42
+[2/3/2026, 11:32:03 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:03 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:03 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.25 | Trade time: 2/3/2026, 11:32:03 AM
+[2/3/2026, 11:32:03 AM] Tick history: Prob >2: 79.00%, Last 5: 2,2,2,2,4, Last: 4
+[2/3/2026, 11:32:03 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:04 AM] Trade placed. Contract ID: 305609903708, Price: $0.42
+[2/3/2026, 11:32:07 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.40 | Trade time: 2/3/2026, 11:32:07 AM
+[2/3/2026, 11:32:13 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:13 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:13 AM] Tick history: Prob >2: 79.10%, Last 5: 6,6,1,6,9, Last: 9
+[2/3/2026, 11:32:13 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:14 AM] Trade placed. Contract ID: 305609912028, Price: $0.42
+[2/3/2026, 11:32:17 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:17 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:17 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.55 | Trade time: 2/3/2026, 11:32:17 AM
+[2/3/2026, 11:32:17 AM] Tick history: Prob >2: 79.10%, Last 5: 1,6,9,1,7, Last: 7
+[2/3/2026, 11:32:17 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:18 AM] Trade placed. Contract ID: 305609915008, Price: $0.42
+[2/3/2026, 11:32:21 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $123.13 | Trade time: 2/3/2026, 11:32:21 AM
+[2/3/2026, 11:32:21 AM] Trade lost. Changing market to R_10. Next stake: $1.26
+[2/3/2026, 11:32:27 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:27 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:28 AM] Tick history: Prob >2: 78.00%, Last 5: 7,6,4,7,2, Last: 2
+[2/3/2026, 11:32:28 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:28 AM] Trade placed. Contract ID: 305609923908, Price: $1.26
+[2/3/2026, 11:32:30 AM] Trade result: WIN | Profit: $0.51 | Balance: $123.64 | Trade time: 2/3/2026, 11:32:30 AM
+[2/3/2026, 11:32:31 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:31 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:31 AM] Tick history: Prob >2: 78.00%, Last 5: 4,7,2,2,3, Last: 3
+[2/3/2026, 11:32:31 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:32 AM] Trade placed. Contract ID: 305609926428, Price: $0.42
+[2/3/2026, 11:32:35 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.79 | Trade time: 2/3/2026, 11:32:35 AM
+[2/3/2026, 11:32:40 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:40 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:40 AM] Tick history: Prob >2: 78.10%, Last 5: 2,6,4,4,8, Last: 8
+[2/3/2026, 11:32:40 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:41 AM] Trade placed. Contract ID: 305609933828, Price: $0.42
+[2/3/2026, 11:32:42 AM] Trade result: WIN | Profit: $0.15 | Balance: $123.94 | Trade time: 2/3/2026, 11:32:42 AM
+[2/3/2026, 11:32:45 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:45 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:45 AM] Tick history: Prob >2: 78.00%, Last 5: 4,4,8,9,2, Last: 2
+[2/3/2026, 11:32:45 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:46 AM] Trade placed. Contract ID: 305609937828, Price: $0.42
+[2/3/2026, 11:32:49 AM] Trade result: WIN | Profit: $0.15 | Balance: $124.09 | Trade time: 2/3/2026, 11:32:49 AM
+[2/3/2026, 11:32:52 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:52 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:53 AM] Tick history: Prob >2: 77.90%, Last 5: 2,1,9,2,9, Last: 9
+[2/3/2026, 11:32:53 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:32:54 AM] Trade placed. Contract ID: 305609944088, Price: $0.42
+[2/3/2026, 11:32:56 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $123.67 | Trade time: 2/3/2026, 11:32:56 AM
+[2/3/2026, 11:32:56 AM] Trade lost. Changing market to R_50. Next stake: $1.26
+[2/3/2026, 11:32:59 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:32:59 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:32:59 AM] Tick history: Prob >2: 79.40%, Last 5: 3,6,8,5,3, Last: 3
+[2/3/2026, 11:32:59 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:33:00 AM] Trade placed. Contract ID: 305609949668, Price: $1.26
+[2/3/2026, 11:33:03 AM] Trade result: WIN | Profit: $0.51 | Balance: $124.18 | Trade time: 2/3/2026, 11:33:03 AM
+[2/3/2026, 11:33:06 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:33:06 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:33:07 AM] Tick history: Prob >2: 79.30%, Last 5: 3,5,5,1,6, Last: 6
+[2/3/2026, 11:33:07 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:33:08 AM] Trade placed. Contract ID: 305609956268, Price: $0.42
+[2/3/2026, 11:33:11 AM] Trade result: WIN | Profit: $0.15 | Balance: $124.33 | Trade time: 2/3/2026, 11:33:11 AM
+[2/3/2026, 11:33:13 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:33:13 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:33:21 AM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 11:33:21 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
+[2/3/2026, 11:33:21 AM] Tick history: Prob >2: 79.30%, Last 5: 9,8,9,1,4, Last: 4
+[2/3/2026, 11:33:21 AM] Condition met. Placing Over 2 trade.
+[2/3/2026, 11:33:22 AM] Trade placed. Contract ID: 305609967728, Price: $0.42
+[2/3/2026, 11:33:25 AM] Trade result: LOSS | Profit: $-0.42 | Balance: $124.06 | Trade time: 2/3/2026, 11:33:25 AM
+[2/3/2026, 11:33:25 AM] Trade lost. Changing market to R_10. Next stake: $1.26
