@@ -1,0 +1,17 @@
+{
+  "status": "running",
+  "waitingUntil": null,
+  "waitingTimeLeft": 0,
+  "waitingTotal": 0,
+  "capital": 110.2,
+  "stage": "trading",
+  "stake": 0.39,
+  "dayTarget": 11.006,
+  "sessionTarget": 2.2012,
+  "currentProfit": 0.14,
+  "currentLoss": 0,
+  "lostCountInRow": 0,
+  "tradeActive": false,
+  "market": "R_10",
+  "pausedForDay": true
+}
