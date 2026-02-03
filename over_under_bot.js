@@ -10,6 +10,7 @@ function getColomboHour(date = new Date()) {
 require('dotenv').config();
 const WebSocket = require('ws');
 const fs = require('fs');
+const path = require('path');
 
 // --- CONFIG ---
 const ACCOUNT_TOKEN = process.env.ACCOUNT_TOKEN || '';
@@ -48,7 +49,16 @@ function log(msg) {
     const now = new Date();
     const out = `[${now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' })}] ${msg}`;
     console.log(out);
-    fs.appendFileSync(logFile, out + '\n');
+    try {
+        const dir = path.dirname(logFile);
+        if (dir && dir !== '.' && !fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        fs.appendFileSync(logFile, out + '\n');
+    } catch (err) {
+        // Fallback: still print to console; avoid crashing on ENOENT
+        console.error('Log write failed:', err.message);
+    }
 }
 
 function getRandomMarket(current) {
