@@ -77,7 +77,7 @@ function calcStake(status, lastLossAmount) {
 
 function resetDayTargets() {
     dayStartCapital = capital;
-    dayTarget = dayStartCapital * 0.10; // Always 10% of starting capital
+    dayTarget = dayStartCapital * (DAY_TARGET_PERCENT/100); // Always 10% of starting capital
     sessionTarget = dayStartCapital * (SESSION_TARGET_PERCENT/100);
     currentProfit = 0;
     currentLoss = 0;
