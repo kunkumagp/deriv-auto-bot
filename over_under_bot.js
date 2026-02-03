@@ -11,6 +11,42 @@ require('dotenv').config();
 const WebSocket = require('ws');
 const fs = require('fs');
 
+// --- IPC state file ---
+const BOT_STATE_FILE = 'bot_state.json';
+
+// Minimal botState used by dashboard/server and bot
+let botState = {
+    status: 'paused', // 'running' or 'paused'
+    waitingUntil: null,
+    waitingTimeLeft: 0,
+    waitingTotal: 0
+};
+
+function writeBotStateToFile() {
+    try {
+        fs.writeFileSync(BOT_STATE_FILE, JSON.stringify(botState, null, 2));
+    } catch (err) {
+        log('Failed to write bot state: ' + (err && err.message));
+    }
+}
+
+function readBotStateFromFile() {
+    try {
+        if (fs.existsSync(BOT_STATE_FILE)) {
+            const raw = fs.readFileSync(BOT_STATE_FILE, 'utf8');
+            const parsed = JSON.parse(raw);
+            botState = Object.assign(botState, parsed || {});
+        } else {
+            writeBotStateToFile();
+        }
+    } catch (err) {
+        log('Failed to read bot state: ' + (err && err.message));
+    }
+}
+
+// Ensure we have latest state on start
+readBotStateFromFile();
+
 // --- CONFIG ---
 const ACCOUNT_TOKEN = process.env.ACCOUNT_TOKEN || '';
 const INITIAL_STAKE_PERCENT = parseFloat(process.env.INITIAL_STAKE_PERCENT) || 0.35; // % of balance
@@ -145,11 +181,18 @@ function handleMessage(msg) {
 }
 
 function runTradingLoop() {
+    // refresh state from disk (dashboard control)
+    readBotStateFromFile();
+    if (botState.status === 'paused') {
+        log('Bot paused by dashboard. Sleeping...');
+        setTimeout(runTradingLoop, 2000);
+        return;
+    }
     // If waiting, update botState.waitingUntil for dashboard progress bar
     if (botState.waitingUntil && Date.now() < botState.waitingUntil) {
         botState.waitingTimeLeft = Math.ceil((botState.waitingUntil - Date.now()) / 1000);
-        // Console progress bar
-        const total = Math.ceil((botState.waitingUntil - (botState.waitingUntil - botState.waitingTimeLeft * 1000)) / 1000);
+        // Use waitingTotal when available for progress calculations
+        const total = botState.waitingTotal && botState.waitingTotal > 0 ? botState.waitingTotal : Math.ceil((botState.waitingUntil - (botState.waitingUntil - botState.waitingTimeLeft * 1000)) / 1000);
         const elapsed = total - botState.waitingTimeLeft;
         const barLength = 30;
         const filled = Math.round((elapsed / total) * barLength);
@@ -342,9 +385,10 @@ function handleContractResult(data) {
             const waitSec = Math.floor(Math.random() * (120 - 30 + 1)) + 30;
             botState.waitingUntil = Date.now() + waitSec * 1000;
             botState.waitingTimeLeft = waitSec;
+            botState.waitingTotal = waitSec;
             log(`Trade lost. Waiting ${waitSec}s before next trade. Changing market to ${market}. Next stake: $${stake}`);
             writeBotStateToFile();
-                countdown(waitSec, 'Next trade in', runTradingLoop);
+            countdown(waitSec, 'Next trade in', runTradingLoop);
         }
     }
 }

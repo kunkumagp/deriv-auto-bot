@@ -1,6 +1,8 @@
 {
-  "capital": 110.2,
   "status": "running",
+  "waitingUntil": 1770101780843,
+  "waitingTimeLeft": 106,
+  "capital": 110.2,
   "stage": "trading",
   "stake": 0.39,
   "dayTarget": 11.006,

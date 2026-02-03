@@ -269,3 +269,29 @@ pm2 delete autobot
 ---
 
 http://deriv-auto-bot:3000
+
+---
+
+## Dashboard (Web control)
+
+This repo includes a simple dashboard to start/pause the bot via a web page.
+
+1. Install additional dependencies (Express):
+
+```sh
+npm install express body-parser
+```
+
+2. Start the dashboard server:
+
+```sh
+node server.js
+```
+
+3. Open the dashboard in your browser:
+
+```
+http://localhost:3001/
+```
+
+Use the Start/Pause button to change the bot state. The bot reads `bot_state.json` and will pause/resume accordingly.

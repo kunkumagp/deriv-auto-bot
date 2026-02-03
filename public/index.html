@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bot Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #status { font-weight: bold; margin-bottom: 10px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Trading Bot Dashboard</h2>
+  <div id="status">Loading...</div>
+  <button id="toggle">Start</button>
+  <button id="launch">Launch Bot Process</button>
+  <button id="kill">Stop Bot Process</button>
+  <div id="progressWrap" style="margin-top:12px; width:100%; max-width:600px;">
+    <div id="progress" style="background:#eee; height:18px; border-radius:6px; overflow:hidden;">
+      <div id="progressBar" style="height:100%; width:0%; background:linear-gradient(90deg,#4caf50,#8bc34a);"></div>
+    </div>
+  </div>
+  <script>
+    async function getStatus() {
+      const r = await fetch('/api/status');
+      return r.json();
+    }
+    async function setStatus(s) {
+      const r = await fetch('/api/control', {
+        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ status: s })
+      });
+      return r.json();
+    }
+    const statusEl = document.getElementById('status');
+    const btn = document.getElementById('toggle');
+    const launchBtn = document.getElementById('launch');
+    const killBtn = document.getElementById('kill');
+
+    async function getProcess() {
+      const r = await fetch('/api/process');
+      return r.json();
+    }
+
+    async function launchBot() { return fetch('/api/launch', { method: 'POST' }).then(r=>r.json()); }
+    async function killBot() { return fetch('/api/terminate', { method: 'POST' }).then(r=>r.json()); }
+
+    let localWaitInterval = null;
+    let localRemaining = 0;
+
+    function startLocalCountdown(secs, totalSecs) {
+      if (localWaitInterval) clearInterval(localWaitInterval);
+      localRemaining = secs;
+      const total = totalSecs && totalSecs > 0 ? totalSecs : secs;
+      const barEl = document.getElementById('progressBar');
+      // initialize
+      if (barEl) barEl.style.width = `${Math.round(((total - localRemaining) / total) * 100)}%`;
+      localWaitInterval = setInterval(() => {
+        if (localRemaining > 0) {
+          localRemaining--;
+          // update text
+          statusEl.textContent = statusEl.textContent.replace(/Waiting: \d+s/, `Waiting: ${localRemaining}s`);
+          // update bar
+          if (barEl) barEl.style.width = `${Math.round(((total - localRemaining) / total) * 100)}%`;
+        } else {
+          clearInterval(localWaitInterval);
+          localWaitInterval = null;
+          if (barEl) barEl.style.width = '0%';
+        }
+      }, 1000);
+    }
+
+    async function refresh() {
+      try {
+        const st = await getStatus();
+        const proc = await getProcess();
+        statusEl.textContent = 'Status: ' + st.status + (st.waitingTimeLeft ? (' | Waiting: ' + st.waitingTimeLeft + 's') : '') + (proc.running ? (' | Bot PID: ' + proc.pid) : ' | Bot process not running');
+        btn.textContent = st.status === 'running' ? 'Pause' : 'Start';
+        launchBtn.disabled = proc.running;
+        killBtn.disabled = !proc.running;
+        // start a client-side countdown and progress bar for a smoother display
+        if (st.waitingTimeLeft && st.waitingTimeLeft > 0) {
+          const total = st.waitingTotal && st.waitingTotal > 0 ? st.waitingTotal : st.waitingTimeLeft;
+          startLocalCountdown(st.waitingTimeLeft, total);
+        } else if (localWaitInterval) {
+          clearInterval(localWaitInterval);
+          localWaitInterval = null;
+          const barEl = document.getElementById('progressBar'); if (barEl) barEl.style.width = '0%';
+        }
+      } catch (e) { statusEl.textContent = 'Error fetching status'; }
+    }
+
+    btn.addEventListener('click', async () => {
+      const cur = (await getStatus()).status;
+      const next = cur === 'running' ? 'paused' : 'running';
+      await setStatus(next);
+      setTimeout(refresh, 200);
+    });
+
+    launchBtn.addEventListener('click', async () => { await launchBot(); setTimeout(refresh, 500); });
+    killBtn.addEventListener('click', async () => { await killBot(); setTimeout(refresh, 500); });
+
+    refresh();
+    setInterval(refresh, 2000);
+  </script>
+</body>
+</html>

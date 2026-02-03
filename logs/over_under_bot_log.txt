@@ -3700,3 +3700,15 @@
 [2/3/2026, 11:57:37 AM] New day and after 7:00 AM. Resetting day targets.
 [2/3/2026, 11:57:37 AM] Day targets set. Start: $121.36, Day target: $12.14, Session target: $2.43
 [2/3/2026, 11:57:37 AM] Day target reached! Bot will pause until 7:00 AM next day.
+[2/3/2026, 12:24:30 PM] WebSocket open. Authorizing...
+[2/3/2026, 12:24:31 PM] Authorized. Fetching balance...
+[2/3/2026, 12:24:31 PM] Day targets set. Start: $133.51, Day target: $13.35, Session target: $2.67
+[2/3/2026, 12:24:31 PM] Balance: $133.51
+[2/3/2026, 12:24:31 PM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 12:24:31 PM] Day targets set. Start: $133.51, Day target: $13.35, Session target: $2.67
+[2/3/2026, 12:24:32 PM] Tick history: Prob >2: 77.20%, Last 5: 9,2,2,2,8, Last: 8
+[2/3/2026, 12:24:32 PM] Condition met. Placing Over 2 trade.
+[2/3/2026, 12:24:33 PM] Trade placed. Contract ID: 305612560788, Price: $0.47
+[2/3/2026, 12:24:34 PM] Trade result: LOSS | Profit: $-0.47 | Balance: $133.04 | Trade time: 2/3/2026, 12:24:34 PM
+[2/3/2026, 12:24:34 PM] Trade lost. Waiting 106s before next trade. Changing market to R_50. Next stake: $1.41
+[2/3/2026, 12:38:27 PM] WebSocket open. Authorizing...
