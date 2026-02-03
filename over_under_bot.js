@@ -193,6 +193,12 @@ function processTickHistory(data) {
     const lastDigits = digits.slice(-5);
     const lastDigit = digits[digits.length-1];
     log(`Tick history: Prob >${DIGIT}: ${probability.toFixed(2)}%, Last 5: ${lastDigits.join(',')}, Last: ${lastDigit}`);
+    // If there is outstanding loss, enforce recovery-only mode
+    if (currentLoss < 0 && !isWaitingForRecovery) {
+        isWaitingForRecovery = true;
+        recoveryStake = calcStake('Recovery', currentLoss);
+        log(`Outstanding loss $${Math.abs(currentLoss).toFixed(2)}. Switching to recovery-only mode.`);
+    }
     if (tradeActive) {
         log('Trade already active. Waiting for result before opening a new trade.');
         setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
@@ -209,23 +215,11 @@ function processTickHistory(data) {
         }
         return;
     }
+    // Normal trading only when not in recovery mode
     if (probability >= 70) {
-        if (lostCountInRow >= 1) {
-            const criticalDigits = RECOVERY_TRIGGER_DIGITS;
-            const count = lastDigits.filter(d => criticalDigits.includes(d)).length;
-            if (count >= 1) {
-                log('Consecutive losses and critical digits found. Placing trade.');
-                tradeActive = true;
-                placeTrade(stake);
-            } else {
-                log('Waiting for better digits after loss.');
-                setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
-            }
-        } else {
-            log('Condition met. Placing Over 2 trade.');
-            tradeActive = true;
-            placeTrade(stake);
-        }
+        log('Condition met. Placing Over 2 trade.');
+        tradeActive = true;
+        placeTrade(stake);
     } else {
         log('Skipped trade. Probability too low.');
         setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
@@ -289,7 +283,18 @@ function handleContractResult(data) {
     const tradeTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Colombo' });
     log(`Trade result: ${profit > 0 ? 'WIN' : 'LOSS'} | Profit: $${profit.toFixed(2)} | Balance: $${updatedBalance.toFixed(2)} | Trade time: ${tradeTime}`);
     if (profit > 0) {
+        // On wins, check if recovery completed
         lostCountInRow = 0;
+        if (currentLoss < 0) {
+            // Still not fully recovered; stay in recovery-only mode
+            isWaitingForRecovery = true;
+            recoveryStake = calcStake('Recovery', currentLoss);
+            log('Win recorded, but cumulative loss not fully recovered. Continuing recovery-only mode.');
+            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+            return;
+        }
+        // Recovery complete; resume normal trading
+        isWaitingForRecovery = false;
         stake = initialAmountPerTrade;
         if (updatedBalance - dayStartCapital >= dayTarget) {
             log('Day target achieved! Bot will pause until next calendar day.');
@@ -298,23 +303,12 @@ function handleContractResult(data) {
         }
         setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
     } else {
+        // Any loss triggers recovery-only mode until cumulative loss is recouped
         lostCountInRow++;
-        if (lostCountInRow >= 3) {
-            recoveryStake = calcStake('Recovery', currentLoss);
-            isWaitingForRecovery = true;
-            log('3 consecutive losses. Entering recovery mode.');
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
-        } else if (lostCountInRow >= 2) {
-            recoveryStake = calcStake('Recovery', currentLoss);
-            isWaitingForRecovery = true;
-            log('2 consecutive losses. Entering recovery monitoring.');
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
-        } else {
-            stake = calcStake('Loss');
-            market = getRandomMarket(market);
-            log(`Trade lost. Changing market to ${market}. Next stake: $${stake}`);
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
-        }
+        isWaitingForRecovery = true;
+        recoveryStake = calcStake('Recovery', currentLoss);
+        log('Loss recorded. Entering recovery-only mode until total loss is recovered.');
+        setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
     }
 }
 
