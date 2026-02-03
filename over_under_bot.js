@@ -1,3 +1,4 @@
+let tradeActive = false; // Track if a trade is currently open
 // Always get hour in Sri Lanka time
 function getColomboHour(date = new Date()) {
     return Number(date.toLocaleString('en-US', { hour: '2-digit', hour12: false, timeZone: 'Asia/Colombo' }));
@@ -66,7 +67,7 @@ function calcStake(status, lastLossAmount) {
 
 function resetDayTargets() {
     dayStartCapital = capital;
-    dayTarget = dayStartCapital * (DAY_TARGET_PERCENT/100);
+    dayTarget = dayStartCapital * 0.10; // Always 10% of starting capital
     sessionTarget = dayStartCapital * (SESSION_TARGET_PERCENT/100);
     currentProfit = 0;
     currentLoss = 0;
@@ -129,6 +130,12 @@ function runTradingLoop() {
     const now = new Date();
     const nowDay = now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }).slice(0,10);
     const nowHour = getColomboHour(now);
+    // Auto-reset targets at 7:00 AM and 3:00 PM Sri Lanka time
+    if ((nowHour === 7 || nowHour === 15) && (!pausedForDay || nowDay !== lastDay)) {
+        log(`Auto-reset: Starting new session at ${nowHour}:00 Sri Lanka time.`);
+        pausedForDay = false;
+        resetDayTargets();
+    }
     if (pausedForDay) {
         // Only resume at 7:00 AM Sri Lanka time
         if (nowHour >= resumeHour && nowDay !== lastDay) {
@@ -176,10 +183,16 @@ function processTickHistory(data) {
     const lastDigits = digits.slice(-5);
     const lastDigit = digits[digits.length-1];
     log(`Tick history: Prob >${DIGIT}: ${probability.toFixed(2)}%, Last 5: ${lastDigits.join(',')}, Last: ${lastDigit}`);
+    if (tradeActive) {
+        log('Trade already active. Waiting for result before opening a new trade.');
+        setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+        return;
+    }
     if (isWaitingForRecovery) {
         if (RECOVERY_TRIGGER_DIGITS.includes(lastDigit)) {
             log(`Recovery trigger digit ${lastDigit} found. Placing recovery trade with stake $${recoveryStake}`);
             isWaitingForRecovery = false;
+            tradeActive = true;
             placeTrade(recoveryStake);
         } else {
             setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
@@ -192,6 +205,7 @@ function processTickHistory(data) {
             const count = lastDigits.filter(d => criticalDigits.includes(d)).length;
             if (count >= 1) {
                 log('Consecutive losses and critical digits found. Placing trade.');
+                tradeActive = true;
                 placeTrade(stake);
             } else {
                 log('Waiting for better digits after loss.');
@@ -199,6 +213,7 @@ function processTickHistory(data) {
             }
         } else {
             log('Condition met. Placing Over 2 trade.');
+            tradeActive = true;
             placeTrade(stake);
         }
     } else {
@@ -249,6 +264,7 @@ function handleBuy(data) {
 
 function handleContractResult(data) {
     const contract = data.proposal_open_contract;
+    tradeActive = false; // Mark trade as closed
     if (!contract || contract.is_expired !== 1) {
         setTimeout(() => {
             ws.send(JSON.stringify({ proposal_open_contract: 1, contract_id: contract.contract_id }));
