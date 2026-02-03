@@ -127,6 +127,24 @@ function handleMessage(msg) {
 }
 
 function runTradingLoop() {
+    // If waiting, update botState.waitingUntil for dashboard progress bar
+    if (botState.waitingUntil && Date.now() < botState.waitingUntil) {
+        botState.waitingTimeLeft = Math.ceil((botState.waitingUntil - Date.now()) / 1000);
+        // Console progress bar
+        const total = Math.ceil((botState.waitingUntil - (botState.waitingUntil - botState.waitingTimeLeft * 1000)) / 1000);
+        const elapsed = total - botState.waitingTimeLeft;
+        const barLength = 30;
+        const filled = Math.round((elapsed / total) * barLength);
+        const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + ']';
+        process.stdout.write(`\rWaiting ${botState.waitingTimeLeft}s ${bar}`);
+        if (botState.waitingTimeLeft === 0) process.stdout.write('\n');
+        writeBotStateToFile();
+        setTimeout(runTradingLoop, 1000);
+        return;
+    } else {
+        botState.waitingUntil = null;
+        botState.waitingTimeLeft = 0;
+    }
     const now = new Date();
     const nowDay = now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }).slice(0,10);
     const nowHour = getColomboHour(now);
@@ -302,8 +320,13 @@ function handleContractResult(data) {
         } else {
             stake = calcStake('Loss');
             market = getRandomMarket(market);
-            log(`Trade lost. Changing market to ${market}. Next stake: $${stake}`);
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+            // Random wait 30-120s after a loss
+            const waitSec = Math.floor(Math.random() * (120 - 30 + 1)) + 30;
+            botState.waitingUntil = Date.now() + waitSec * 1000;
+            botState.waitingTimeLeft = waitSec;
+            log(`Trade lost. Waiting ${waitSec}s before next trade. Changing market to ${market}. Next stake: $${stake}`);
+            writeBotStateToFile();
+            setTimeout(runTradingLoop, 1000);
         }
     }
 }
