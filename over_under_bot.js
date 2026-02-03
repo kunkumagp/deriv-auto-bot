@@ -38,7 +38,7 @@ let recoveryStake = 0;
 let isWaitingForRecovery = false;
 let ws = null;
 let market = MARKET_LIST[0];
-let logFile = 'logs/over_under_bot_log.txt';
+let logFile = 'over_under_bot_log.txt';
 // --- Persistent day tracking ---
 let lastDay = null;
 let resumeHour = 7; // 7:00 AM local time
