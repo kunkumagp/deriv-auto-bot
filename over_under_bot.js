@@ -90,24 +90,24 @@ function connectWebSocket() {
         log('WebSocket open. Authorizing...');
         ws.send(JSON.stringify({ authorize: ACCOUNT_TOKEN }));
     });
-        // --- Countdown utility ---
-        function countdown(seconds, message, cb) {
-            let remaining = seconds;
-            const barLength = 30;
-            function tick() {
-                const filled = Math.round(((seconds - remaining) / seconds) * barLength);
-                const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + ']';
-                process.stdout.write(`\r${message} ${remaining}s ${bar}`);
-                if (remaining <= 0) {
-                    process.stdout.write('\n');
-                    if (cb) cb();
-                    return;
-                }
-                remaining--;
-                setTimeout(tick, 1000);
+    // --- Countdown utility ---
+    function countdown(seconds, message, cb) {
+        let remaining = seconds;
+        const barLength = 30;
+        function tick() {
+            const filled = Math.round(((seconds - remaining) / seconds) * barLength);
+            const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + ']';
+            process.stdout.write(`\r${message} ${remaining}s ${bar}`);
+            if (remaining <= 0) {
+                process.stdout.write('\n');
+                if (cb) cb();
+                return;
             }
-            tick();
+            remaining--;
+            setTimeout(tick, 1000);
         }
+        tick();
+    }
     ws.on('message', handleMessage);
     ws.on('close', () => {
         log('WebSocket closed. Reconnecting in 5s...');
@@ -324,39 +324,31 @@ function handleContractResult(data) {
         stake = initialAmountPerTrade;
         if (updatedBalance - dayStartCapital >= dayTarget) {
             log('Day target achieved! Bot will pause until next calendar day.');
-            setTimeout(runTradingLoop, 5*60*1000);
+            setTimeout(runTradingLoop, 5 * 60 * 1000);
             return;
         }
-            countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
+        countdown(Math.floor(TRADE_INTERVAL_MS / 1000), 'Next trade in', runTradingLoop);
     } else {
         lostCountInRow++;
         if (lostCountInRow >= 3) {
             recoveryStake = calcStake('Recovery', currentLoss);
             isWaitingForRecovery = true;
             log('3 consecutive losses. Entering recovery mode.');
-                countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next recovery check in', runTradingLoop);
+            countdown(Math.floor(TRADE_INTERVAL_MS / 1000), 'Next recovery check in', runTradingLoop);
         } else if (lostCountInRow >= 2) {
             recoveryStake = calcStake('Recovery', currentLoss);
             isWaitingForRecovery = true;
             log('2 consecutive losses. Entering recovery monitoring.');
-                countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next recovery check in', runTradingLoop);
+            countdown(Math.floor(TRADE_INTERVAL_MS / 1000), 'Next recovery check in', runTradingLoop);
         } else {
             stake = calcStake('Loss');
             market = getRandomMarket(market);
-            // Random wait 30-120s after a loss
             const waitSec = Math.floor(Math.random() * (120 - 30 + 1)) + 30;
             botState.waitingUntil = Date.now() + waitSec * 1000;
             botState.waitingTimeLeft = waitSec;
             log(`Trade lost. Waiting ${waitSec}s before next trade. Changing market to ${market}. Next stake: $${stake}`);
             writeBotStateToFile();
-                countdown(waitSec, 'Next trade in', runTradingLoop);
+            countdown(waitSec, 'Next trade in', runTradingLoop);
         }
     }
 }
-
-function writeBotStateToFile() {
-    fs.writeFileSync('bot_state.json', JSON.stringify(botState, null, 2));
-}
-
-// --- Start Bot ---
-connectWebSocket();

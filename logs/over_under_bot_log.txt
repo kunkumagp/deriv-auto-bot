@@ -3725,3 +3725,16 @@
 [2/3/2026, 1:26:33 PM] New day and after 7:00 AM. Resetting day targets.
 [2/3/2026, 1:26:33 PM] Day targets set. Start: $0.00, Day target: $0.00, Session target: $0.00
 [2/3/2026, 1:26:33 PM] Day target reached! Bot will pause until 7:00 AM next day.
+[2/3/2026, 1:59:26 PM] WebSocket open. Authorizing...
+[2/3/2026, 1:59:26 PM] Authorized. Fetching balance...
+[2/3/2026, 1:59:27 PM] Day targets set. Start: $146.98, Day target: $14.70, Session target: $2.94
+[2/3/2026, 1:59:27 PM] Balance: $146.98
+[2/3/2026, 1:59:27 PM] New day and after 7:00 AM. Resetting day targets.
+[2/3/2026, 1:59:27 PM] Day targets set. Start: $146.98, Day target: $14.70, Session target: $2.94
+[2/3/2026, 1:59:27 PM] Tick history: Prob >2: 78.20%, Last 5: 2,8,9,3,7, Last: 7
+[2/3/2026, 1:59:27 PM] Condition met. Placing Over 2 trade.
+[2/3/2026, 1:59:28 PM] Trade placed. Contract ID: 305617641368, Price: $0.51
+[2/3/2026, 1:59:31 PM] Trade result: WIN | Profit: $0.19 | Balance: $147.17 | Trade time: 2/3/2026, 1:59:31 PM
+[2/3/2026, 1:59:32 PM] WebSocket open. Authorizing...
+[2/3/2026, 2:00:07 PM] API error: Sorry, an error occurred while processing your request.
+[2/3/2026, 2:00:07 PM] Pausing bot for the rest of the day due to API error. Will attempt to restart at 7:00 AM next day.
