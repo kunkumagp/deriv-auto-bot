@@ -11,6 +11,11 @@ ssh root@5.189.170.30
 PW : tPpIo7TPr54NjHjk3p2PWD
 
 
+## repo clone : 
+
+git clone https://github.com/kunkumagp/deriv-auto-bot.git
+
+
 ## 2. Install Node.js
 
 Check if Node.js is installed:
