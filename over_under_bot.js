@@ -85,6 +85,24 @@ function connectWebSocket() {
         log('WebSocket open. Authorizing...');
         ws.send(JSON.stringify({ authorize: ACCOUNT_TOKEN }));
     });
+        // --- Countdown utility ---
+        function countdown(seconds, message, cb) {
+            let remaining = seconds;
+            const barLength = 30;
+            function tick() {
+                const filled = Math.round(((seconds - remaining) / seconds) * barLength);
+                const bar = '[' + '='.repeat(filled) + ' '.repeat(barLength - filled) + ']';
+                process.stdout.write(`\r${message} ${remaining}s ${bar}`);
+                if (remaining <= 0) {
+                    process.stdout.write('\n');
+                    if (cb) cb();
+                    return;
+                }
+                remaining--;
+                setTimeout(tick, 1000);
+            }
+            tick();
+        }
     ws.on('message', handleMessage);
     ws.on('close', () => {
         log('WebSocket closed. Reconnecting in 5s...');
@@ -203,7 +221,7 @@ function processTickHistory(data) {
     log(`Tick history: Prob >${DIGIT}: ${probability.toFixed(2)}%, Last 5: ${lastDigits.join(',')}, Last: ${lastDigit}`);
     if (tradeActive) {
         log('Trade already active. Waiting for result before opening a new trade.');
-        setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+            countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
         return;
     }
     if (isWaitingForRecovery) {
@@ -213,7 +231,7 @@ function processTickHistory(data) {
             tradeActive = true;
             placeTrade(recoveryStake);
         } else {
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+                countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next recovery check in', runTradingLoop);
         }
         return;
     }
@@ -227,7 +245,7 @@ function processTickHistory(data) {
                 placeTrade(stake);
             } else {
                 log('Waiting for better digits after loss.');
-                setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+                    countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
             }
         } else {
             log('Condition met. Placing Over 2 trade.');
@@ -236,7 +254,7 @@ function processTickHistory(data) {
         }
     } else {
         log('Skipped trade. Probability too low.');
-        setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+            countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
     }
 }
 
@@ -304,19 +322,19 @@ function handleContractResult(data) {
             setTimeout(runTradingLoop, 5*60*1000);
             return;
         }
-        setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+            countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next trade in', runTradingLoop);
     } else {
         lostCountInRow++;
         if (lostCountInRow >= 3) {
             recoveryStake = calcStake('Recovery', currentLoss);
             isWaitingForRecovery = true;
             log('3 consecutive losses. Entering recovery mode.');
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+                countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next recovery check in', runTradingLoop);
         } else if (lostCountInRow >= 2) {
             recoveryStake = calcStake('Recovery', currentLoss);
             isWaitingForRecovery = true;
             log('2 consecutive losses. Entering recovery monitoring.');
-            setTimeout(runTradingLoop, TRADE_INTERVAL_MS);
+                countdown(Math.floor(TRADE_INTERVAL_MS/1000), 'Next recovery check in', runTradingLoop);
         } else {
             stake = calcStake('Loss');
             market = getRandomMarket(market);
@@ -326,7 +344,7 @@ function handleContractResult(data) {
             botState.waitingTimeLeft = waitSec;
             log(`Trade lost. Waiting ${waitSec}s before next trade. Changing market to ${market}. Next stake: $${stake}`);
             writeBotStateToFile();
-            setTimeout(runTradingLoop, 1000);
+                countdown(waitSec, 'Next trade in', runTradingLoop);
         }
     }
 }
