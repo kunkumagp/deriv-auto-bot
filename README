@@ -269,3 +269,37 @@ pm2 delete autobot
 ---
 
 http://deriv-auto-bot:3000
+
+
+
+
+
+
+
+### Remore folder : 
+
+rm -rf ~/deriv-auto-bot
+
+
+
+
+
+# Stop and delete everything
+pm2 stop all
+pm2 delete all
+
+# Kill the PM2 daemon
+pm2 kill
+
+# Clear the resurrect list so nothing restarts
+rm -f ~/.pm2/dump.pm2
+
+# Optional: clear PM2 logs
+pm2 flush
+rm -rf ~/.pm2/logs/*
+
+# If you enabled autostart, disable it (macOS)
+pm2 unstartup launchd
+
+# Verify it's empty
+pm2 list
