@@ -20,7 +20,7 @@ const MARTINGALE_MULTIPLIER = parseFloat(process.env.MARTINGALE_MULTIPLIER) || 3
 const MARKET_LIST = ['R_10', 'R_50'];
 const DIGIT = 2; // Over 2
 const TICK_DURATION = 1;
-const TRADE_INTERVAL_MS = 10000; // 10s between trades
+const TRADE_INTERVAL_MS = Math.floor(Math.random() * (120000 - 20000 + 1)) + 20000; // Random value between 20s and 120s
 const RECOVERY_TRIGGER_DIGITS = [0,1,2];
 
 // --- STATE ---
