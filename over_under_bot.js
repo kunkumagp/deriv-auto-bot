@@ -2,7 +2,6 @@
 // Node.js version of over_under.js logic (no DOM, uses console)
 
 const WebSocket = require('ws');
-require('dotenv').config();
 const readline = require('readline');
 
 // ============ CONFIGURATION ============
@@ -15,14 +14,9 @@ const accounts = [
 ];
 
 const marketArray2 = [
-    { value: "R_10", name: "Volatility 10 Index" },
-    { value: "R_25", name: "Volatility 25 Index" },
-    { value: "R_50", name: "Volatility 50 Index" },
-    { value: "R_75", name: "Volatility 75 Index" },
-    { value: "R_100", name: "Volatility 100 Index" },
+    { value: "R_10", name: "Volatility 10 Index", interval: 2000 },
+    { value: "R_50", name: "Volatility 50 Index", interval: 2000 },
 ];
-
-
 
 const overUnderDigitArray = [
     { digit: 0, name: "0", over_payout_percentage: 9, under_payout_percentage: null },
@@ -48,7 +42,7 @@ let initialAccountBalance = 0,
     marketInterval = 2000,
     selectedOverUnderDigit = overUnderDigitArray.find(item => item.name === "2"),
     market = marketArray2[0].value,
-    apiToken = process.env.DERIV_API_TOKEN || accounts[1].value,
+    apiToken = accounts[1].value,
     ws,
     isRunning = true,
     isTradeOpen = false,
@@ -65,8 +59,7 @@ let initialAccountBalance = 0,
 
 const SRI_LANKA_OFFSET = 5.5 * 60 * 60 * 1000; // UTC+5:30
 let dayStartCapital = 0;
-let dayTargetProfit = 0;
-let dayTargetBalance = 0;
+let dayTarget = 0;
 let tradingStoppedForDay = false;
 
 let initialAmountPerTrade = 0;
@@ -85,10 +78,6 @@ function getRandomMarket(array, current) {
 }
 
 function makeTheTrade(ws) {
-    if (tradingStoppedForDay) {
-        console.log("Trading stopped for day. Skipping trade execution.");
-        return;
-    }
     if (tradeProposal && tradeProposal.proposal) {
         const buyRequest = {
             buy: tradeProposal.proposal.id,
@@ -143,13 +132,6 @@ function startWebSocket() {
     };
     ws.onmessage = (event) => {
         const wsResponse = JSON.parse(event.data);
-        if (tradingStoppedForDay) {
-            if (wsResponse.msg_type === "proposal_open_contract" || wsResponse.msg_type === "buy") {
-                // Allow open contract updates to finish any in-flight trade
-            } else if (wsResponse.msg_type === "history" || wsResponse.msg_type === "proposal") {
-                return;
-            }
-        }
         if (wsResponse.msg_type === "authorize") {
             setAccData(wsResponse.authorize.balance);
             runScriptForTrade();
@@ -204,11 +186,6 @@ function startWebSocket() {
                 if (contract.is_sold) {
                     const profit = contract.profit;
                     updateDetails(contract, profit);
-                    checkDayTarget();
-                    if (tradingStoppedForDay) {
-                        isTradeOpen = false;
-                        return;
-                    }
                     stakeChangeForOU(profit > 0 ? "Win" : "Loss");
                     isTradeOpen = false;
                     if (profit < 0) {
@@ -255,16 +232,11 @@ function isNewDay() {
 }
 
 function setDayTargetAndStake() {
-    if (!Number.isFinite(initialAccountBalance) || initialAccountBalance <= 0) {
-        console.log("Waiting for valid account balance before setting day target.");
-        return;
-    }
     const today = getSriLankaDate();
     const formatted = today.toISOString().split("T")[0];
     global.lastDayDate = formatted;
     dayStartCapital = initialAccountBalance;
-    dayTargetProfit = dayStartCapital * 0.1; // 10% profit target
-    dayTargetBalance = dayStartCapital + dayTargetProfit;
+    dayTarget = dayStartCapital * 1.1; // 10% profit target
     tradingStoppedForDay = false;
     // Recover loss first if any
     if (currentLossAmount < 0) {
@@ -274,14 +246,13 @@ function setDayTargetAndStake() {
         stake = initialAmountPerTrade;
         console.log(`Initial stake set to $${stake.toFixed(2)}`);
     }
-    console.log(`Day target set: $${dayTargetProfit.toFixed(2)} (10% of $${dayStartCapital.toFixed(2)})`);
-    console.log(`Day target balance: $${dayTargetBalance.toFixed(2)}`);
+    console.log(`Day target set: $${dayTarget.toFixed(2)} (10% from $${dayStartCapital.toFixed(2)})`);
 }
 
 function checkDayTarget() {
-    if (updatedAccountBalance >= dayTargetBalance && dayTargetBalance > 0) {
+    if (updatedAccountBalance >= dayTarget) {
         tradingStoppedForDay = true;
-        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTargetBalance.toFixed(2)}. Trading stopped until next day.`);
+        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTarget.toFixed(2)}. Trading stopped until next day.`);
     }
 }
 
@@ -327,8 +298,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 rl.on('line', (input) => {
     if (input.trim().toLowerCase() === 'cdt') {
         tradingStoppedForDay = false;
-        dayTargetProfit = 0;
-        dayTargetBalance = 0;
+        dayTarget = 0;
         console.log('Day target cleared. Fetching new starting capital from Deriv...');
         ws.send(JSON.stringify({ authorize: apiToken }));
         // When balance is fetched, set new target in setAccData
@@ -341,10 +311,6 @@ console.log("Starting Over/Under Bot...");
 startWebSocket();
 
 function placeOUTrade(market, selectedbarrierNumber = null, initialAccountBalance = null, tickDuration = 1) {
-    if (tradingStoppedForDay) {
-        console.log("Trading stopped for day. Not placing new trade.");
-        return;
-    }
     if (!isTradeOpen) {
         let barrierNumber = selectedbarrierNumber !== null ? selectedbarrierNumber.digit : 2;
         stake = Math.max(Number(stake), 0.35);
@@ -391,21 +357,15 @@ function updateDetails(contract, lastTradeProfit) {
         currentLossAmount += lastTradeProfit;
     }
     if (currentLossAmount >= 0) currentLossAmount = 0;
-    updatedAccountBalance = initialAccountBalance + currentProfitAmount + currentLossAmount;
+    updatedAccountBalance = initialAccountBalance + currentProfitAmount;
     let netProfit = updatedAccountBalance - initialAccountBalance;
     console.log(`Trade result: ${result} | Profit: $${lastTradeProfit.toFixed(2)} | Balance: $${updatedAccountBalance.toFixed(2)}`);
     console.log(`Win count: ${winTradeCount}, Loss count: ${lossTradeCount}, Lost in row: ${lostCountInRow}`);
 }
 
 function waitWithCountdown(seconds, callback) {
-    // Ensure seconds is a valid finite positive integer; default to 2s if not
-    let remaining = Number.isFinite(seconds) ? Math.max(0, Math.floor(seconds)) : 2;
+    let remaining = seconds;
     const interval = setInterval(() => {
-        if (tradingStoppedForDay) {
-            clearInterval(interval);
-            process.stdout.write('\n');
-            return;
-        }
         process.stdout.write(`Waiting ${remaining}s before next trade... \r`);
         remaining--;
         if (remaining < 0) {
