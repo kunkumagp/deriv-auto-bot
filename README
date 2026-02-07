@@ -1,1 +1,305 @@
-Init
+# Deploying and Running Your Deriv Over/Under Bot on Contabo VPS
+
+## 1. Connect to Your Contabo VPS
+
+Open your terminal and connect via SSH (replace `root` with your VPS username if different):
+
+```sh
+ssh root@5.189.170.30
+```
+
+PW : tPpIo7TPr54NjHjk3p2PWD
+
+
+## 2. Install Node.js
+
+Check if Node.js is installed:
+
+```sh
+node -v
+```
+
+If not, install Node.js (LTS):
+
+```sh
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+apt-get install -y nodejs
+```
+
+## 3. Install Git (Optional)
+
+If you want to use git:
+
+```sh
+apt-get install -y git
+```
+
+## 4. Upload Your Bot Files
+
+**Option 1: Using Git**
+
+```sh
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+```
+
+**Option 2: Using SCP (from your local machine)**
+
+```sh
+scp -r /path/to/your/Auto-bot root@5.189.170.30:/root/
+cd /root/Auto-bot
+```
+
+## 5. Install Dependencies
+
+```sh
+npm install ws dotenv
+```
+
+## 6. Create/Edit Your `.env` File
+
+```sh
+nano .env
+```
+
+Add your settings, for example:
+```
+ACCOUNT_TOKEN=your_deriv_token_here
+INITIAL_STAKE_PERCENT=0.35
+DAY_TARGET_PERCENT=5
+SESSION_TARGET_PERCENT=2
+MARTINGALE_MULTIPLIER=3
+```
+Replace `your_deriv_token_here` with your actual Deriv API token.
+
+## 7. Run Your Bot
+
+```sh
+node over_under_bot.js
+```
+
+## 8. Keep the Bot Running After Logout
+
+### Using `screen` (recommended)
+
+1. Start a new screen session:
+    ```sh
+    screen -S autobot
+    ```
+2. Run your bot:
+    ```sh
+    node over_under_bot.js
+    ```
+3. Detach from the screen (leave it running):  
+   Press `Ctrl+A` then `D`
+4. To reattach later:
+    ```sh
+    screen -r autobot
+    ```
+
+### Using `tmux` (alternative)
+
+1. Start a new tmux session:
+    ```sh
+    tmux new -s autobot
+    ```
+2. Run your bot:
+    ```sh
+    node over_under_bot.js
+    ```
+3. Detach from tmux:  
+   Press `Ctrl+B` then `D`
+4. To reattach:
+    ```sh
+    tmux attach -t autobot
+    ```
+
+## Running Your Bot with `screen` (Step-by-Step)
+
+1. **Start a new screen session (name it 'autobot'):**
+   ```sh
+   screen -S autobot
+   ```
+2. **Run your bot inside the screen:**
+   ```sh
+   node over_under_bot.js
+   ```
+3. **Detach from the screen (leave it running):**
+   - Press `Ctrl+A` then `D`
+4. **Log out or close your terminal. The bot keeps running in the background.**
+5. **Next day (or anytime), reattach to the screen to check on your bot:**
+   ```sh
+   screen -r autobot
+   ```
+   - If it says the session is attached elsewhere, use:
+   ```sh
+   screen -d -r autobot
+   ```
+6. **When done, you can detach again (`Ctrl+A` then `D`), or stop the script with `Ctrl+C` and exit the screen with `exit`**
+
+## 9. Monitor Logs
+
+Your bot writes logs to `over_under_bot_log.txt`.  
+You can view logs with:
+
+```sh
+tail -f over_under_bot_log.txt
+```
+
+## Stopping the Bot or Screen Session
+
+### If You Used `screen`
+
+1. **List all screen sessions:**
+   ```sh
+   screen -ls
+   ```
+2. **Reattach to your session (if needed):**
+   ```sh
+   screen -r autobot
+   ```
+   (Replace `autobot` with your session name or ID if different.)
+3. **Stop the bot:**
+   - Inside the screen session, press `Ctrl+C` to stop the running bot process.
+4. **Exit the screen session:**
+   - Type `exit` or press `Ctrl+D` to close the screen window.
+   - Or, detach with `Ctrl+A` then `D` (leaves it running).
+5. **Kill the screen session completely (if needed):**
+   ```sh
+   screen -XS autobot quit
+   ```
+   (Replace `autobot` with your session name or ID.)
+
+### If You Want to Kill the Bot Process Directly
+
+You can also kill the Node.js process:
+
+```sh
+pkill -f over_under_bot.js
+```
+
+### Kill All Screen Sessions for the Bot
+
+To kill all `screen` sessions named `autobot` (or any detached screen):
+
+```sh
+screen -ls | awk '/autobot/ {print $1}' | xargs -n 1 screen -S {} -X quit
+```
+
+Or, to kill all detached screens regardless of name:
+
+```sh
+screen -ls | awk '/Detached/ {print $1}' | xargs -n 1 screen -S {} -X quit
+```
+
+After running, check with:
+
+```sh
+screen -ls
+```
+
+You should see "No Sockets found" if all are closed.
+
+---
+
+## Example Server Details
+
+```
+contabo server details
+root
+
+tPpIo7TPr54NjHjk3p2PWD
+```
+
+---
+
+**Summary:**  
+- Use `screen` or `tmux` to keep your bot running after you disconnect.
+- You can always SSH back in and reattach to your running bot session.
+- Make sure your `.env` file contains your real Deriv API token and correct settings.
+
+---
+
+## 1. Use pm2 (Recommended for Node.js)
+
+`pm2` is a process manager that will keep your bot running 24/7, restart it on crash, and start it automatically after a server reboot.
+
+### Install pm2 globally:
+```sh
+npm install -g pm2
+```
+
+### Start your bot with pm2:
+```sh
+pm2 start over_under_bot.js --name autobot
+```
+
+### View logs (all logs are in the `logs` folder):
+```sh
+pm2 logs autobot
+```
+
+### Check bot status:
+```sh
+pm2 status
+```
+
+### Auto-start pm2 and your bot after a server reboot:
+```sh
+pm2 startup
+pm2 save
+```
+
+### Stop or restart your bot:
+```sh
+pm2 stop autobot
+pm2 restart autobot
+```
+
+### Remove your bot from pm2:
+```sh
+pm2 delete autobot
+```
+
+**Note:**
+- You do NOT need to use `screen` or `tmux` if you use pm2.
+- You can safely close your terminal or log out; pm2 will keep your bot running in the background.
+- All logs will be saved in `logs/over_under_bot_log.txt` as configured in your bot.
+
+---
+
+http://deriv-auto-bot:3000
+
+
+
+
+
+
+
+### Remore folder : 
+
+rm -rf ~/deriv-auto-bot
+
+
+
+
+
+# Stop and delete everything
+pm2 stop all
+pm2 delete all
+
+# Kill the PM2 daemon
+pm2 kill
+
+# Clear the resurrect list so nothing restarts
+rm -f ~/.pm2/dump.pm2
+
+# Optional: clear PM2 logs
+pm2 flush
+rm -rf ~/.pm2/logs/*
+
+# If you enabled autostart, disable it (macOS)
+pm2 unstartup launchd
+
+# Verify it's empty
+pm2 list
