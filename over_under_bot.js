@@ -2,6 +2,7 @@
 // Node.js version of over_under.js logic (no DOM, uses console)
 
 const WebSocket = require('ws');
+require('dotenv').config();
 const readline = require('readline');
 
 // ============ CONFIGURATION ============
@@ -47,7 +48,7 @@ let initialAccountBalance = 0,
     marketInterval = 2000,
     selectedOverUnderDigit = overUnderDigitArray.find(item => item.name === "2"),
     market = marketArray2[0].value,
-    apiToken = accounts[1].value,
+    apiToken = process.env.DERIV_API_TOKEN || accounts[1].value,
     ws,
     isRunning = true,
     isTradeOpen = false,
@@ -369,7 +370,8 @@ function updateDetails(contract, lastTradeProfit) {
 }
 
 function waitWithCountdown(seconds, callback) {
-    let remaining = seconds;
+    // Ensure seconds is a valid finite positive integer; default to 2s if not
+    let remaining = Number.isFinite(seconds) ? Math.max(0, Math.floor(seconds)) : 2;
     const interval = setInterval(() => {
         process.stdout.write(`Waiting ${remaining}s before next trade... \r`);
         remaining--;

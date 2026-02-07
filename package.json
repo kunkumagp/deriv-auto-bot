@@ -1,0 +1,14 @@
+{
+  "name": "deriv-auto-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "over_under_bot.js",
+  "scripts": {
+    "start": "node over_under_bot.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ws": "^8.17.0"
+  }
+}
