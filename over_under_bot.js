@@ -65,7 +65,8 @@ let initialAccountBalance = 0,
 
 const SRI_LANKA_OFFSET = 5.5 * 60 * 60 * 1000; // UTC+5:30
 let dayStartCapital = 0;
-let dayTarget = 0;
+let dayTargetProfit = 0;
+let dayTargetBalance = 0;
 let tradingStoppedForDay = false;
 
 let initialAmountPerTrade = 0;
@@ -262,7 +263,8 @@ function setDayTargetAndStake() {
     const formatted = today.toISOString().split("T")[0];
     global.lastDayDate = formatted;
     dayStartCapital = initialAccountBalance;
-    dayTarget = dayStartCapital * 1.1; // 10% profit target
+    dayTargetProfit = dayStartCapital * 0.1; // 10% profit target
+    dayTargetBalance = dayStartCapital + dayTargetProfit;
     tradingStoppedForDay = false;
     // Recover loss first if any
     if (currentLossAmount < 0) {
@@ -272,13 +274,14 @@ function setDayTargetAndStake() {
         stake = initialAmountPerTrade;
         console.log(`Initial stake set to $${stake.toFixed(2)}`);
     }
-    console.log(`Day target set: $${dayTarget.toFixed(2)} (10% from $${dayStartCapital.toFixed(2)})`);
+    console.log(`Day target set: $${dayTargetProfit.toFixed(2)} (10% of $${dayStartCapital.toFixed(2)})`);
+    console.log(`Day target balance: $${dayTargetBalance.toFixed(2)}`);
 }
 
 function checkDayTarget() {
-    if (updatedAccountBalance >= dayTarget) {
+    if (updatedAccountBalance >= dayTargetBalance && dayTargetBalance > 0) {
         tradingStoppedForDay = true;
-        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTarget.toFixed(2)}. Trading stopped until next day.`);
+        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTargetBalance.toFixed(2)}. Trading stopped until next day.`);
     }
 }
 
@@ -324,7 +327,8 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 rl.on('line', (input) => {
     if (input.trim().toLowerCase() === 'cdt') {
         tradingStoppedForDay = false;
-        dayTarget = 0;
+        dayTargetProfit = 0;
+        dayTargetBalance = 0;
         console.log('Day target cleared. Fetching new starting capital from Deriv...');
         ws.send(JSON.stringify({ authorize: apiToken }));
         // When balance is fetched, set new target in setAccData
