@@ -84,6 +84,10 @@ function getRandomMarket(array, current) {
 }
 
 function makeTheTrade(ws) {
+    if (tradingStoppedForDay) {
+        console.log("Trading stopped for day. Skipping trade execution.");
+        return;
+    }
     if (tradeProposal && tradeProposal.proposal) {
         const buyRequest = {
             buy: tradeProposal.proposal.id,
@@ -238,6 +242,10 @@ function isNewDay() {
 }
 
 function setDayTargetAndStake() {
+    if (!Number.isFinite(initialAccountBalance) || initialAccountBalance <= 0) {
+        console.log("Waiting for valid account balance before setting day target.");
+        return;
+    }
     const today = getSriLankaDate();
     const formatted = today.toISOString().split("T")[0];
     global.lastDayDate = formatted;
@@ -317,6 +325,10 @@ console.log("Starting Over/Under Bot...");
 startWebSocket();
 
 function placeOUTrade(market, selectedbarrierNumber = null, initialAccountBalance = null, tickDuration = 1) {
+    if (tradingStoppedForDay) {
+        console.log("Trading stopped for day. Not placing new trade.");
+        return;
+    }
     if (!isTradeOpen) {
         let barrierNumber = selectedbarrierNumber !== null ? selectedbarrierNumber.digit : 2;
         stake = Math.max(Number(stake), 0.35);
@@ -363,7 +375,7 @@ function updateDetails(contract, lastTradeProfit) {
         currentLossAmount += lastTradeProfit;
     }
     if (currentLossAmount >= 0) currentLossAmount = 0;
-    updatedAccountBalance = initialAccountBalance + currentProfitAmount;
+    updatedAccountBalance = initialAccountBalance + currentProfitAmount + currentLossAmount;
     let netProfit = updatedAccountBalance - initialAccountBalance;
     console.log(`Trade result: ${result} | Profit: $${lastTradeProfit.toFixed(2)} | Balance: $${updatedAccountBalance.toFixed(2)}`);
     console.log(`Win count: ${winTradeCount}, Loss count: ${lossTradeCount}, Lost in row: ${lostCountInRow}`);
