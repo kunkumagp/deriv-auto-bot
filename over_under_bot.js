@@ -142,6 +142,13 @@ function startWebSocket() {
     };
     ws.onmessage = (event) => {
         const wsResponse = JSON.parse(event.data);
+        if (tradingStoppedForDay) {
+            if (wsResponse.msg_type === "proposal_open_contract" || wsResponse.msg_type === "buy") {
+                // Allow open contract updates to finish any in-flight trade
+            } else if (wsResponse.msg_type === "history" || wsResponse.msg_type === "proposal") {
+                return;
+            }
+        }
         if (wsResponse.msg_type === "authorize") {
             setAccData(wsResponse.authorize.balance);
             runScriptForTrade();
@@ -196,6 +203,11 @@ function startWebSocket() {
                 if (contract.is_sold) {
                     const profit = contract.profit;
                     updateDetails(contract, profit);
+                    checkDayTarget();
+                    if (tradingStoppedForDay) {
+                        isTradeOpen = false;
+                        return;
+                    }
                     stakeChangeForOU(profit > 0 ? "Win" : "Loss");
                     isTradeOpen = false;
                     if (profit < 0) {
@@ -385,6 +397,11 @@ function waitWithCountdown(seconds, callback) {
     // Ensure seconds is a valid finite positive integer; default to 2s if not
     let remaining = Number.isFinite(seconds) ? Math.max(0, Math.floor(seconds)) : 2;
     const interval = setInterval(() => {
+        if (tradingStoppedForDay) {
+            clearInterval(interval);
+            process.stdout.write('\n');
+            return;
+        }
         process.stdout.write(`Waiting ${remaining}s before next trade... \r`);
         remaining--;
         if (remaining < 0) {
