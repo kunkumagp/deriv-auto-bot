@@ -2,7 +2,7 @@
 // Node.js version of over_under.js logic (no DOM, uses console)
 
 const WebSocket = require('ws');
-const readline = require('readline');
+require('dotenv').config();
 
 // ============ CONFIGURATION ============
 const accounts = [
@@ -42,7 +42,7 @@ let initialAccountBalance = 0,
     marketInterval = 2000,
     selectedOverUnderDigit = overUnderDigitArray.find(item => item.name === "2"),
     market = marketArray2[0].value,
-    apiToken = accounts[1].value,
+    apiToken = process.env.DERIV_API_TOKEN || accounts[1].value,
     ws,
     isRunning = true,
     isTradeOpen = false,
@@ -59,8 +59,11 @@ let initialAccountBalance = 0,
 
 const SRI_LANKA_OFFSET = 5.5 * 60 * 60 * 1000; // UTC+5:30
 let dayStartCapital = 0;
-let dayTarget = 0;
+let dayTargetProfit = 0;
+let dayTargetBalance = 0;
 let tradingStoppedForDay = false;
+let pendingDayReset = false;
+let hasInitializedDay = false;
 
 let initialAmountPerTrade = 0;
 let targetProfitPerSession = 0;
@@ -77,18 +80,6 @@ function getRandomMarket(array, current) {
     return randomMarket.value;
 }
 
-function makeTheTrade(ws) {
-    if (tradeProposal && tradeProposal.proposal) {
-        const buyRequest = {
-            buy: tradeProposal.proposal.id,
-            price: stake.toFixed(2)
-        };
-        console.log("Placing trade:", buyRequest);
-        ws.send(JSON.stringify(buyRequest));
-    } else {
-        console.log("No valid trade proposal to execute.");
-    }
-}
 function calculateMartingale(lostAmount, selectedOverUnderDigit, type = "over") {
     const payoutPercentage = type === "over" 
         ? selectedOverUnderDigit.over_payout_percentage 
@@ -103,6 +94,8 @@ function calculateMartingale(lostAmount, selectedOverUnderDigit, type = "over") 
 function setAccData(balance) {
     initialAccountBalance = balance;
     updatedAccountBalance = balance;
+    currentProfitAmount = 0;
+    currentLossAmount = 0;
     targetProfitPerSession = Number((initialAccountBalance * (targetProfitPercentagePerSession / 100)).toFixed(2));
     initialAmountPerTrade = Number((initialAccountBalance * (amountPercentagePerTrade / 100)).toFixed(2));
     if (totalTradeCount === 0) {
@@ -115,13 +108,46 @@ function setAccData(balance) {
     if (totalTradeCount > 0) {
         console.log(`Updated Deriv balance: $${initialAccountBalance}`);
     }
-    // Always set day target after balance is fetched
-    setDayTargetAndStake();
-    // If cdt command was triggered, set new day target
-    if (global.cdtTriggered) {
-        global.cdtTriggered = false;
-        runScriptForTrade();
+    if (!hasInitializedDay || pendingDayReset) {
+        initializeDayTargets(initialAccountBalance);
+        pendingDayReset = false;
     }
+}
+
+function initializeDayTargets(balance) {
+    dayStartCapital = balance;
+    dayTargetProfit = Number((dayStartCapital * 0.1).toFixed(2));
+    dayTargetBalance = Number((dayStartCapital + dayTargetProfit).toFixed(2));
+    tradingStoppedForDay = false;
+    hasInitializedDay = true;
+    console.log(`Day target set: $${dayTargetProfit.toFixed(2)} (10% of $${dayStartCapital.toFixed(2)})`);
+    console.log(`Day target balance: $${dayTargetBalance.toFixed(2)}`);
+}
+
+function checkDayTarget() {
+    if (!dayTargetBalance || dayTargetBalance <= 0) return;
+    if (updatedAccountBalance >= dayTargetBalance) {
+        tradingStoppedForDay = true;
+        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTargetBalance.toFixed(2)}. Trading stopped until next day.`);
+    }
+}
+
+function requestBalance(resetDayTarget = false) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) return;
+    if (resetDayTarget) pendingDayReset = true;
+    ws.send(JSON.stringify({ balance: 1, subscribe: 0 }));
+}
+
+function updateCurrentBalance(balance) {
+    updatedAccountBalance = balance;
+    checkDayTarget();
+}
+
+function scheduleNextTrade(delayMs) {
+    if (tradingStoppedForDay) return;
+    setTimeout(() => {
+        if (!tradingStoppedForDay) runScriptForTrade();
+    }, delayMs);
 }
 
 function startWebSocket() {
@@ -136,6 +162,18 @@ function startWebSocket() {
             setAccData(wsResponse.authorize.balance);
             runScriptForTrade();
         }
+        if (wsResponse.msg_type === "balance") {
+            if (pendingDayReset) {
+                setAccData(wsResponse.balance.balance);
+                runScriptForTrade();
+                return;
+            }
+            updateCurrentBalance(wsResponse.balance.balance);
+            return;
+        }
+        if (tradingStoppedForDay && (wsResponse.msg_type === "history" || wsResponse.msg_type === "proposal")) {
+            return;
+        }
         if (wsResponse.msg_type === "history") {
             const digits = wsResponse.history.prices.map(p => Number(String(p).slice(-1)));
             const over2Count = digits.filter(d => d > 2).length;
@@ -149,7 +187,7 @@ function startWebSocket() {
                     isWaitingForRecoveryTrigger = false;
                     placeOUTrade(market, selectedOverUnderDigit, initialAccountBalance, 1);
                 } else {
-                        waitWithCountdown(marketInterval / 1000, runScriptForTrade);
+                    scheduleNextTrade(marketInterval);
                 }
                 return;
             }
@@ -160,13 +198,13 @@ function startWebSocket() {
                     if (count >= 1) {
                         placeOUTrade(market, selectedOverUnderDigit, initialAccountBalance, 1);
                     } else {
-                            waitWithCountdown(marketInterval / 1000, runScriptForTrade);
+                        scheduleNextTrade(marketInterval);
                     }
                 } else {
                     placeOUTrade(market, selectedOverUnderDigit, initialAccountBalance, 1);
                 }
             } else {
-                    waitWithCountdown(marketInterval / 1000, runScriptForTrade);
+                scheduleNextTrade(marketInterval);
             }
         }
         if (wsResponse.msg_type === "proposal") {
@@ -177,7 +215,6 @@ function startWebSocket() {
             lastTradeId = wsResponse.buy.contract_id;
             totalTradeCount++;
             isTradeOpen = true;
-            updatedAccountBalance -= stake;
             setTimeout(() => fetchTradeDetails(ws, lastTradeId), 500);
         }
         if (wsResponse.msg_type === "proposal_open_contract") {
@@ -186,6 +223,12 @@ function startWebSocket() {
                 if (contract.is_sold) {
                     const profit = contract.profit;
                     updateDetails(contract, profit);
+                    requestBalance();
+                    checkDayTarget();
+                    if (tradingStoppedForDay) {
+                        isTradeOpen = false;
+                        return;
+                    }
                     stakeChangeForOU(profit > 0 ? "Win" : "Loss");
                     isTradeOpen = false;
                     if (profit < 0) {
@@ -197,16 +240,16 @@ function startWebSocket() {
                             recoveryStake = nextStakeValue;
                             isWaitingForRecoveryTrigger = true;
                             market = "R_100";
-                                waitWithCountdown(getRandomNumber(180, 300), runScriptForTrade);
+                            scheduleNextTrade(getRandomNumber(180, 300) * 1000);
                         } else {
-                                waitWithCountdown(20, runScriptForTrade);
+                            scheduleNextTrade(20000);
                         }
                     } else {
                         lostCountInRow = 0;
-                            waitWithCountdown(10, runScriptForTrade);
+                        scheduleNextTrade(10000);
                     }
                 } else {
-                        waitWithCountdown(marketInterval / 1000, () => fetchTradeDetails(ws, lastTradeId));
+                    setTimeout(() => fetchTradeDetails(ws, lastTradeId), marketInterval);
                 }
             }
         }
@@ -220,49 +263,11 @@ function startWebSocket() {
     };
 }
 
-function getSriLankaDate() {
-    const now = new Date();
-    return new Date(now.getTime() + SRI_LANKA_OFFSET);
-}
-
-function isNewDay() {
-    const today = getSriLankaDate();
-    const formatted = today.toISOString().split("T")[0];
-    return formatted !== global.lastDayDate;
-}
-
-function setDayTargetAndStake() {
-    const today = getSriLankaDate();
-    const formatted = today.toISOString().split("T")[0];
-    global.lastDayDate = formatted;
-    dayStartCapital = initialAccountBalance;
-    dayTarget = dayStartCapital * 1.1; // 10% profit target
-    tradingStoppedForDay = false;
-    // Recover loss first if any
-    if (currentLossAmount < 0) {
-        stake = Math.abs(currentLossAmount);
-        console.log(`Recovering loss. Stake set to $${stake.toFixed(2)}`);
-    } else {
-        stake = initialAmountPerTrade;
-        console.log(`Initial stake set to $${stake.toFixed(2)}`);
-    }
-    console.log(`Day target set: $${dayTarget.toFixed(2)} (10% from $${dayStartCapital.toFixed(2)})`);
-}
-
-function checkDayTarget() {
-    if (updatedAccountBalance >= dayTarget) {
-        tradingStoppedForDay = true;
-        console.log(`Day target achieved! Balance: $${updatedAccountBalance.toFixed(2)} / Target: $${dayTarget.toFixed(2)}. Trading stopped until next day.`);
-    }
-}
-
 function runScriptForTrade() {
     if (waitingForNextTrade || tradingStoppedForDay) return;
     checkDayTarget();
     if (tradingStoppedForDay) return;
     isRunning = true;
-    // Only use markets in marketArray2
-    market = getRandomMarket(marketArray2, market);
     ws.send(JSON.stringify({
         ticks_history: market,
         end: "latest",
@@ -271,46 +276,108 @@ function runScriptForTrade() {
     }));
 }
 
-// Schedule daily reset at 7AM Sri Lanka time
-function scheduleDailyReset() {
-    const now = getSriLankaDate();
-    const next7AM = new Date(now);
-    next7AM.setHours(7, 0, 0, 0);
-    if (now > next7AM) {
-        next7AM.setDate(next7AM.getDate() + 1);
+function makeTheTrade(ws) {
+    if (tradingStoppedForDay) {
+        console.log("Trading stopped for day. Skipping trade execution.");
+        return;
     }
-    const msUntil7AM = next7AM - now;
-    setTimeout(() => {
-        setDayTargetAndStake();
-        tradingStoppedForDay = false;
-        runScriptForTrade();
-        scheduleDailyReset();
-    }, msUntil7AM);
+    if (!tradeProposal.proposal || !tradeProposal.proposal.id) {
+        isRunning = false;
+    } else {
+        let buyRequest = {
+            buy: tradeProposal.proposal.id,
+            price: tradeProposal.proposal.ask_price,
+        };
+        ws.send(JSON.stringify(buyRequest));
+    }
 }
 
-// On bot start, set day target and schedule reset
-setDayTargetAndStake();
-scheduleDailyReset();
+function fetchTradeDetails(ws, contractId) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) return;
+    ws.send(JSON.stringify({ proposal_open_contract: 1, contract_id: contractId }));
+}
 
-// Command-line interface
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
-rl.on('line', (input) => {
-    if (input.trim().toLowerCase() === 'cdt') {
-        tradingStoppedForDay = false;
-        dayTarget = 0;
-        console.log('Day target cleared. Fetching new starting capital from Deriv...');
-        ws.send(JSON.stringify({ authorize: apiToken }));
-        // When balance is fetched, set new target in setAccData
-        global.cdtTriggered = true;
+function updateDetails(contract, lastTradeProfit) {
+    if (lastTradeProfit > 0) {
+        winTradeCount++;
+        lostCountInRow = 0;
+        currentProfitAmount += lastTradeProfit;
+    } else {
+        lossTradeCount++;
+        lostCountInRow++;
+        currentLossAmount += lastTradeProfit;
+        // Store last lost amount for martingale calculation
+        stakeChangeForOU.lastLostAmount = Math.abs(lastTradeProfit);
     }
-});
+    if (lostCountInRow >= 3) {
+        tradingStoppedForDay = true;
+        console.log('3 consecutive losses detected. Trading stopped for the day.');
+    }
+    // Print trade result; balance will be updated via balance response
+    console.log(`Trade result: ${lastTradeProfit > 0 ? 'WIN' : 'LOSS'} | Profit: $${lastTradeProfit.toFixed(2)} | Balance: (fetching...)`);
+}
 
-// ============ START BOT ============
-console.log("Starting Over/Under Bot...");
-startWebSocket();
+function waitWithCountdown(seconds, callback) {
+    waitingForNextTrade = true;
+    let remaining = seconds;
+    const interval = setInterval(() => {
+        if (tradingStoppedForDay) {
+            clearInterval(interval);
+            waitingForNextTrade = false;
+            process.stdout.write('\n');
+            return;
+        }
+        process.stdout.write(`\rWaiting ${remaining}s before next trade...   `);
+        remaining--;
+        if (remaining <= 0) {
+            clearInterval(interval);
+            process.stdout.write('\n');
+            waitingForNextTrade = false;
+            callback();
+        }
+    }, 1000);
+}
+
+function stakeChangeForOU(status) {
+    if (status === "Loss") {
+        // Use last lost amount for martingale calculation
+        if (typeof stakeChangeForOU.lastLostAmount === 'number') {
+            stake = stakeChangeForOU.lastLostAmount * martingaleMultiplier3;
+        } else {
+            stake = stake * martingaleMultiplier3;
+        }
+        // Wait 5 minutes if 3+ losses in a row, else 60-120 seconds
+        let waitSeconds;
+        if (lostCountInRow >= 3) {
+            waitSeconds = 300; // 5 minutes
+            console.log("3 or more losses in a row. Taking a 5 minute break before next trade.");
+        } else {
+            waitSeconds = getRandomNumber(60, 120);
+        }
+        waitWithCountdown(waitSeconds, () => {
+            runScriptForTrade();
+        });
+        return; // Prevent immediate next trade
+    } else if (status === "Win") {
+        stake = initialAmountPerTrade;
+    }
+    stake = Math.max(stake, 0.35);
+    console.log(`Next stake: $${stake.toFixed(2)}`);
+    if (status === "Win") {
+        scheduleNextTrade(10000);
+    }
+}
+
+function getRandomNumber(min, max) {
+    if (min > max) throw new Error("Min value must be less than or equal to Max value");
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function placeOUTrade(market, selectedbarrierNumber = null, initialAccountBalance = null, tickDuration = 1) {
+    if (tradingStoppedForDay) {
+        console.log("Trading stopped for day. Not placing new trade.");
+        return;
+    }
     if (!isTradeOpen) {
         let barrierNumber = selectedbarrierNumber !== null ? selectedbarrierNumber.digit : 2;
         stake = Math.max(Number(stake), 0.35);
@@ -331,84 +398,22 @@ function placeOUTrade(market, selectedbarrierNumber = null, initialAccountBalanc
     }
 }
 
-// ============ UTILITY AND BOT FUNCTIONS FROM over_under.js ============
+// ============ START BOT ============
+console.log("Starting Over/Under Bot...");
+startWebSocket();
 
-function fetchTradeDetails(ws, contractId) {
-    if (!ws || ws.readyState !== WebSocket.OPEN) {
-        console.error("WebSocket is not open.");
-        return;
+function scheduleDailyReset() {
+    const now = new Date(Date.now() + SRI_LANKA_OFFSET);
+    const next8AM = new Date(now);
+    next8AM.setHours(8, 0, 0, 0);
+    if (now > next8AM) {
+        next8AM.setDate(next8AM.getDate() + 1);
     }
-    const contractDetailsRequest = {
-        proposal_open_contract: 1,
-        contract_id: contractId,
-    };
-    ws.send(JSON.stringify(contractDetailsRequest));
+    const msUntil8AM = next8AM - now;
+    setTimeout(() => {
+        requestBalance(true);
+        scheduleDailyReset();
+    }, msUntil8AM);
 }
 
-function updateDetails(contract, lastTradeProfit) {
-    const result = lastTradeProfit > 0 ? 'WIN' : 'LOSS';
-    if (lastTradeProfit > 0) {
-        winTradeCount++;
-        lostCountInRow = 0;
-        currentProfitAmount += lastTradeProfit;
-    } else {
-        lossTradeCount++;
-        lostCountInRow++;
-        currentLossAmount += lastTradeProfit;
-    }
-    if (currentLossAmount >= 0) currentLossAmount = 0;
-    updatedAccountBalance = initialAccountBalance + currentProfitAmount;
-    let netProfit = updatedAccountBalance - initialAccountBalance;
-    console.log(`Trade result: ${result} | Profit: $${lastTradeProfit.toFixed(2)} | Balance: $${updatedAccountBalance.toFixed(2)}`);
-    console.log(`Win count: ${winTradeCount}, Loss count: ${lossTradeCount}, Lost in row: ${lostCountInRow}`);
-}
-
-function waitWithCountdown(seconds, callback) {
-    let remaining = seconds;
-    const interval = setInterval(() => {
-        process.stdout.write(`Waiting ${remaining}s before next trade... \r`);
-        remaining--;
-        if (remaining < 0) {
-            clearInterval(interval);
-            process.stdout.write('\n');
-            if (callback) callback();
-        }
-    }, 1000);
-}
-function stakeChangeForOU(status) {
-    if (status === "Loss") {
-        stake = stake * martingaleMultiplier3;
-    } else if (status === "Win") {
-        stake = initialAmountPerTrade;
-    }
-    stake = Math.max(Number(stake), 0.35);
-    console.log(`Next stake: $${stake.toFixed(2)}`);
-}
-
-function getAuthentication(ws, apiToken) {
-    console.log("Authenticating....");
-    ws.send(JSON.stringify({ authorize: apiToken }));
-}
-
-function getA(AB, B = 0.40) {
-    let returnValue = (AB / B) + Number(initialAmountPerTrade);
-    return Number(returnValue);
-}
-
-function setNextTradeStake(stakeAmount) {
-    stakeAmount = Number(stakeAmount);
-    stakeAmount = stakeAmount < 0.35 ? 0.35 : stakeAmount;
-    nextTradeStake = stakeAmount;
-    console.log('Next trade stake:', nextTradeStake);
-}
-
-function checkRefreshStatus(){
-    let targetPerSession = initialAmountPerTrade * (2/100);
-    if(currentProfitAmount >= targetPerSession){
-        console.log('Target profit achieved for the session.');
-    }
-}
-
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+scheduleDailyReset();

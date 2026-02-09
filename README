@@ -308,3 +308,16 @@ pm2 unstartup launchd
 
 # Verify it's empty
 pm2 list
+
+
+
+
+
+pm2 stop autobot
+pm2 delete autobot
+git fetch
+git reset --hard origin/New-app
+
+
+pm2 start over_under_bot.js --name autobot
+pm2 logs autobot
