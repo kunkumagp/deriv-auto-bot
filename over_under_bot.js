@@ -64,6 +64,7 @@ let dayTargetBalance = 0;
 let tradingStoppedForDay = false;
 let pendingDayReset = false;
 let hasInitializedDay = false;
+let nextStartTimeout = null;
 
 let initialAmountPerTrade = 0;
 let targetProfitPerSession = 0;
@@ -78,6 +79,40 @@ function getRandomMarket(array, current) {
     } while (randomMarket.value === current);
     marketInterval = randomMarket.interval;
     return randomMarket.value;
+}
+
+function getSriLankaDate() {
+    return new Date(Date.now() + SRI_LANKA_OFFSET);
+}
+
+function getNext8AM() {
+    const now = getSriLankaDate();
+    const next8AM = new Date(now);
+    next8AM.setHours(8, 0, 0, 0);
+    if (now >= next8AM) {
+        next8AM.setDate(next8AM.getDate() + 1);
+    }
+    return next8AM;
+}
+
+function isAfter8AM() {
+    const now = getSriLankaDate();
+    const today8AM = new Date(now);
+    today8AM.setHours(8, 0, 0, 0);
+    return now >= today8AM;
+}
+
+function scheduleStartAtNext8AM() {
+    if (nextStartTimeout) return;
+    const next8AM = getNext8AM();
+    const msUntil8AM = next8AM - getSriLankaDate();
+    console.log("Trading paused until 8:00 AM Sri Lanka time.");
+    nextStartTimeout = setTimeout(() => {
+        nextStartTimeout = null;
+        if (!tradingStoppedForDay) {
+            runScriptForTrade();
+        }
+    }, msUntil8AM);
 }
 
 function calculateMartingale(lostAmount, selectedOverUnderDigit, type = "over") {
@@ -267,6 +302,10 @@ function runScriptForTrade() {
     if (waitingForNextTrade || tradingStoppedForDay) return;
     checkDayTarget();
     if (tradingStoppedForDay) return;
+    if (!isAfter8AM()) {
+        scheduleStartAtNext8AM();
+        return;
+    }
     isRunning = true;
     ws.send(JSON.stringify({
         ticks_history: market,
@@ -309,10 +348,6 @@ function updateDetails(contract, lastTradeProfit) {
         // Store last lost amount for martingale calculation
         stakeChangeForOU.lastLostAmount = Math.abs(lastTradeProfit);
     }
-    if (lostCountInRow >= 3) {
-        tradingStoppedForDay = true;
-        console.log('3 consecutive losses detected. Trading stopped for the day.');
-    }
     // Print trade result; balance will be updated via balance response
     console.log(`Trade result: ${lastTradeProfit > 0 ? 'WIN' : 'LOSS'} | Profit: $${lastTradeProfit.toFixed(2)} | Balance: (fetching...)`);
 }
@@ -346,13 +381,13 @@ function stakeChangeForOU(status) {
         } else {
             stake = stake * martingaleMultiplier3;
         }
-        // Wait 5 minutes if 3+ losses in a row, else 60-120 seconds
+        // Wait 10-15 minutes if 3+ losses in a row, else 60-120 seconds
         let waitSeconds;
         if (lostCountInRow >= 3) {
-            waitSeconds = 300; // 5 minutes
-            console.log("3 or more losses in a row. Taking a 5 minute break before next trade.");
+            waitSeconds = getRandomNumber(600, 900);
+            console.log(`3 or more losses in a row. Waiting ${waitSeconds}s before next trade.`);
         } else {
-            waitSeconds = getRandomNumber(60, 120);
+            waitSeconds = getRandomNumber(180, 300);
         }
         waitWithCountdown(waitSeconds, () => {
             runScriptForTrade();
@@ -403,13 +438,8 @@ console.log("Starting Over/Under Bot...");
 startWebSocket();
 
 function scheduleDailyReset() {
-    const now = new Date(Date.now() + SRI_LANKA_OFFSET);
-    const next8AM = new Date(now);
-    next8AM.setHours(8, 0, 0, 0);
-    if (now > next8AM) {
-        next8AM.setDate(next8AM.getDate() + 1);
-    }
-    const msUntil8AM = next8AM - now;
+    const next8AM = getNext8AM();
+    const msUntil8AM = next8AM - getSriLankaDate();
     setTimeout(() => {
         requestBalance(true);
         scheduleDailyReset();
