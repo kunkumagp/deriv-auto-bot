@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "type": "commonjs",
-  "main": "over_under_bot.js",
+  "main": "eoou.js",
   "scripts": {
-    "start": "node over_under_bot.js"
+    "start": "node eoou.js"
   },
   "dependencies": {
+    "csv-writer": "^1.6.0",
     "dotenv": "^16.4.5",
     "ws": "^8.17.0"
   }

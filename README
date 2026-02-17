@@ -1,5 +1,35 @@
 # Deploying and Running Your Deriv Over/Under Bot on Contabo VPS
 
+## EO + OU Bot (New)
+
+This repo now includes a production-ready EO + OU bot in `eoou.js`.
+
+### Required environment variables
+
+Create a `.env` file (use `sample.env` as a template):
+
+- `DERIV_TOKEN`
+- `DERIV_APP_ID`
+
+Optional Telegram alerts (trade results):
+
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
+
+### Run locally
+
+```sh
+npm install
+npm start
+```
+
+### Run with pm2
+
+```sh
+pm2 start eoou.js --name eoou-bot
+pm2 logs eoou-bot
+```
+
 ## 1. Connect to Your Contabo VPS
 
 Open your terminal and connect via SSH (replace `root` with your VPS username if different):
