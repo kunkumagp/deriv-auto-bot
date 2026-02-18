@@ -19,7 +19,7 @@ const MARKETS = ["R_10", "R_25", "R_50", "R_75", "R_100"];
 const EMA_PERIOD = 10;
 const HISTORY_COUNT = 150;
 const BACKTEST_COUNT = 50;
-const MAX_LOST_IN_ROW = 4;
+const MAX_LOST_IN_ROW = 3;
 const START_STAKE_PERCENT = 0.0035;
 
 const csvWriter = createObjectCsvWriter({
@@ -38,7 +38,7 @@ const csvWriter = createObjectCsvWriter({
     ]
 });
 
-let ws;
+let ws = null;
 let isConnected = false;
 let isConnecting = false;
 let shouldReconnect = true;
@@ -63,12 +63,26 @@ function timestamp() {
     return new Date().toISOString();
 }
 
-function log(message) {
-    console.log(`[${timestamp()}] ${message}`);
+const COLOR_GREEN = "\x1b[32m";
+const COLOR_RED = "\x1b[31m";
+const COLOR_RESET = "\x1b[0m";
+
+function colorizeOutcome(text) {
+    if (typeof text !== 'string') return text;
+    // colorize whole-word WIN/LOSS
+    return text.replace(/\bWIN\b/g, `${COLOR_GREEN}WIN${COLOR_RESET}`).replace(/\bLOSS\b/g, `${COLOR_RED}LOSS${COLOR_RESET}`);
+}
+
+function log(msg) {
+    console.log(`[${timestamp()}] ${colorizeOutcome(msg)}`);
+}
+
+function printSeparator() {
+    console.log('-'.repeat(70));
 }
 
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise((res) => setTimeout(res, ms));
 }
 
 function randomBetween(min, max) {
@@ -124,50 +138,54 @@ async function connectWebSocket() {
         isConnecting = false;
         isAuthorized = false;
         log("WebSocket connected.");
+
         if (pingIntervalId) clearInterval(pingIntervalId);
         pingIntervalId = setInterval(() => {
             if (ws && ws.readyState === WebSocket.OPEN) {
                 try {
                     ws.ping();
-                } catch (error) {
-                    log(`Ping error: ${error.message}`);
+                } catch (e) {
+                    log(`Ping error: ${e.message}`);
                 }
             }
         }, 50000);
+
         if (watchdogIntervalId) clearInterval(watchdogIntervalId);
         watchdogIntervalId = setInterval(() => {
             const idleMs = Date.now() - lastMessageAt;
             if (idleMs > 70000 && ws && ws.readyState === WebSocket.OPEN) {
                 log("No messages for 70s. Forcing reconnect.");
-                ws.terminate();
+                try { ws.terminate(); } catch(e){}
             }
         }, 15000);
     });
 
     ws.on("message", (data) => {
         lastMessageAt = Date.now();
-        const message = JSON.parse(data.toString());
+        let message;
+        try { message = JSON.parse(data.toString()); } catch(e){ return; }
+
         if (message.req_id && pendingRequests.has(message.req_id)) {
             const { resolve, reject, timeoutId } = pendingRequests.get(message.req_id);
             clearTimeout(timeoutId);
             pendingRequests.delete(message.req_id);
-            if (message.error) {
-                reject(new Error(message.error.message));
-            } else {
-                resolve(message);
-            }
+            if (message.error) reject(new Error(message.error.message));
+            else resolve(message);
             return;
         }
+
         if (message.msg_type === "tick" && message.tick) {
             const subId = message.tick.id;
             const handler = tickSubscriptions.get(subId);
             if (handler) handler(message.tick);
             return;
         }
+
         if (message.msg_type === "proposal_open_contract" && message.proposal_open_contract) {
             const subId = message.proposal_open_contract.id;
             const handler = contractSubscriptions.get(subId);
             if (handler) handler(message.proposal_open_contract);
+            return;
         }
     });
 
@@ -176,24 +194,18 @@ async function connectWebSocket() {
         isConnecting = false;
         isAuthorized = false;
         log("WebSocket disconnected.");
-        if (pingIntervalId) {
-            clearInterval(pingIntervalId);
-            pingIntervalId = null;
-        }
-        if (watchdogIntervalId) {
-            clearInterval(watchdogIntervalId);
-            watchdogIntervalId = null;
-        }
+        if (pingIntervalId) { clearInterval(pingIntervalId); pingIntervalId = null; }
+        if (watchdogIntervalId) { clearInterval(watchdogIntervalId); watchdogIntervalId = null; }
+
         for (const { reject, timeoutId } of pendingRequests.values()) {
             clearTimeout(timeoutId);
-            reject(new Error("WebSocket disconnected"));
+            try { reject(new Error("WebSocket disconnected")); } catch(_) {}
         }
         pendingRequests.clear();
         tickSubscriptions.clear();
         contractSubscriptions.clear();
-        if (shouldReconnect) {
-            setTimeout(() => connectWebSocket(), 1000);
-        }
+
+        if (shouldReconnect) setTimeout(() => connectWebSocket(), 1000);
     });
 
     ws.on("error", (err) => {
@@ -202,10 +214,7 @@ async function connectWebSocket() {
 
     await new Promise((resolve) => {
         const interval = setInterval(() => {
-            if (isConnected) {
-                clearInterval(interval);
-                resolve();
-            }
+            if (isConnected) { clearInterval(interval); resolve(); }
         }, 50);
     });
 
@@ -215,14 +224,12 @@ async function connectWebSocket() {
 async function sendRequest(payload, attempts = 2) {
     try {
         await connectWebSocket();
-        if (!ws || ws.readyState !== WebSocket.OPEN) {
-            throw new Error("WebSocket not ready");
-        }
-        if (!isAuthorized && !payload.authorize) {
-            await authorize();
-        }
+        if (!ws || ws.readyState !== WebSocket.OPEN) throw new Error("WebSocket not ready");
+        if (!isAuthorized && !payload.authorize) await authorize();
+
         const reqId = requestId++;
         const message = { ...payload, req_id: reqId };
+
         return await new Promise((resolve, reject) => {
             const timeoutId = setTimeout(() => {
                 pendingRequests.delete(reqId);
@@ -235,11 +242,7 @@ async function sendRequest(payload, attempts = 2) {
         const isRetryable = /timeout|disconnected|not ready|please log in/i.test(error.message);
         if (attempts > 0 && isRetryable) {
             log(`Request failed (${error.message}). Reconnecting...`);
-            try {
-                if (ws && ws.readyState === WebSocket.OPEN) ws.terminate();
-            } catch (terminateError) {
-                log(`Terminate error: ${terminateError.message}`);
-            }
+            try { if (ws && ws.readyState === WebSocket.OPEN) ws.terminate(); } catch(e){}
             await sleep(1000);
             return sendRequest(payload, attempts - 1);
         }
@@ -249,8 +252,8 @@ async function sendRequest(payload, attempts = 2) {
 
 async function authorize() {
     const response = await sendRequest({ authorize: TOKEN });
-    log("Authorized.");
     isAuthorized = true;
+    log("Authorized.");
     return response.authorize;
 }
 
@@ -268,11 +271,8 @@ async function subscribeTicks(symbol, onTick) {
 
 async function forgetSubscription(id) {
     if (!id) return;
-    try {
-        await sendRequest({ forget: id });
-    } catch (error) {
-        log(`Forget failed: ${error.message}`);
-    }
+    try { await sendRequest({ forget: id }); }
+    catch (err) { log(`Forget failed: ${err.message}`); }
 }
 
 function normalizePrice(price) {
@@ -287,7 +287,7 @@ function getLastDigit(price) {
 function calculateEMA(values, period = EMA_PERIOD) {
     const alpha = 2 / (period + 1);
     let ema = values[0] ?? 0;
-    for (let i = 1; i < values.length; i += 1) {
+    for (let i = 1; i < values.length; i++) {
         ema = alpha * values[i] + (1 - alpha) * ema;
     }
     return ema;
@@ -295,7 +295,7 @@ function calculateEMA(values, period = EMA_PERIOD) {
 
 function analyzeEOMarket(digits) {
     const smoothed = Array.from({ length: 10 }, (_, digit) => {
-        const series = digits.map((value) => (value === digit ? 1 : 0));
+        const series = digits.map((v) => (v === digit ? 1 : 0));
         return calculateEMA(series);
     });
     const evenScore = smoothed[0] + smoothed[2] + smoothed[4] + smoothed[6] + smoothed[8];
@@ -305,7 +305,7 @@ function analyzeEOMarket(digits) {
 
 function analyzeOUMarket(digits) {
     const smoothed = Array.from({ length: 10 }, (_, digit) => {
-        const series = digits.map((value) => (value === digit ? 1 : 0));
+        const series = digits.map((v) => (v === digit ? 1 : 0));
         return calculateEMA(series);
     });
     const lowDigitScore = smoothed[0] + smoothed[1] + smoothed[2];
@@ -316,32 +316,23 @@ function analyzeOUMarket(digits) {
 function backtestDurations(digits, direction) {
     let bestDuration = 1;
     let bestWinRate = -1;
-    for (let duration = 1; duration <= 10; duration += 1) {
-        let wins = 0;
-        let trials = 0;
-        for (let i = 0; i + duration < digits.length; i += 1) {
+    for (let duration = 1; duration <= 10; duration++) {
+        let wins = 0, trials = 0;
+        for (let i = 0; i + duration < digits.length; i++) {
             const targetDigit = digits[i + duration];
             const isEven = targetDigit % 2 === 0;
             const predictedEven = direction === "DIGITEVEN";
-            if (isEven === predictedEven) wins += 1;
-            trials += 1;
+            if (isEven === predictedEven) wins++;
+            trials++;
         }
         const winRate = trials > 0 ? wins / trials : 0;
-        if (winRate > bestWinRate) {
-            bestWinRate = winRate;
-            bestDuration = duration;
-        }
+        if (winRate > bestWinRate) { bestWinRate = winRate; bestDuration = duration; }
     }
     return bestDuration;
 }
 
 async function getTickDigits(symbol, count) {
-    const response = await sendRequest({
-        ticks_history: symbol,
-        end: "latest",
-        count,
-        style: "ticks"
-    });
+    const response = await sendRequest({ ticks_history: symbol, end: "latest", count, style: "ticks" });
     return response.history.prices.map(getLastDigit);
 }
 
@@ -365,119 +356,82 @@ async function selectBestOUMarket() {
     for (const symbol of MARKETS) {
         const digits = await getTickDigits(symbol, HISTORY_COUNT);
         const analysis = analyzeOUMarket(digits);
-        if (analysis.lowDigitPercent <= 9) {
-            eligible.push({ symbol, digits, analysis });
-        }
+        if (analysis.lowDigitPercent <= 30) eligible.push({ symbol, digits, analysis });
     }
     if (eligible.length === 0) return null;
-    eligible.sort((a, b) => a.analysis.lowDigitPercent - b.analysis.lowDigitPercent);
+    eligible.sort((a,b)=> a.analysis.lowDigitPercent - b.analysis.lowDigitPercent);
     return eligible[0];
 }
 
+// Return full list of OU-eligible markets (sorted by lowDigitPercent asc)
+async function selectEligibleOUMarkets() {
+    const eligible = [];
+    for (const symbol of MARKETS) {
+        const digits = await getTickDigits(symbol, HISTORY_COUNT);
+        const analysis = analyzeOUMarket(digits);
+        if (analysis.lowDigitPercent <= 30) eligible.push({ symbol, digits, analysis });
+    }
+    eligible.sort((a,b)=> a.analysis.lowDigitPercent - b.analysis.lowDigitPercent);
+    return eligible;
+}
+
 async function createProposal(symbol, contractType, duration, stake, barrier) {
-    const payload = {
-        proposal: 1,
-        amount: Number(stake.toFixed(2)),
-        basis: "stake",
-        contract_type: contractType,
-        currency: "USD",
-        duration,
-        duration_unit: "t",
-        symbol
-    };
+    const payload = { proposal:1, amount: Number(stake.toFixed(2)), basis: "stake", contract_type: contractType, currency: "USD", duration, duration_unit: "t", symbol };
     if (barrier !== undefined) payload.barrier = barrier;
     const response = await sendRequest(payload);
     return response.proposal;
 }
 
-async function placeTrade(proposal) {
-    const response = await sendRequest({ buy: proposal.id, price: proposal.ask_price });
-    return response.buy.contract_id;
-}
+async function placeTrade(proposal) { const response = await sendRequest({ buy: proposal.id, price: proposal.ask_price }); return response.buy.contract_id; }
 
 async function monitorContract(contractId) {
-    const response = await sendRequest({ proposal_open_contract: 1, subscribe: 1, contract_id: contractId });
+    const response = await sendRequest({ proposal_open_contract:1, subscribe:1, contract_id: contractId });
     const subId = response.proposal_open_contract.id;
     return new Promise((resolve, reject) => {
         contractSubscriptions.set(subId, (contract) => {
-            if (contract.is_sold) {
-                contractSubscriptions.delete(subId);
-                forgetSubscription(subId).catch(() => undefined);
-                resolve(contract);
-            }
+            if (contract.is_sold) { contractSubscriptions.delete(subId); forgetSubscription(subId).catch(()=>{}); resolve(contract); }
         });
-        setTimeout(() => {
-            if (contractSubscriptions.has(subId)) {
-                contractSubscriptions.delete(subId);
-                reject(new Error("Contract monitoring timeout"));
-            }
-        }, 120000);
+        setTimeout(()=>{ if (contractSubscriptions.has(subId)) { contractSubscriptions.delete(subId); reject(new Error("Contract monitoring timeout")); } }, 120000);
     });
 }
 
-async function waitForEntry(symbol, predicate) {
+async function waitForEntry(symbol) {
+    // EO: return on next tick (any digit)
     let subId;
     return new Promise(async (resolve, reject) => {
         try {
             subId = await subscribeTicks(symbol, async (tick) => {
                 const digit = getLastDigit(tick.quote);
-                if (predicate(digit)) {
-                    await forgetSubscription(subId);
-                    resolve({ digit, tick });
-                }
+                await forgetSubscription(subId);
+                resolve({ digit, tick });
             });
-        } catch (error) {
-            if (subId) await forgetSubscription(subId);
-            reject(error);
-        }
+        } catch (err) { if (subId) await forgetSubscription(subId); reject(err); }
     });
 }
 
-async function logTrade(record) {
-    await csvWriter.writeRecords([record]);
-}
+async function logTrade(record) { await csvWriter.writeRecords([record]); }
 
 function updateDailyPnL() {
     const dailyPnL = currentBalance - dailyStartBalance;
     const lossLimit = -0.08 * dailyStartBalance;
-    const profitLimit = 0.1 * dailyStartBalance;
+    const profitLimit = 0.1 * dailyStartBalance; // 10%
     log(`Daily PnL: ${dailyPnL.toFixed(2)}`);
-    if (dailyPnL <= lossLimit) {
-        log("Daily stop loss reached. Stopping bot.");
-        return false;
-    }
-    if (dailyPnL >= profitLimit) {
-        log("Daily profit target reached. Stopping bot.");
-        return false;
-    }
+    if (dailyPnL <= lossLimit) { log("Daily stop loss reached. Stopping bot."); return false; }
+    if (dailyPnL >= profitLimit) { log("Daily profit target reached. Stopping bot."); return false; }
     return true;
 }
 
-function checkRiskCap() {
-    if (totalLostAmount >= currentBalance * 0.1) {
-        log(`Risk cap hit. totalLostAmount=${totalLostAmount.toFixed(2)}`);
-        return false;
-    }
-    return true;
-}
+function checkRiskCap() { if (totalLostAmount >= currentBalance * 0.1) { log(`Risk cap hit. totalLostAmount=${totalLostAmount.toFixed(2)}`); return false; } return true; }
 
 async function runEOMode() {
     const best = await selectBestEOMarket();
-    if (!best) {
-        await sleep(5000);
-        return;
-    }
-
+    if (!best) { await sleep(5000); return; }
     log(`Mode: EO | Selected market: ${best.symbol} | Direction: ${best.direction} | Duration: ${best.duration}`);
 
-    const entry = await waitForEntry(best.symbol, (digit) => {
-        const isEven = digit % 2 === 0;
-        return best.direction === "DIGITEVEN" ? isEven : !isEven;
-    });
-
+    const entry = await waitForEntry(best.symbol);
     log(`Entry digit: ${entry.digit}`);
-    lastStake = Math.max(0.35, currentBalance * START_STAKE_PERCENT);
 
+    lastStake = Math.max(0.35, currentBalance * START_STAKE_PERCENT);
     const proposal = await createProposal(best.symbol, best.direction, best.duration, lastStake);
     const contractId = await placeTrade(proposal);
     isTradeOpen = true;
@@ -486,65 +440,107 @@ async function runEOMode() {
 
     const profit = Number(result.profit);
     currentBalance = await getBalance();
-
     const outcome = profit >= 0 ? "WIN" : "LOSS";
     log(`EO result: ${outcome} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)}`);
 
     if (profit >= 0) {
-        lostInRow = 0;
-        totalLostAmount = 0;
-        await logTrade({
-            timestamp: timestamp(),
-            symbol: best.symbol,
-            mode,
-            stake: lastStake.toFixed(2),
-            result: "WIN",
-            profit: profit.toFixed(2),
-            lostInRow,
-            totalLostAmount: totalLostAmount.toFixed(2),
-            balance: currentBalance.toFixed(2)
-        });
-        await sendTelegramMessage(
-            `EO ${best.symbol} ${outcome} | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`
-        );
+        lostInRow = 0; totalLostAmount = 0;
+        await logTrade({ timestamp: timestamp(), symbol: best.symbol, mode, stake: lastStake.toFixed(2), result: "WIN", profit: profit.toFixed(2), lostInRow, totalLostAmount: totalLostAmount.toFixed(2), balance: currentBalance.toFixed(2) });
+        await sendTelegramMessage(`EO ${best.symbol} WIN | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`);
+        printSeparator();
         await sleep(5000);
         return;
     }
 
-    totalLostAmount += lastStake;
-    lostInRow += 1;
-
-    await logTrade({
-        timestamp: timestamp(),
-        symbol: best.symbol,
-        mode,
-        stake: lastStake.toFixed(2),
-        result: "LOSS",
-        profit: profit.toFixed(2),
-        lostInRow,
-        totalLostAmount: totalLostAmount.toFixed(2),
-        balance: currentBalance.toFixed(2)
-    });
-    await sendTelegramMessage(
-        `EO ${best.symbol} ${outcome} | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`
-    );
+    totalLostAmount += lastStake; lostInRow += 1;
+    await logTrade({ timestamp: timestamp(), symbol: best.symbol, mode, stake: lastStake.toFixed(2), result: "LOSS", profit: profit.toFixed(2), lostInRow, totalLostAmount: totalLostAmount.toFixed(2), balance: currentBalance.toFixed(2) });
+    await sendTelegramMessage(`EO ${best.symbol} LOSS | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`);
+    printSeparator();
 
     mode = "OU";
     log(`Switching to OU mode | lostInRow: ${lostInRow} | totalLostAmount: ${totalLostAmount.toFixed(2)}`);
 }
 
 async function runOUMode() {
-    const best = await selectBestOUMarket();
-    if (!best) {
-        log("No OU-eligible markets found. Retrying soon.");
-        await sleep(5000);
-        return;
+    // Build list of OU-eligible markets and iterate until we find a live entry
+    const eligible = await selectEligibleOUMarkets();
+    if (!eligible || eligible.length === 0) { log("No OU-eligible markets found. Retrying soon."); await sleep(5000); return; }
+
+    log(`Mode: OU | Checking ${eligible.length} eligible markets`);
+
+    let chosen = null;
+    for (const candidate of eligible) {
+        log(`Checking OU candidate: ${candidate.symbol} (hist low%=${candidate.analysis.lowDigitPercent.toFixed(2)}%)`);
+
+        // Initialize 100-tick sliding window from history
+        let window = [];
+        try {
+            const history = await getTickDigits(candidate.symbol, 100);
+            window = history.slice(-100);
+        } catch (err) {
+            log(`OU history fetch error for ${candidate.symbol}: ${err.message} — trying next market.`);
+            continue;
+        }
+
+        // Subscribe and update window on every tick; place trade when conditions met or abort if low% > 30
+        let subId;
+        try {
+            const placed = await new Promise(async (resolve, reject) => {
+                try {
+                    subId = await subscribeTicks(candidate.symbol, async (tick) => {
+                        const digit = getLastDigit(tick.quote);
+                        window.push(digit);
+                        if (window.length > 100) window.shift();
+                        const lowCount = window.filter((d) => d <= 2).length;
+                        const lowPercent = (lowCount / window.length) * 100;
+
+                        // If frequency too high (>30%), abort this market and try next
+                        if (lowPercent > 30) {
+                            log(`OU window low% for ${candidate.symbol}: ${lowPercent.toFixed(2)}% — aborting this market.`);
+                            try { await forgetSubscription(subId); } catch (e) {}
+                            resolve({ aborted: true, lowPercent });
+                            return;
+                        }
+
+                        // Place OU trade only when current tick is 0/1/2 and lowPercent <= 30
+                        if ([0,1,2].includes(digit) && lowPercent <= 30) {
+                            try { await forgetSubscription(subId); } catch(e){}
+                            resolve({ digit, lowPercent });
+                        }
+                    });
+
+                    // Timeout after 2 minutes
+                    setTimeout(async () => {
+                        try { if (subId) await forgetSubscription(subId); } catch(e){}
+                        resolve({ timeout: true });
+                    }, 120000);
+                } catch (e) { if (subId) try{ await forgetSubscription(subId);}catch(_){}; reject(e); }
+            });
+
+            if (placed && placed.aborted) {
+                // try next market
+                continue;
+            }
+            if (placed && placed.timeout) {
+                log(`OU entry timeout for ${candidate.symbol} — trying next market.`);
+                continue;
+            }
+
+            if (placed && typeof placed.digit === 'number') {
+                log(`OU entry tick on ${candidate.symbol}: ${placed.digit} | window low%: ${placed.lowPercent.toFixed(2)}`);
+                chosen = { candidate, placed };
+                break;
+            }
+        } catch (err) {
+            log(`OU sliding-window error for ${candidate.symbol}: ${err.message} — trying next market.`);
+            continue;
+        }
     }
 
-    log(`Mode: OU | Selected market: ${best.symbol}`);
+    if (!chosen) { log('No live OU entry found across eligible markets. Backing off.'); await sleep(3000); return; }
 
-    const entry = await waitForEntry(best.symbol, (digit) => [0, 1, 2].includes(digit));
-    log(`Entry digit: ${entry.digit}`);
+    const best = chosen.candidate;
+    const placed = chosen.placed;
 
     lastStake = Math.max(0.35, totalLostAmount * 3);
     const proposal = await createProposal(best.symbol, "DIGITOVER", 1, lastStake, "2");
@@ -555,33 +551,15 @@ async function runOUMode() {
 
     const profit = Number(result.profit);
     currentBalance = await getBalance();
-
     const outcome = profit >= 0 ? "WIN" : "LOSS";
     log(`OU result: ${outcome} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)}`);
 
-    if (profit >= 0) {
-        totalLostAmount = 0;
-        lostInRow = 0;
-        mode = "EO";
-    } else {
-        totalLostAmount += lastStake;
-        lostInRow += 1;
-    }
+    if (profit >= 0) { totalLostAmount = 0; lostInRow = 0; mode = "EO"; }
+    else { totalLostAmount += lastStake; lostInRow += 1; }
 
-    await logTrade({
-        timestamp: timestamp(),
-        symbol: best.symbol,
-        mode: "OU",
-        stake: lastStake.toFixed(2),
-        result: outcome,
-        profit: profit.toFixed(2),
-        lostInRow,
-        totalLostAmount: totalLostAmount.toFixed(2),
-        balance: currentBalance.toFixed(2)
-    });
-    await sendTelegramMessage(
-        `OU ${best.symbol} ${outcome} | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`
-    );
+    await logTrade({ timestamp: timestamp(), symbol: best.symbol, mode: "OU", stake: lastStake.toFixed(2), result: outcome, profit: profit.toFixed(2), lostInRow, totalLostAmount: totalLostAmount.toFixed(2), balance: currentBalance.toFixed(2) });
+    await sendTelegramMessage(`OU ${best.symbol} ${outcome} | Stake: ${lastStake.toFixed(2)} | Profit: ${profit.toFixed(2)} | Balance: ${currentBalance.toFixed(2)} | lostInRow: ${lostInRow} | totalLost: ${totalLostAmount.toFixed(2)}`);
+    printSeparator();
 
     log(`lostInRow: ${lostInRow} | totalLostAmount: ${totalLostAmount.toFixed(2)}`);
 
@@ -592,12 +570,8 @@ async function runOUMode() {
         process.exit(0);
     }
 
-    if (lostInRow === 2) {
-        await sleep(randomBetween(60, 180) * 1000);
-    }
-    if (lostInRow === 3) {
-        await sleep(randomBetween(300, 600) * 1000);
-    }
+    // No waiting after two consecutive losses — retry immediately.
+    // if (lostInRow === 3) await sleep(randomBetween(300,600)*1000);
 }
 
 async function main() {
@@ -608,23 +582,10 @@ async function main() {
     log(`Starting balance: ${currentBalance.toFixed(2)}`);
 
     while (true) {
-        if (isTradeOpen) {
-            await sleep(1000);
-            continue;
-        }
-        if (!checkRiskCap() || !updateDailyPnL()) {
-            shouldReconnect = false;
-            process.exit(0);
-        }
-        if (mode === "EO") {
-            await runEOMode();
-        } else {
-            await runOUMode();
-        }
+        if (isTradeOpen) { await sleep(1000); continue; }
+        if (!checkRiskCap() || !updateDailyPnL()) { shouldReconnect = false; process.exit(0); }
+        if (mode === "EO") await runEOMode(); else await runOUMode();
     }
 }
 
-main().catch((error) => {
-    log(`Fatal error: ${error.message}`);
-    process.exit(1);
-});
+main().catch((error) => { log(`Fatal error: ${error.message}`); process.exit(1); });
